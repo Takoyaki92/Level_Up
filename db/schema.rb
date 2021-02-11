@@ -10,10 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_11_115921) do
+ActiveRecord::Schema.define(version: 2021_02_11_124657) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "milestones", force: :cascade do |t|
+    t.string "goal"
+    t.datetime "complete_date"
+    t.bigint "skill_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["skill_id"], name: "index_milestones_on_skill_id"
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+    t.integer "points"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_skills_on_user_id"
+  end
+
+  create_table "study_sessions", force: :cascade do |t|
+    t.string "goal"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.text "description"
+    t.boolean "public", default: false
+    t.bigint "skill_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["skill_id"], name: "index_study_sessions_on_skill_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +53,14 @@ ActiveRecord::Schema.define(version: 2021_02_11_115921) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "username"
+    t.string "first_name"
+    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "milestones", "skills"
+  add_foreign_key "skills", "users"
+  add_foreign_key "study_sessions", "skills"
 end
