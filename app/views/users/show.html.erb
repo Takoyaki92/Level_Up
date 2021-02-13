@@ -5,6 +5,7 @@
 <br>
 <h3>Skills</h3>
 <% @skills.each do |skill| %>
-  <p>Name: <%= skill.name %></p>
+  <p>Name: <%= link_to skill.name, skill_path %></p>
   <p>Points: <%= skill.points %></p>
 <% end %>
+<%= link_to "Add new skill", new_user_skill_path(@user) %>
