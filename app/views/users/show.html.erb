@@ -2,11 +2,10 @@
 <h1><%= @user.first_name %><%= @user.last_name %></h1>
 <h2><%= @user.username %></h2>
 <h2><%= @user.email %></h2>
-
 <br>
-
 <h3>Skills</h3>
 <% @skills.each do |skill| %>
-<p>Name: <%= skill.name %></p>
-<p>Points: <%= skill.points %></p>
+  <p>Name: <%= link_to skill.name, skill_path %></p>
+  <p>Points: <%= skill.points %></p>
 <% end %>
+<%= link_to "Add new skill", new_user_skill_path(@user) %>
