@@ -1,0 +1,4 @@
+<%= simple_form_for [ @user, @skill ] do |f| %>
+        <%= f.input :name, label:"Please describe the skill you want to learn" %>
+        <%= f.button :submit, label:"Book", class: "btn btn-primary" %>
+      <% end %>
