@@ -3,3 +3,7 @@
 <p>So far, you have done NOTHING and you should do EVERYTHING.</p>
 <hr>
 <h2><%= @skill.name %> milestones!</h2>
+<% @skill.milestones.each do |milestone| %>
+  <p><%= milestone.goal %></p>
+<% end %>
+<p><%= link_to "Add new milestone", new_skill_milestone_path(@skill) %></p>
