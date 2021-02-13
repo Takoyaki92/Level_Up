@@ -1,4 +1,9 @@
 class StudySessionsController < ApplicationController
+
+  def index
+    @study_sessions = StudySession.all
+  end
+
   def new
     @study_session = StudySession.new
   end
