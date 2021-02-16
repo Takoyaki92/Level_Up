@@ -11,6 +11,6 @@ Rails.application.routes.draw do
     resources :study_sessions, only: [:new, :create]
   end
 
-  resources :study_sessions, only: [:edit, :update]
+  resources :study_sessions, only: [:index, :edit, :update]
 
 end
