@@ -1,6 +1,8 @@
 <h1><%= @skill.name %> details!</h1>
 <h3>Hours spent: [empty]</h3>
 <p>So far, you have done NOTHING and you should do EVERYTHING.</p>
+<h3>Level: <%= @skill.level %></h3>
+<p>Points: <%= @skill.points %></p>
 <hr>
 <h2><%= @skill.name %> milestones!</h2>
 <% @skill.milestones.each do |milestone| %>

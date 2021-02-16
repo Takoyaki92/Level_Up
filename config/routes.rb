@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { study_sessions: 'skills/study_sessions' }
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :users, only: [:show] do
@@ -11,6 +11,6 @@ Rails.application.routes.draw do
     resources :study_sessions, only: [:new, :create]
   end
 
-  resources :study_sessions, only: [:edit, :update]
+  resources :study_sessions, only: [:index, :edit, :update]
 
 end

@@ -17,6 +17,8 @@ class StudySessionsController < ApplicationController
     else
       render :new
     end
+    @skill = resource
+    super
   end
 
   private

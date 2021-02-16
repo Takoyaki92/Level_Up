@@ -16,6 +16,7 @@ h1 {
 .container {
   align-items: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   height: 656px;
   width: auto;
