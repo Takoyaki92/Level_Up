@@ -10,9 +10,43 @@
   <p>Points: <%= skill.points %></p>
 <% end %>
 <%= link_to "Add new skill", new_user_skill_path(@user) %>
+
 <h3>Badges</h3>
 <ul>
   <% @user.badges.each do |badge| %>
     <li><%= badge.description %></li>
   <% end %>
 </ul>
+
+
+
+<!-- These are the skill progress bar thingies -->
+<a class="skill_bar" href="#">
+</a>
+<br>
+<a class="skill_bar" href="#">
+</a>
+<br>
+<a class="skill_bar" href="#">
+</a>
+
+<br>
+<!-- This is the big round study button! -->
+<a class="study_button" href="#">
+  <span>Start</span>
+</a>
+
+<br>
+
+<div id="app-timer">
+  <div class="container">
+    <div class="app-timer-main">
+      <h1>TIMER</h1>
+      <h1 class="timer">00:00:00</h1>
+      <button class="btn btn-success start">Start</button>
+      <button class="btn btn-warning stop">Stop</button>
+      <button class="btn btn-primary reset">Reset</button>
+    </div>
+  </div>
+</div>
+

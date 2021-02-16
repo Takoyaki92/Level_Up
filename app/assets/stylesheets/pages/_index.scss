@@ -1,6 +1,31 @@
 // Import page-specific CSS files here.
 @import "home";
 body {
-  background-color: #333333;
+  background-color: #4b4b4b;
   color: white;
 }
+
+h1 {
+  font-family: 'Press Start 2P', cursive;
+  -webkit-text-stroke: 3px black;
+  text-shadow: -11px 7px 6px rgba(16,16,16,0.71);
+  font-size: 100px;
+
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 656px;
+  width: auto;
+}
+.main {
+  text-align: center;
+}
+
+.subtitle {
+  margin-right: 40rem;
+}
+

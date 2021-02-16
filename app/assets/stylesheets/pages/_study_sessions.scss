@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  // background-color: #E9EBEE;
+  line-height: 1.34;
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #385A97;
+}
+header {
+  padding: 0;
+  position: relative;
+}
+.status {
+  margin: 11px 0;
+}
+#wrapper {
+  background-color: #fff;
+  width: 500px;
+  margin: 10px auto 0;
+  border: 1px solid #D0D1D5;
+  border-top: 0;
+  border-radius: 2px;
+  padding: 12px;
+}
+
+
+
+.arrow {
+  position: absolute;
+  width: 12px;
+  border: none;
+  height: auto;
+  right: 0px;
+}
+
+.profile-pic {
+  width: 40px;
+  height: auto;
+  float: left;
+  margin-right: 8px;
+}
+
+.name,
+.date {
+  margin: 0;
+}
+
+.name {
+  color: #385A97;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.date {
+  font-size: 12px;
+  color: #90949C;
+}
+
+main {
+  font-size: 13px;
+}
+
+main .status {
+  margin-bottom: 11px;
+}
+
+.img-content {
+  width: 100%;
+  margin-bottom: 11px;
+  border: 1px solid rgba(0, 0, 0, .1);
+}
+
+.action a {
+  color: #7F7F7F;
+}
+
+.action div {
+  display: inline-block;
+}
+
+.action div p:hover {
+  text-decoration: underline;
+}
+
+.action div:nth-child(n + 2) {
+  margin-left: 20px;
+}
+
+.like img,
+.comment img,
+.share img {
+  display: inline-block;
+  width: 18px;
+  vertical-align: text-bottom;
+}
+
+.like p {
+  color: #1787FA;
+}
+
+.like p,
+.comment p,
+.share p {
+  display: inline-block;
+}
+
+.share img {
+  opacity: .2;
+}
+
+.cf:before,
+.cf:after {
+  content: "";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+
+.cf:after {
+  clear: both;
+}

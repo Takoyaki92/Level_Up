@@ -1,0 +1,36 @@
+.study_button {
+  background-image: linear-gradient(to right, #4700D4 0%, #DD5FDA 100%);
+  border-radius: 50%;
+  box-sizing: border-box;
+  color: #4700D4;
+  display: block;
+  font: 1.125rem 'Oswald', Arial, sans-serif; /*18*/
+  height: 150px;
+  letter-spacing: 1px;
+  margin: 0 auto;
+  padding: 4px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 150px;
+  z-index: 2;
+}
+
+.study_button:hover {
+  color: #fff;
+}
+
+.study_button span {
+  align-items: center;
+  background: #e7e8e9;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  transition: background .5s ease;
+  width: 100%;
+}
+
+.study_button:hover span {
+  background: transparent;
+}

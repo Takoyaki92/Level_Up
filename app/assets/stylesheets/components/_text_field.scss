@@ -1,0 +1,36 @@
+.text_field {
+  background-image: linear-gradient(to right, #4700D4 0%, #DD5FDA 100%);
+  border-radius: 40px;
+  box-sizing: border-box;
+  color: #4700D4;
+  display: block;
+  font-size: 10px;
+  height: 40px;
+  letter-spacing: 1px;
+  margin: 0 auto;
+  padding: 2px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 300px;
+  z-index: 2;
+}
+
+// .text_field:hover {
+//   color: #fff;
+// }
+
+.text_field span {
+  align-items: center;
+  background: #e7e8e9;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  transition: background .5s ease;
+  width: 100%;
+}
+
+// .text_field:hover span {
+//   background: transparent;
+// }
