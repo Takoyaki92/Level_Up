@@ -1,0 +1,36 @@
+.small_button {
+  // background-image: linear-gradient(to right, #4700D4 0%, #DD5FDA 100%);
+  // border-radius: 40px;
+  box-shadow: 0px 4px 4px 0px #000000;
+  background-color: #5E17EB;
+  box-sizing: border-box;
+  color: #fff;
+  display: block;
+  font: 1.125rem 'Oswald', Arial, sans-serif; /*18*/
+  height: 40px;
+  letter-spacing: 1px;
+  margin: 0 auto;
+  padding: 2px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 100px;
+  z-index: 2;
+}
+
+.small_button span {
+  align-items: center;
+  // background: #e7e8e9;
+  // border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  transition: background .5s ease;
+  width: 100%;
+}
+
+.small_button:hover {
+  text-decoration: none;
+  color: white;
+  background-color: #4700D4;
+}

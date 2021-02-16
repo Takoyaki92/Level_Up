@@ -1,29 +1,29 @@
-.study_button {
+.text_field {
   background-image: linear-gradient(to right, #4700D4 0%, #DD5FDA 100%);
-  border-radius: 50%;
+  border-radius: 40px;
   box-sizing: border-box;
   color: #4700D4;
   display: block;
-  font: 1.125rem 'Oswald', Arial, sans-serif; /*18*/
-  height: 150px;
+  font-size: 10px;
+  height: 40px;
   letter-spacing: 1px;
   margin: 0 auto;
-  padding: 4px;
+  padding: 2px;
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
-  width: 150px;
+  width: 300px;
   z-index: 2;
 }
 
-.study_button:hover {
-  color: #fff;
-}
+// .text_field:hover {
+//   color: #fff;
+// }
 
-.study_button span {
+.text_field span {
   align-items: center;
   background: #e7e8e9;
-  border-radius: 50%;
+  border-radius: 40px;
   display: flex;
   justify-content: center;
   height: 100%;
@@ -31,6 +31,6 @@
   width: 100%;
 }
 
-.study_button:hover span {
-  background: transparent;
-}
+// .text_field:hover span {
+//   background: transparent;
+// }
