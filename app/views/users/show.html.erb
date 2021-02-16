@@ -6,9 +6,18 @@
 <h3>Skills</h3>
 <% @skills.each do |skill| %>
   <p>Name: <%= link_to skill.name, skill_path(skill) %></p>
+  <p>Level: <%= current_user.level %></p>
   <p>Points: <%= skill.points %></p>
 <% end %>
 <%= link_to "Add new skill", new_user_skill_path(@user) %>
+
+<h3>Badges</h3>
+<ul>
+  <% @user.badges.each do |badge| %>
+    <li><%= badge.description %></li>
+  <% end %>
+</ul>
+
 
 
 <!-- These are the skill progress bar thingies -->
@@ -40,3 +49,4 @@
     </div>
   </div>
 </div>
+
