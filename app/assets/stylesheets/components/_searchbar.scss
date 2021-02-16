@@ -1,0 +1,21 @@
+.future-searchbar {
+  position: relative;
+  width: 50%;
+  border-radius: 1.75rem;
+  .btn {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    border-radius: 1.75rem;
+    padding: 0 2rem;
+    margin: 0;
+    background-color: #4700D4;
+    color: white;
+}
+
+  .form-control {
+    height: 3.5rem;
+    border-radius: 1.75rem;
+  }
+}
