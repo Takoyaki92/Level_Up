@@ -7,8 +7,9 @@
       <%= form_tag %>
         <%= text_field_tag :query,
     params[:query],
+    id: "typedjs",
     class: "form-control",
-    placeholder: "Type something!"
+    placeholder: "placeholder"
     %>
         <%= submit_tag "Start!", class: "btn btn-primary border-0" %>
     </div>
