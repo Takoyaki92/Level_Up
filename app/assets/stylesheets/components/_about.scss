@@ -1,0 +1,28 @@
+.about_container {
+  background-color: #845ec2;
+  justify-content: center;
+  text-align: center;
+}
+
+.details {
+  display: flex;
+  padding-bottom: 72px;
+}
+
+.flex-direction {
+  flex-direction: column;
+}
+i {
+  font-size: 80px;
+}
+
+.how {
+  padding-top: 32px;
+}
+
+.skills {
+  background-color: #dddddd;
+  justify-content: center;
+  text-align: center;
+  color: black;
+}
