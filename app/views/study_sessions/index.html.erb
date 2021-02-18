@@ -1,11 +1,47 @@
+<% @study_sessions.each do |post| %>
 <div id="wrapper">
 
     <header class="cf">
       <!-- <img src="http://2016.igem.org/wiki/images/e/e0/Uclascrolldown.png" class="arrow" /> -->
       <a href=#><img class='profile-pic' src=""></a>
-      <h1 class="name">
+      <p class="name">
+                    <a href="#"><%= post.skill.user.username %></a>
+                </p>
+      <p class="date">30 minutes ago</p>
+    </header>
+
+    <p class="status"><%= post.description %></p>
+    <img class="img-content" src="https://london.ac.uk/sites/default/files/styles/promo_mobile/public/2020-04/sb-simone-image.jpg?itok=nAkc3CGk" />
+
+    <div class="action">
+      <div class="like">
+        <a href="#">
+          <i class="far fa-heart"></i>
+          <p>Like</p>
+        </a>
+      </div>
+
+      <div class="comment">
+        <a href="#">
+          <i class="far fa-comments"></i>
+          <p>Comment</p>
+        </a>
+      </div>
+
+    </div>
+
+</div>
+<% end %>
+
+
+<div id="wrapper">
+
+    <header class="cf">
+      <!-- <img src="http://2016.igem.org/wiki/images/e/e0/Uclascrolldown.png" class="arrow" /> -->
+      <a href=#><img class='profile-pic' src=""></a>
+      <p class="name">
                     <a href="#">Dog</a>
-                </h1>
+                </p>
       <p class="date">30 minutes ago</p>
     </header>
 
@@ -15,24 +51,15 @@
     <div class="action">
       <div class="like">
         <a href="#">
-          <img src="https://1.bp.blogspot.com/-qns_lZPjg0I/VWY2dO1HN-I/AAAAAAAACVA/akLTMY7RJSk/s1600/Thumbs-up-facebook-icon-small.png" alt="thumbs up" />
+          <i class="far fa-heart"></i>
           <p>Like</p>
         </a>
       </div>
 
       <div class="comment">
         <a href="#">
-          <img src="https://s0.wp.com/wp-content/themes/vip/facebook-groups/img/message_icon.png" />
+          <i class="far fa-comments"></i>
           <p>Comment</p>
-        </a>
-      </div>
-
-      <div class="share">
-        <a href="#">
-          <img src="http://download.seaicons.com/icons/icons8/windows-8/512/Arrows-Redo-icon.png" alt="" />
-          <p>
-            Share
-          </p>
         </a>
       </div>
 
@@ -46,9 +73,9 @@
     <header class="cf">
       <!-- <img src="http://2016.igem.org/wiki/images/e/e0/Uclascrolldown.png" class="arrow" /> -->
       <a href=#><img class='profile-pic' src=""></a>
-      <h1 class="name">
+      <p class="name">
                     <a href="#">Person</a>
-                </h1>
+                </p>
       <p class="date">3 hr ago</p>
     </header>
 
@@ -58,24 +85,15 @@
     <div class="action">
       <div class="like">
         <a href="#">
-          <img src="https://1.bp.blogspot.com/-qns_lZPjg0I/VWY2dO1HN-I/AAAAAAAACVA/akLTMY7RJSk/s1600/Thumbs-up-facebook-icon-small.png" alt="thumbs up" />
+          <i class="far fa-heart"></i>
           <p>Like</p>
         </a>
       </div>
 
       <div class="comment">
         <a href="#">
-          <img src="https://s0.wp.com/wp-content/themes/vip/facebook-groups/img/message_icon.png" />
+          <i class="far fa-comments"></i>
           <p>Comment</p>
-        </a>
-      </div>
-
-      <div class="share">
-        <a href="#">
-          <img src="http://download.seaicons.com/icons/icons8/windows-8/512/Arrows-Redo-icon.png" alt="" />
-          <p>
-            Share
-          </p>
         </a>
       </div>
 
@@ -88,9 +106,9 @@
     <header class="cf">
       <!-- <img src="http://2016.igem.org/wiki/images/e/e0/Uclascrolldown.png" class="arrow" /> -->
       <a href=#><img class='profile-pic' src=""></a>
-      <h1 class="name">
+      <p class="name">
                     <a href="#">Girl</a>
-                </h1>
+                </p>
       <p class="date">3 hr ago</p>
     </header>
 
@@ -100,24 +118,15 @@
     <div class="action">
       <div class="like">
         <a href="#">
-          <img src="https://1.bp.blogspot.com/-qns_lZPjg0I/VWY2dO1HN-I/AAAAAAAACVA/akLTMY7RJSk/s1600/Thumbs-up-facebook-icon-small.png" alt="thumbs up" />
+          <i class="far fa-heart"></i>
           <p>Like</p>
         </a>
       </div>
 
       <div class="comment">
         <a href="#">
-          <img src="https://s0.wp.com/wp-content/themes/vip/facebook-groups/img/message_icon.png" />
+          <i class="far fa-comments"></i>
           <p>Comment</p>
-        </a>
-      </div>
-
-      <div class="share">
-        <a href="#">
-          <img src="http://download.seaicons.com/icons/icons8/windows-8/512/Arrows-Redo-icon.png" alt="" />
-          <p>
-            Share
-          </p>
         </a>
       </div>
 
