@@ -22,6 +22,8 @@ class SkillsController < ApplicationController
     end
   end
 
+  # we need a skill#update method for the merit to work properly!
+
   private
 
   def skill_params

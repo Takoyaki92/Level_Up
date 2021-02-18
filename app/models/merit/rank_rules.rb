@@ -27,16 +27,16 @@ module Merit
       #   commiter.branches.count > 2 && commiter.followers >= 20
       # end
 
-      set_rank level: 1, to: Skill.active do
-        current_user.skill.points.positive? && current_user.skill.points <= 10
+      set_rank level: 1, to: Skill do |skill|
+        skill.points >= 0 && skill.points < 10.0
       end
 
-      set_rank level: 2, to: Skill.active do
-        current_user.skill.points >= 10 && current_user.skill.points <= 50
+      set_rank level: 2, to: Skill do |skill|
+        skill.points >= 10.0 && skill.points < 50.0
       end
 
-      set_rank level: 3, to: Skill.active do
-        current_user.skill.points >= 50 && current_user.skill.points <= 100
+      set_rank level: 5, to: Skill do |skill|
+        skill.points >= 50.0 && skill.points <= 100.0
       end
     end
   end
