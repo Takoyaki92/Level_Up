@@ -1,32 +1,49 @@
-<h1><%= @skill.name %> details!</h1>
-<h3>Hours spent: [empty]</h3>
-<p>So far, you have done NOTHING and you should do EVERYTHING.</p>
-<h3>Level: <%= @skill.level %></h3>
-<p>Points: <%= @skill.points %></p>
-<hr>
-<h2><%= @skill.name %> milestones!</h2>
-<% @skill.milestones.each do |milestone| %>
-  <p><%= milestone.goal %></p>
-<% end %>
-<p><%= link_to "Add new milestone", new_skill_milestone_path(@skill) %></p>
-
-
-
-<!-- These are the text fields for setting milestones, etc. -->
-<a class="text_field" href="#">
-  <span>Within one year I want to...</span>
-</a>
-<br>
-<a class="text_field" href="#">
-  <span>Within two weeks I want to...</span>
-</a>
-<br>
-<a class="text_field" href="#">
-  <span>Within half a year I want to...</span>
-</a>
-<br>
-
-<!-- This is the DONE button -->
-<a class="small_button" href="#">
-  <span>Done</span>
-</a>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-sm-10">
+      <h1><%= @skill.name %>!</h1>
+      <h3>Hours spent studying: 20</h3>
+      <h3>Level: <%= @skill.level %></h3>
+      <p>Points: <%= @skill.points %></p>
+      <div class="summary-advice">
+        <div class="summary">
+          <p>So far, you have:</p>
+          <a class="text_field" href="#">
+            <span>Study Session 1 goal</span>
+          </a>
+        </div>
+        <div class="advice">
+          <p>If you are stuck, consider:</p>
+          <a class="text_field" href="#">
+            <span>Study Session goal from someone else</span>
+          </a>
+        </div>
+      </div>
+      <hr>
+      <h2><%= @skill.name %> milestones!</h2>
+      <div class="milestones">
+        <div>
+          <% @skill.milestones.each do |milestone| %>
+            <ul>
+              <li class=<%="#{'done' if milestone.complete_date}"%>><%= milestone.goal %> <%= milestone.complete_date ? milestone.complete_date.strftime("%b %d, %Y") : button_to("done?", "/milestones/#{milestone.id}/complete",method: :patch) %></li>
+            </ul>
+          <% end %>
+        </div>
+        <!-- These are the text fields for setting milestones, etc. -->
+        <a class="text_field" href=<%="/skills/#{params[:id]}/milestones/new"%>>
+          <span>Within one year I want to...</span>
+        </a>
+      </div>
+      <br>
+      <!-- commented them out for now until we have fields for short, mid, long-term -->
+      <!--       <a class="text_field" href=<%="/skills/#{params[:id]}/milestones/new"%>>
+        <span>Within two weeks I want to...</span>
+      </a>
+      <br>
+      <a class="text_field" href=<%="/skills/#{params[:id]}/milestones/new"%>>
+        <span>Within half a year I want to...</span>
+      </a>
+      <br> -->
+    </div>
+  </div>
+</div>
