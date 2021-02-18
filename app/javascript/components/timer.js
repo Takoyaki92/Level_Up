@@ -5,6 +5,7 @@ const initTimer= () => {
   const stop = document.querySelector('.stop')
   const reset = document.querySelector('.reset')
   let mil = 0, sec = 0, min = 0, t;
+  let timerRunning = false;
 
   function add() {
     mil++;
@@ -26,6 +27,7 @@ const initTimer= () => {
   };
 
   function timerStart() {
+    timerRunning = true;
     t = setTimeout(add, 10);
   };
 
@@ -37,12 +39,22 @@ const initTimer= () => {
   };
 
   function stopTimer() {
+    timerRunning = false;
     clearTimeout(t);
   };
+  
+  start.onclick = () =>  { 
+    if (timerRunning) {
+      stopTimer()
+      start.innerText = 'Start';
 
-  start.onclick = timerStart;
-  stop.onclick = stopTimer;
-  reset.onclick = resetTimer;
+    }else {
+      timerStart() 
+      start.innerText = 'Pause';
+    }
+  }
+  // stop.onclick = stopTimer;
+  // reset.onclick = resetTimer;
 
 };
 
