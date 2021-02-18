@@ -28,17 +28,16 @@ module Merit
       # end
 
       set_rank level: 1, to: Skill do |skill|
-        # skill.points >= 0 && skill.points < 10.0
-        true
+        skill.points >= 0 && skill.points < 10.0
       end
 
-      # set_rank level: 2, to: Skill do |skill|
-      #   skill.points >= 10.0 && skill.points < 50.0
-      # end
+      set_rank level: 2, to: Skill do |skill|
+        skill.points >= 10.0 && skill.points < 50.0
+      end
 
-      # set_rank level: 5, to: Skill do |skill|
-      #   skill.points >= 50.0 && skill.points <= 100.0
-      # end
+      set_rank level: 5, to: Skill do |skill|
+        skill.points >= 50.0 && skill.points <= 100.0
+      end
     end
   end
 end
