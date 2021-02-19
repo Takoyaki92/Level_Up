@@ -1,7 +1,11 @@
 <body class="wallpaper">
   <div class="container">
-    <div id="app-timer">
-      <div class="container">
+    <h2>Choose your skill and goal</h2>
+    <%= simple_form_for @study_session do |f| %>
+      <%= f.association :skill, collection: current_user.skills %>
+      <%= f.input :goal, as: :text %>
+      <%# end %>
+      <div id="app-timer">
         <div class="app-timer-main">
           <h1>TIMER</h1>
           <h1 class="timer">00:00:00</h1>
@@ -10,25 +14,24 @@
           <button class="btn btn-primary reset">Reset</button> %>
         </div>
         <br>
-        <button class="btn btn-info" id="finish">Finish!</button>
       </div>
-    </div>
-    <div id="one" style="display: none;">
-      <h3>Nice work! Make a post so others can see your progress</h3>
-      <div class="row justify-content-center">
-        <div class="col-12">
-          <%= simple_form_for [ @skill, @study_session ] do |f| %>
-            <%= f.text_area :description, label:"What did you accomplish?", class: "form-control form-control-lg" %>
-            <%= f.collection_radio_buttons :public, [[true, 'Public (Recommended)'] ,[false, 'Private']], :first, :last %>
-            <%= f.input :photo, label: "Show us what you did!", as: :file %>
-            <%= f.button :submit, "Share!", class: "small_button" %>
-          <% end %>
+      <div class="btn btn-info" id="finish">Finish!</div>
+      <div id="one" style="display: none;">
+        <h3>Nice work! Make a post so others can see your progress</h3>
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <%#= simple_form_for [ @skill, @study_session ] do |f| %>
+              <%= f.text_area :description, label:"What did you accomplish?", class: "form-control form-control-lg" %>
+              <%= f.collection_radio_buttons :public, [[true, 'Public (Recommended)'] ,[false, 'Private']], :first, :last %>
+              <%= f.input :photo, label: "Show us what you did!", as: :file %>
+              <%= f.button :submit, "Share!", class: "small_button" %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</body>
-<!--   create_table "study_sessions", force: :cascade do |t|
+  </body>
+  <!--   create_table "study_sessions", force: :cascade do |t|
     t.string "goal"
     t.datetime "start_time"
     t.datetime "end_time"
