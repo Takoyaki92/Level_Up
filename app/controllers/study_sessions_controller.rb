@@ -5,7 +5,8 @@ class StudySessionsController < ApplicationController
   end
 
   def new
-    @skill = Skill.find(params[:skill_id])
+    # @skill = Skill.find(params[:skill_id])
+    @user = current_user
     @study_session = StudySession.new
   end
 
