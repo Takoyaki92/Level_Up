@@ -6,8 +6,6 @@ class Skill < ApplicationRecord
   has_many :milestones
 
   validates :name, presence: true
-  validates :name, uniqueness: true
-  # Will this interfere with other users?
 
   after_update :calculate_rank
 
