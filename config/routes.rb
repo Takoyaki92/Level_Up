@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :study_sessions, only: [:new, :create]
   end
 
-  resources :study_sessions, only: [:index, :edit, :update]
+  resources :study_sessions, only: [:index, :new, :create, :edit, :update]
 
+  patch "milestones/:id/complete", to: "milestones#complete", as: :milestones_complete
 end

@@ -25,17 +25,24 @@ class MilestonesController < ApplicationController
 
   # def update
   #   @milestone = Milestone.find(params[:id])
-  #   @milestone.skill = current_user.skill
   #   if @milestone.update(milestone_params)
   #     redirect_to skill_path(@milestone.skill)
+  #     @milestone.complete_date = Date.today
   #   else
   #     render :new
   #   end
   # end
 
+  def complete
+    @milestone = Milestone.find(params[:id])
+    @milestone.complete_date = Date.today
+    @milestone.save
+    redirect_to skill_path(@milestone.skill)
+  end
+
   private
 
   def milestone_params
-    params.require(:milestone).permit(:goal)
+    params.require(:milestone).permit(:goal, :complete_date)
   end
 end
