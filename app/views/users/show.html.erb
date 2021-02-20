@@ -1,15 +1,20 @@
  <h1>PROFILE</h1>
 <div class="flex-container">
 
-  <div class="container">
+  <div class="container-profile">
     <div class="profile-name">
       <h1><%= @user.first_name %><%= @user.last_name %></h1>
       <h2>Username: <%= @user.username %></h2>
+      <br>
+      <h3>Summary</h3>
+      <p>Days Studied: 21</p>
+      <p>Last Day studied: Yesterday</p>
+      <p>Last Subject Studied: Coding</p>
     </div>
   </div>
 
-  <div class="container">
-    <div class="skills">
+  <div class="container-profile">
+    <div class="skills-profile">
       <h3>Skills</h3>
       <% @skills.each do |skill| %>
         <p>Name: <%= link_to skill.name, skill_path(skill) %></p>
@@ -27,15 +32,18 @@
   </div>
 
   <!-- These are the skill progress bar thingies -->
-  <div class="container">
+  <div class="container-profile">
+  <br>
+  <br>
+  <br>
     <div class="skill_bar">
-      <a class="skill_bar" href="#">
+      <a class="skill_bar" href="#">Coding
       </a>
       <br>
-      <a class="skill_bar" href="#">
+      <a class="skill_bar" href="#">Japanese
       </a>
       <br>
-      <a class="skill_bar" href="#">
+      <a class="skill_bar" href="#">Piano
       </a>
     </div>
   </div>
@@ -52,4 +60,14 @@
       <%# </div>
     </div>
   </div> %>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="study-button">
+  <%= link_to "Start Studying", new_study_session_path, class: "btn btn-primary" %>
 </div>

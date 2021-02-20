@@ -7,18 +7,28 @@
 }
 
 h1 {
+  margin: 16px;
   font-size: 48px;
   text-align: center;
 }
 
-.container {
+.container-profile {
   margin: 0px;
   padding: 0px;
-  height: 400px;
+  height: 200px;
   width: auto;
 }
 
 .flex-container {
   display: flex;
   justify-content: space-evenly;
+}
+
+.study-button {
+  display: flex;
+  justify-content: center;
+}
+
+.skill-bar {
+  margin-top: 48px;
 }
