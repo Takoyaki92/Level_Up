@@ -1,0 +1,5 @@
+<h2>Choose your skill and goal</h2>
+<%= simple_form_for @study_session do |f| %>
+  <%= f.association :skill, collection: current_user.skills %>
+  <%= f.input :goal, as: :text %>
+<% end %>

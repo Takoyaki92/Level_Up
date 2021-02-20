@@ -5,7 +5,7 @@ class CreateStudySessions < ActiveRecord::Migration[6.0]
       t.datetime :start_time
       t.datetime :end_time
       t.text :description
-      t.boolean :public, default: false
+      t.boolean :public, default: true
       t.references :skill, null: false, foreign_key: true
 
       t.timestamps
