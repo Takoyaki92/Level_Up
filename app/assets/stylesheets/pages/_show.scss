@@ -1,6 +1,24 @@
-.name {
+.profile-name {
   height: 200px;
   width: auto;
   text-align: center;
+  color: white;
 
+}
+
+h1 {
+  font-size: 48px;
+  text-align: center;
+}
+
+.container {
+  margin: 0px;
+  padding: 0px;
+  height: 400px;
+  width: auto;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-evenly;
 }
