@@ -16,21 +16,21 @@
   text-transform: uppercase;
   width: 100px;
   z-index: 2;
-}
 
-.small_button span {
-  align-items: center;
-  // background: #e7e8e9;
-  // border-radius: 40px;
-  display: flex;
-  justify-content: center;
-  height: 100%;
-  transition: background .5s ease;
-  width: 100%;
-}
+  span {
+    align-items: center;
+    // background: #e7e8e9;
+    // border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    transition: background .5s ease;
+    width: 100%;
+  }
 
-.small_button:hover {
-  text-decoration: none;
-  color: white;
-  background-color: #4700D4;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    background-color: #4700D4;
+  }
 }
