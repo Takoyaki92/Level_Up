@@ -1,7 +1,7 @@
 // Import page-specific CSS files here.
 
 // containering and divs
-.container {
+.container.skill_show{
   height: auto;
   text-align: center;
   margin-top: 16px;
@@ -28,6 +28,14 @@ hr {
   a {
     width: 250px;
     margin: 16px 0;
+  }
+
+  .summary {
+    margin: 0 16px;
+  }
+
+  .advice {
+    margin: 0 16px;
   }
 }
 
