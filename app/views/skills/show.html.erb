@@ -5,17 +5,31 @@
       <h3>Hours spent studying: 20</h3>
       <h3>Level: <%= @skill.level %></h3>
       <p>Points: <%= @skill.points %></p>
+      <div id="skill_show">
+        <a class="small_button" id="skill_show" href="/skills/:skill_id/study_sessions/new">
+          <span>Start this study session</span>
+        </a>
+      </div>
+      <!--       <div class="small_button">
+        <span><#%= link_to "Study Session for #{@skill.name}", new_skill_study_session_path(@skill)  %></span>
+      </div> -->
       <div class="summary-advice">
         <div class="summary">
           <p>So far, you have:</p>
           <a class="text_field" href="#">
-            <span>Study Session 1 goal</span>
+            <span>Finish Coding Challenge</span>
+          </a>
+          <a class="text_field" href="#">
+            <span>Small Rails Project</span>
           </a>
         </div>
         <div class="advice">
           <p>If you are stuck, consider:</p>
           <a class="text_field" href="#">
-            <span>Study Session goal from someone else</span>
+            <span>Host Project on Heroku</span>
+          </a>
+          <a class="text_field" href="#">
+            <span>Pair Program w/ Friend</span>
           </a>
         </div>
       </div>
@@ -25,13 +39,13 @@
         <div>
           <% @skill.milestones.each do |milestone| %>
             <ul>
-              <li class=<%="#{'done' if milestone.complete_date}"%>><%= milestone.goal %> <%= milestone.complete_date ? milestone.complete_date.strftime("%b %d, %Y") : button_to("done?", "/milestones/#{milestone.id}/complete",method: :patch) %></li>
+              <li class=<%="#{'complete' if milestone.complete_date}"%>><%= milestone.goal %> <%= milestone.complete_date ? milestone.complete_date.strftime("%b %d, %Y") : button_to("done?", "/milestones/#{milestone.id}/complete", method: :patch, form_class: "done") %></li>
             </ul>
           <% end %>
         </div>
         <!-- These are the text fields for setting milestones, etc. -->
         <a class="text_field" href=<%="/skills/#{params[:id]}/milestones/new"%>>
-          <span>Within one year I want to...</span>
+          <span>Add a new milestone</span>
         </a>
       </div>
       <br>
@@ -44,7 +58,9 @@
         <span>Within half a year I want to...</span>
       </a>
       <br> -->
-      <%= link_to "Back to User", user_path(@skill.user)  %>
+      <a class="small_button" href="/users/:id" style="width: fit-content; padding: 16px; margin-bottom: 16px;">
+        <span>Back to User</span>
+      </a>
     </div>
   </div>
 </div>
