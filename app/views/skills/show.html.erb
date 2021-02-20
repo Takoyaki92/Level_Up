@@ -6,7 +6,7 @@
       <h3>Level: <%= @skill.level %></h3>
       <p>Points: <%= @skill.points %></p>
       <div id="skill_show">
-        <a class="small_button" id="skill_show" href="/skills/:skill_id/study_sessions/new">
+        <a class="small_button" id="skill_show" href=<%= "/skills/#{params[:id]}/study_sessions/new"%>>
           <span>Start this study session</span>
         </a>
       </div>
