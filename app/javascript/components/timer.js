@@ -1,7 +1,7 @@
 
 const initTimer= () => {
   const timer = document.querySelector('.timer')
-  const start = document.querySelector('.start')
+  const start = document.querySelector('.start span')
   const stop = document.querySelector('.stop')
   const reset = document.querySelector('.reset')
   let mil = 0, sec = 0, min = 0, t;
@@ -17,7 +17,7 @@ const initTimer= () => {
         min++
       };
     };
-    
+
     function makeTimeString() {
       return (min ? (min > 9 ? min : "0" + min) : "00") + ":" + (sec ? (sec > 9 ? sec : "0" + sec) : "00") + ":" + (mil > 9 ? mil : "0" + mil)
     };
@@ -42,14 +42,14 @@ const initTimer= () => {
     timerRunning = false;
     clearTimeout(t);
   };
-  
-  start.onclick = () =>  { 
+
+  start.onclick = () =>  {
     if (timerRunning) {
       stopTimer()
       start.innerText = 'Start';
 
     }else {
-      timerStart() 
+      timerStart()
       start.innerText = 'Pause';
     }
   }
