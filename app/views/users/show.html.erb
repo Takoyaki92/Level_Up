@@ -1,14 +1,14 @@
  <h1>PROFILE</h1>
 <div class="flex-container">
 
-  <div class="container">
+  <div class="container-profile">
     <div class="profile-name">
       <h1><%= @user.first_name %><%= @user.last_name %></h1>
       <h2>Username: <%= @user.username %></h2>
     </div>
   </div>
 
-  <div class="container">
+  <div class="container-profile">
     <div class="skills">
       <h3>Skills</h3>
       <% @skills.each do |skill| %>
@@ -27,7 +27,7 @@
   </div>
 
   <!-- These are the skill progress bar thingies -->
-  <div class="container">
+  <div class="container-profile">
     <div class="skill_bar">
       <a class="skill_bar" href="#">
       </a>
