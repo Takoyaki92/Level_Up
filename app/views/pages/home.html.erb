@@ -3,7 +3,7 @@
     <h2 class="subtitle">Structure your study and</h2>
     <h1>Level Up</h1>
   </div>
-  <div class="future-searchbar">
+  <div class="future-searchbar align-middle">
       <%= form_tag %>
         <%= text_field_tag :query,
     params[:query],
@@ -11,7 +11,8 @@
     class: "form-control",
     placeholder: "What do you want to learn?"
     %>
-        <%= submit_tag "Start!", class: "btn btn-primary border-0" %>
+        <%= link_to "Start!", user_path(current_user), class: "btn btn-primary d-flex align-items-center" %>
+        <%# in future, rewrite routes to link this to skills? %>
     </div>
 </div>
   <div class="about_container">
@@ -41,10 +42,25 @@
       </div>
       
   </div>
-  <div class="skills">
-        Check out our skill index to find new skills to learn!
-        <div class="card-category">
-          <h3>Piano</h3>
-        </div>
-  </div>
 </div>
+<div class="skills d-flex justify-content-around">
+        <h2>Check out our skill index to find new skills to learn!</h2>
+        <div class = "flex-direction card-category">
+          <h1>Piano</h1>
+        </div>
+        
+        <div class="flex-direction">
+          <i class="far fa-clock"></i>
+          <h2>Select a skill, start a timed study session, and share your progress to earn experience points.</h2>
+        </div>
+        
+        <div class="flex-direction">
+          <i class="fas fa-chart-line"></i>
+          <h2>Visualize your progress over time, and achieve milestones through structured learning.</h2>
+        </div>
+        
+        <div class="flex-direction">
+          <i class="fas fa-users"></i>
+          <h2>Join a community of people learning the same skills and share your experience.</h2>
+        </div>
+      </div>
