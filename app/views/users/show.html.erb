@@ -1,31 +1,45 @@
 <h1>PROFILE</h1>
-<h1><%= @user.first_name %><%= @user.last_name %></h1>
-<h2><%= @user.username %></h2>
-<h2><%= @user.email %></h2>
+
+<div class="container">
+  <div class="name">
+    <h1><%= @user.first_name %><%= @user.last_name %></h1>
+    <h2><%= @user.username %></h2>
+    <h2><%= @user.email %></h2>
+  </div>
+</div>
 <br>
-<h3>Skills</h3>
-<% @skills.each do |skill| %>
-  <p>Name: <%= link_to skill.name, skill_path(skill) %></p>
-  <p>Level: <%= skill.level %></p>
-  <p>Points: <%= skill.points %></p>
-<% end %>
-<%= link_to "Add new skill", new_user_skill_path(@user) %>
-<h3>Badges</h3>
-<ul>
-  <% @user.badges.each do |badge| %>
-    <li><%= badge.description %></li>
-  <% end %>
-</ul>
+
+<div class="container">
+  <div class="skills">
+    <h3>Skills</h3>
+    <% @skills.each do |skill| %>
+      <p>Name: <%= link_to skill.name, skill_path(skill) %></p>
+      <p>Level: <%= skill.level %></p>
+      <p>Points: <%= skill.points %></p>
+    <% end %>
+    <%= link_to "Add new skill", new_user_skill_path(@user) %>
+    <h3>Badges</h3>
+    <ul>
+      <% @user.badges.each do |badge| %>
+        <li><%= badge.description %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
 <!-- These are the skill progress bar thingies -->
-<a class="skill_bar" href="#">
-</a>
-<br>
-<a class="skill_bar" href="#">
-</a>
-<br>
-<a class="skill_bar" href="#">
-</a>
-<br>
+<div class="container">
+  <div class="skill_bar">
+    <a class="skill_bar" href="#">
+    </a>
+    <br>
+    <a class="skill_bar" href="#">
+    </a>
+    <br>
+    <a class="skill_bar" href="#">
+    </a>
+  </div>
+</div>
 
 <br>
 <div id="app-timer">
