@@ -5,9 +5,17 @@
       <!-- <img src="http://2016.igem.org/wiki/images/e/e0/Uclascrolldown.png" class="arrow" /> -->
       <a href=#><img class='profile-pic' src=""></a>
       <p class="name">
-                    <a href="#"><%= post.skill.user.username %></a>
+                    <a href=<%= user_path(post.skill.user) %>><%= post.skill.user.username %></a>
                 </p>
-      <p class="date">30 minutes ago</p>
+      <p class="date">
+        <% if ((Time.now - post.created_at) / 60).to_i == 0 %>
+        Just now
+        <% elsif ((Time.now - post.created_at) / 60).to_i == 1 %>
+        <%= ((Time.now - post.created_at) / 60).to_i %> minute ago
+        <% else ((Time.now - post.created_at) / 60).to_i > 1 %>
+        <%= ((Time.now - post.created_at) / 60).to_i %> minutes ago
+        <% end %>
+      </p>
     </header>
 
     <p class="status"><%= post.description %></p>
