@@ -37,6 +37,8 @@ class MilestonesController < ApplicationController
     @milestone = Milestone.find(params[:id])
     @milestone.complete_date = Date.today
     @milestone.save
+    Merit::RankRules.new.check_rank_rules
+    # AJAX STUFF TO CHECK WITHOUT REFRESH
     redirect_to skill_path(@milestone.skill)
   end
 
