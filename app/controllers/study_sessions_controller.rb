@@ -2,6 +2,7 @@ class StudySessionsController < ApplicationController
 
   def index
     @study_sessions = StudySession.all
+    @comments = Comment.all
   end
 
   def new
