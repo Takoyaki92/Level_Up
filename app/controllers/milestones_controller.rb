@@ -1,4 +1,6 @@
 class MilestonesController < ApplicationController
+  after_action :calculate_rank, only: :complete
+
   def show
     @skill = Skill.find(params[:id])
     @milestone.skill = current_user.skill(params[:id])
@@ -37,12 +39,14 @@ class MilestonesController < ApplicationController
     @milestone = Milestone.find(params[:id])
     @milestone.complete_date = Date.today
     @milestone.save
-    Merit::RankRules.new.check_rank_rules
-    # AJAX STUFF TO CHECK WITHOUT REFRESH
     redirect_to skill_path(@milestone.skill)
   end
 
   private
+
+  def calculate_rank
+    Merit::RankRules.new.check_rank_rules
+  end
 
   def milestone_params
     params.require(:milestone).permit(:goal, :complete_date)

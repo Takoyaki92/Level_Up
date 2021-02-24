@@ -31,7 +31,7 @@ module Merit
       end
 
       score 50, to: :skill, on: 'milestones#complete' do |milestone|
-        milestone.complete_date = true
+        milestone.complete_date.present?
       end
     end
   end
