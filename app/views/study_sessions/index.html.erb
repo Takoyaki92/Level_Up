@@ -24,7 +24,10 @@
       <div class="comment">
         <a href="#">
           <i class="far fa-comments fa-sm"></i>
-          <p>Comment</p>
+          <% post.comments.each do |comment| %>
+          <%= comment.description %>
+          <% end %>
+          <%= link_to "Comment", new_study_session_comment_path(post) %>
         </a>
       </div>
 

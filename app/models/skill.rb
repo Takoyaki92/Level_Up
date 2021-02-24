@@ -13,3 +13,4 @@ class Skill < ApplicationRecord
     Merit::RankRules.new.check_rank_rules
   end
 end
+# 

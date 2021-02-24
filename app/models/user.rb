@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :skills
   has_many :study_sessions, through: :skills
   has_many :milestones, through: :skills
+  has_many :comments, as: :commenter
 
   validates :username, presence: true, uniqueness: true
   validates :first_name, presence: true
