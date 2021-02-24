@@ -40,3 +40,21 @@ Merit::Badge.create(
   name: "study_sessions-1-10",
   description: "10th study session!"
 )
+
+Merit::Badge.create(
+  id: 3,
+  name: "study_sessions-10-50",
+  description: "50th study session!"
+)
+
+Merit::Badge.create(
+  id: 4,
+  name: "study_sessions-50-100",
+  description: "100th study session!"
+)
+
+Merit::Badge.create(
+  id: 5,
+  name: "milestone_complete",
+  description: "Milestone completed!"
+)

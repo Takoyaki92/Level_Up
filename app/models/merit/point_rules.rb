@@ -26,8 +26,12 @@ module Merit
       #
       # score -10, :on => 'comments#destroy'
 
-      score 20, to: :skill, on: 'study_sessions#create' do |session|
-        session.goal.present?
+      score 10, to: :skill, on: 'study_sessions#create' do |session|
+        session.valid?
+      end
+
+      score 50, to: :skill, on: 'milestones#complete' do |milestone|
+        milestone.complete_date.present?
       end
     end
   end
