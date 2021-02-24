@@ -31,18 +31,15 @@
   </div>
   <!-- These are the skill progress bar thingies -->
   <div class="container-profile">
-    <br>
-    <br>
-    <br>
-    <div class="skill_bar">
-      <a class="skill_bar" href="#">Coding
-      </a>
-      <br>
-      <a class="skill_bar" href="#">Japanese
-      </a>
-      <br>
-      <a class="skill_bar" href="#">Piano
-      </a>
+  <br>
+  <br>
+  <br>
+    <div>
+        <% @skills.each do |skill| %>
+          <div class="skill_bar">
+            <p><%= skill.name %></p>
+          </div>
+        <% end %>
     </div>
   </div>
   <%#
