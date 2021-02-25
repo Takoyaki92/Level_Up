@@ -13,7 +13,11 @@
         </li>
         <li><%= link_to "Profile", user_path(current_user), class: "nav-link"%></li>
         <li class="nav-item dropdown">
-          <%= image_tag "https://emoji.slack-edge.com/T02NE0241/pduck/659a4bd31b52c211.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% if user_signed_in? && current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= image_tag "https://emoji.slack-edge.com/T02NE0241/pduck/659a4bd31b52c211.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Action", "#", class: "dropdown-item" %>
             <%= link_to "Another action", "#", class: "dropdown-item" %>

@@ -1,7 +1,7 @@
 // Import page-specific CSS files here.
 @import "home";
 body {
-  background-color: #4b4b4b;
+  background-color: #faf3e0;
   color: white;
 }
 
@@ -24,6 +24,9 @@ h1 {
   justify-content: center;
   height: 656px;
   width: auto;
+}
+.stripe {
+  background-image: url(image_path(Stripe));
 }
 .main {
   text-align: center;

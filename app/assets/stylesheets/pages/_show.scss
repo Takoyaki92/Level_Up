@@ -17,6 +17,12 @@ h1 {
   padding: 0px;
   height: 200px;
   width: auto;
+  display: flex;
+  flex-direction: column;
+  /*customizable*/
+  // height: 300px;
+
+  
 }
 
 .flex-container {

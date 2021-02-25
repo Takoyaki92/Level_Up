@@ -6,10 +6,5 @@ class Skill < ApplicationRecord
   has_many :milestones
 
   validates :name, presence: true
-
-  after_update :calculate_rank
-
-  def calculate_rank
-    Merit::RankRules.new.check_rank_rules
-  end
 end
+# 
