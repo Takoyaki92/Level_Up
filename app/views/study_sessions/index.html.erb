@@ -5,9 +5,17 @@
       <!-- <img src="http://2016.igem.org/wiki/images/e/e0/Uclascrolldown.png" class="arrow" /> -->
       <a href=#><img class='profile-pic' src=""></a>
       <p class="name">
-                    <a href="#"><%= post.skill.user.username %></a>
+                    <a href=<%= user_path(post.skill.user) %>><%= post.skill.user.username %></a>
                 </p>
-      <p class="date">30 minutes ago</p>
+      <p class="date">
+        <% if ((Time.now - post.created_at) / 60).to_i == 0 %>
+        Just now
+        <% elsif ((Time.now - post.created_at) / 60).to_i == 1 %>
+        <%= ((Time.now - post.created_at) / 60).to_i %> minute ago
+        <% else ((Time.now - post.created_at) / 60).to_i > 1 %>
+        <%= ((Time.now - post.created_at) / 60).to_i %> minutes ago
+        <% end %>
+      </p>
     </header>
 
     <p class="status"><%= post.description %></p>
@@ -19,10 +27,18 @@
 
     <div class="action">
       <div class="like">
-        <a href="#">
+        <% if post.liked?(current_user) %>
+          <a href="<%=unlike_path(post)%>" method="put">
+          <b><i class="far fa-heart fa-sm"></i>
+          <p>Like</p></b>
+          <p><%= post.likes.count %></p>
+        </a>
+        <% else %>
+          <a href="<%=like_path(post)%>" method="put">
           <i class="far fa-heart fa-sm"></i>
           <p>Like</p>
-        </a>
+          <p><%= post.likes.count %></p>
+        <% end %>
       </div>
 
       <div class="comment">
@@ -34,8 +50,8 @@
           <%= link_to "Comment", new_study_session_comment_path(post) %>
         </a>
       </div>
-
     </div>
+
 
 </div>
 <% end %>

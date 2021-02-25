@@ -30,9 +30,27 @@ class StudySessionsController < ApplicationController
     # super
   end
 
+  def like
+    @study_session = StudySession.find(params[:id])
+    Like.create(user_id: current_user.id, study_session_id: @study_session.id)
+    redirect_to study_sessions_path
+
+  end
+
+  def unlike
+    @study_session = StudySession.find(params[:id])
+    like = @study_session.likes.find{|like| like.user_id == current_user.id}
+    like.delete
+    redirect_to study_sessions_path
+  end
+
+
   private
 
   def study_session_params
     params.require(:study_session).permit(:goal, :skill_id, :description, :public, :photo)
   end
+
 end
+
+
