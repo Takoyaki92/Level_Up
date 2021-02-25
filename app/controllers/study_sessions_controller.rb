@@ -32,6 +32,6 @@ class StudySessionsController < ApplicationController
   private
 
   def study_session_params
-    params.require(:study_session).permit(:goal, :skill_id, :description, :public, :photo)
+    params.require(:study_session).permit(:goal, :skill_id, :description, :public, :photo, :end_time)
   end
 end
