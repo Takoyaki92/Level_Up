@@ -45,8 +45,8 @@ module Merit
       #   user.name.length > 4
       # end
 
-      grant_on 'study_sessions#create', badge_id: 1, to: :user do |session|
-        session.skill.study_sessions.count >= 1 && session.skill.study_sessions.count < 10
+      grant_on 'user#show', badge_id: 1, to: :skill do |skill|
+        skill.study_sessions.count >= 1 && skill.study_sessions.count < 10
       end
 
       grant_on 'study_sessions#create', badge_id: 2, to: :user do |session|
@@ -61,7 +61,7 @@ module Merit
         session.skill.study_sessions.count >= 100
       end
 
-      grant_on 'milestones#complete', badge_id: 5, to: :skill do |milestone|
+      grant_on 'milestones#complete', badge_id: 5, to: :skill, multiple: true do |milestone|
         milestone.complete_date.nil? == false
       end
     end
