@@ -24,6 +24,9 @@
               <%= f.text_area :description, label:"What did you accomplish?", class: "form-control form-control-lg" %>
               <%= f.collection_radio_buttons :public, [[true, 'Public (Recommended)'] ,[false, 'Private']], :first, :last %>
               <%= f.input :photo, label: "Show us what you did!", as: :file %>
+              <div id="hidden">
+                <%= f.input :end_time %>              
+              </div>
               <%= f.button :submit, "Share!", class: "small_button" %>
             <% end %>
           </div>

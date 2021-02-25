@@ -30,7 +30,6 @@ import "bootstrap";
 import { initTimer } from '../components/timer';
 import { typed4 } from '../components/typed';
 import { finish } from '../components/finish';
-import { submit } from '../components/submit';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
