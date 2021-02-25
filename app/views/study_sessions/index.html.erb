@@ -19,7 +19,11 @@
     </header>
 
     <p class="status"><%= post.description %></p>
+    <% if user_signed_in? && post.photo.attached? %>
+            <%= cl_image_tag post.photo.key %>
+          <% else %>      
     <img class="img-content" src="https://london.ac.uk/sites/default/files/styles/promo_mobile/public/2020-04/sb-simone-image.jpg?itok=nAkc3CGk" />
+          <% end %>
 
     <div class="action">
       <div class="like">
