@@ -15,5 +15,8 @@ Rails.application.routes.draw do
     resources :comments, only: [:index, :new, :create, :edit, :update]
   end
 
+  get '/study_session/:id/like', to: 'study_sessions#like', as: 'like'
+  get '/study_session/:id/unlike', to: 'study_sessions#unlike', as: 'unlike'
+
   patch "milestones/:id/complete", to: "milestones#complete", as: :milestones_complete
 end

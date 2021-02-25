@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_24_015605) do
+ActiveRecord::Schema.define(version: 2021_02_25_103517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 2021_02_24_015605) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["study_session_id"], name: "index_comments_on_study_session_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "study_session_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["study_session_id"], name: "index_likes_on_study_session_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "merit_actions", force: :cascade do |t|
@@ -126,6 +135,8 @@ ActiveRecord::Schema.define(version: 2021_02_24_015605) do
 
   add_foreign_key "comments", "study_sessions"
   add_foreign_key "comments", "users"
+  add_foreign_key "likes", "study_sessions"
+  add_foreign_key "likes", "users"
   add_foreign_key "milestones", "skills"
   add_foreign_key "skills", "users"
   add_foreign_key "study_sessions", "skills"
