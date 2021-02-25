@@ -26,17 +26,24 @@ module Merit
       # set_rank :level => 3, :to => Commiter.active do |commiter|
       #   commiter.branches.count > 2 && commiter.followers >= 20
       # end
+      set_rank level: 5, to: Skill do |skill|
+        skill.points >= 500.0 && skill.points < 1000.0
+      end
 
-      set_rank level: 1, to: Skill do |skill|
-        skill.points >= 0 && skill.points < 10.0
+      set_rank level: 4, to: Skill do |skill|
+        skill.points >= 200.0 && skill.points < 500.0
+      end
+
+      set_rank level: 3, to: Skill do |skill|
+        skill.points >= 50.0 && skill.points < 200.0
       end
 
       set_rank level: 2, to: Skill do |skill|
         skill.points >= 10.0 && skill.points < 50.0
       end
 
-      set_rank level: 5, to: Skill do |skill|
-        skill.points >= 50.0 && skill.points <= 100.0
+      set_rank level: 1, to: Skill do |skill|
+        skill.points >= 0 && skill.points < 10.0
       end
     end
   end

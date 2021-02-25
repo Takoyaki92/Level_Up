@@ -3,7 +3,9 @@ class SkillsController < ApplicationController
   end
 
   def show
+    Merit::RankRules.new.check_rank_rules
     @skill = Skill.find(params[:id])
+    # raise
   end
 
   def new

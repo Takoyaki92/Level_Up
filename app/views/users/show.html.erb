@@ -1,6 +1,5 @@
- <h1>PROFILE</h1>
+<h1>PROFILE</h1>
 <div class="flex-container">
-
   <div class="container-profile">
     <div class="profile-name">
       <h1><%= @user.first_name %><%= @user.last_name %></h1>
@@ -12,7 +11,6 @@
       <p>Last Subject Studied: Coding</p>
     </div>
   </div>
-
   <div class="container-profile">
     <div class="skills-profile">
       <h3>Skills</h3>
@@ -24,30 +22,27 @@
       <%= link_to "Add new skill", new_user_skill_path(@user) %>
       <h3>Badges</h3>
       <ul>
-        <% @user.badges.each do |badge| %>
+        <% @user.skills.map {|skill| skill.badges}.flatten.each do |badge| %>
           <li><%= badge.description %></li>
         <% end %>
+        <!-- SHOULD BE AN INSTANCE METHOD CALLED BADGES IN USER SHOW PAGE CONTROLLER -->
       </ul>
     </div>
   </div>
-
   <!-- These are the skill progress bar thingies -->
   <div class="container-profile">
   <br>
   <br>
   <br>
-    <div class="skill_bar">
-      <a class="skill_bar" href="#">Coding
-      </a>
-      <br>
-      <a class="skill_bar" href="#">Japanese
-      </a>
-      <br>
-      <a class="skill_bar" href="#">Piano
-      </a>
+    <div>
+        <% @skills.each do |skill| %>
+          <div class="skill_bar">
+            <p><%= skill.name %></p>
+          </div>
+        <% end %>
     </div>
   </div>
-  <%# 
+  <%#
   <br>
   <div id="app-timer">
     <div class="container">
@@ -57,7 +52,7 @@
         <button class="study_button start"><span>Start</span></button>
         <%# <button class="btn btn-warning stop">Stop</button>
         <button class="btn btn-primary reset">Reset</button> %>
-      <%# </div>
+  <%# </div>
     </div>
   </div> %>
 </div>
