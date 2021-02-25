@@ -22,24 +22,23 @@
       <%= link_to "Add new skill", new_user_skill_path(@user) %>
       <h3>Badges</h3>
       <ul>
-        <% @user.skills.map {|skill| skill.badges}.flatten.each do |badge| %>
-          <li><%= badge.description %></li>
+        <% @badges.each do |badge| %>
+          <li><%= badge[:skill] %> - <%= badge[:description] %>, on: <%= badge[:assigned] %></li>
         <% end %>
-        <!-- SHOULD BE AN INSTANCE METHOD CALLED BADGES IN USER SHOW PAGE CONTROLLER -->
       </ul>
     </div>
   </div>
   <!-- These are the skill progress bar thingies -->
   <div class="container-profile">
-  <br>
-  <br>
-  <br>
+    <br>
+    <br>
+    <br>
     <div>
-        <% @skills.each do |skill| %>
-          <div class="skill_bar">
-            <p><%= skill.name %></p>
-          </div>
-        <% end %>
+      <% @skills.each do |skill| %>
+        <div class="skill_bar">
+          <p><%= skill.name %></p>
+        </div>
+      <% end %>
     </div>
   </div>
   <%#
