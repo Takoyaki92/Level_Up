@@ -3,6 +3,7 @@ class StudySessionsController < ApplicationController
   def index
     @study_sessions = StudySession.all
     @comments = Comment.all
+    @comment = Comment.new
   end
 
   def new
@@ -11,6 +12,7 @@ class StudySessionsController < ApplicationController
     if params[:skill_id].present?
       @skill = Skill.find(params[:skill_id])
       @study_session.skill = @skill
+      @comment = Comment.new
     end
   end
 
