@@ -1,109 +1,79 @@
 <h1>PROFILE</h1>
 <div class="flex-container">
-
-<!-- USERNAME AND SUMMARY -->
-<div class="flex-item">
-  <div class="profile_card">
-    <h4>User info</h4>
-    <div class="container-profile">
-      <div class="profile-name">
-  <!--       <h1><%= @user.first_name %><%= @user.last_name %></h1>
-   -->      <h2><%= @user.username %></h2>
-        <br>
-  <!--       <h3>Summary</h3>
-   -->      <p>Days Studied: 21</p>
-        <p>Last Day studied: Yesterday</p>
-        <p>Last Subject Studied: Coding</p>
+  <!-- USERNAME AND SUMMARY -->
+  <div class="flex-item">
+    <div class="profile_card">
+      <h4>User info</h4>
+      <div class="container-profile">
+        <div class="profile-name">
+          <!--       <h1><%= @user.first_name %><%= @user.last_name %></h1>
+   -->
+          <h2><%= @user.username %></h2>
+          <br>
+          <!--       <h3>Summary</h3>
+   -->
+          <p>Days Studied: 21</p>
+          <p>Last Day studied: Yesterday</p>
+          <p>Last Subject Studied: Coding</p>
+        </div>
       </div>
     </div>
   </div>
-  </div>
-
-<!-- USER SKILLS AND PROGRESS BARS -->
-<div class="flex-item">
-  <div class="profile_card">
-    <h4>Skills</h4>
+  <!-- USER SKILLS AND PROGRESS BARS -->
+  <div class="flex-item">
+    <div class="profile_card">
+      <h4>Skills</h4>
       <% @skills.each do |skill| %>
-      <div class="skill_bar">
-        <div class="info">
-          <span><%= link_to skill.name, skill_path(skill) %> (Level: <%= skill.level %>, Points: <%= skill.points %>)</span>
+        <div class="skill_bar">
+          <div class="info">
+            <span><%= link_to skill.name, skill_path(skill) %> (Level: <%= skill.level %>, Points: <%= skill.points %>)</span>
+          </div>
+          <div class="progress-line"><span></span></div>
         </div>
-        <div class="progress-line"><span></span></div>
-      </div>
       <% end %>
       <%= link_to "Add new skill", new_user_skill_path(@user)%>
+    </div>
   </div>
-</div>
-
-<!--   USER BADGES -->
-<div class="flex-item">
-  <div class="profile_card">
-    <h4>Badges</h4>
+  <!--   USER BADGES -->
+  <div class="flex-item">
+    <div class="profile_card">
+      <h4>Badges</h4>
       <ul>
         <% @badges.each do |badge| %>
           <li><%= badge[:skill] %> - <%= badge[:description] %>, on: <%= badge[:assigned] %></li>
         <% end %>
-
       </ul>
+    </div>
   </div>
-</div>
-
-
   <!-- LASTEST POSTS & LINK TO STUDYSESSIONS#INDEX -->
   <div class="flex-item">
     <div class="profile_card">
       <h4>Latest post</h4>
-
       <div id="wrapper">
-
-          <header class="cf">
-            <!-- <img src="http://2016.igem.org/wiki/images/e/e0/Uclascrolldown.png" class="arrow" /> -->
-            <p class="date">3 hr ago</p>
-          </header>
-
-          <p class="status">I've been studying for 13,165 hours!</p>
-          <img class="img-content" src="https://dazedimg-dazedgroup.netdna-ssl.com/1280/azure/dazed-prod/1280/8/1288188.jpg" />
-
-          <div class="action">
-            <div class="like">
-              <a href="#">
-                <i class="far fa-heart fa-sm"></i>
-                <p>Like</p>
-              </a>
-            </div>
-
-            <div class="comment">
-              <a href="#">
-                <i class="far fa-comments fa-sm"></i>
-                <p>Comment</p>
-              </a>
-            </div>
-
+        <header class="cf">
+          <!-- <img src="http://2016.igem.org/wiki/images/e/e0/Uclascrolldown.png" class="arrow" /> -->
+          <p class="date">3 hr ago</p>
+        </header>
+        <p class="status">I've been studying for 13,165 hours!</p>
+        <img class="img-content" src="https://dazedimg-dazedgroup.netdna-ssl.com/1280/azure/dazed-prod/1280/8/1288188.jpg" />
+        <div class="action">
+          <div class="like">
+            <a href="#">
+              <i class="far fa-heart fa-sm"></i>
+              <p>Like</p>
+            </a>
           </div>
-
+          <div class="comment">
+            <a href="#">
+              <i class="far fa-comments fa-sm"></i>
+              <p>Comment</p>
+            </a>
+          </div>
+        </div>
       </div>
+    </div>
   </div>
 </div>
-
-  <%#
-  <br>
-  <div id="app-timer">
-    <div class="container">
-      <div class="app-timer-main">
-        <h1>TIMER</h1>
-        <h1 class="timer">00:00:00</h1>
-        <button class="study_button start"><span>Start</span></button>
-        <%# <button class="btn btn-warning stop">Stop</button>
-        <button class="btn btn-primary reset">Reset</button> %>
-  <%# </div>
-    </div>
-  </div> %>
-</div>
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>
 <div class="study-button">
