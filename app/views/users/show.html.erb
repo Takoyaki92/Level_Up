@@ -1,46 +1,43 @@
 <h1>PROFILE</h1>
 <div class="flex-container">
-  <div class="container-profile">
-    <div class="profile-name">
-      <h1><%= @user.first_name %><%= @user.last_name %></h1>
-      <h2>Username: <%= @user.username %></h2>
-      <br>
-      <h3>Summary</h3>
-      <p>Days Studied: 21</p>
-      <p>Last Day studied: Yesterday</p>
-      <p>Last Subject Studied: Coding</p>
+
+  <div class="profile_card">
+    <div class="container-profile">
+      <div class="profile-name">
+  <!--       <h1><%= @user.first_name %><%= @user.last_name %></h1>
+   -->      <h2><%= @user.username %></h2>
+        <br>
+  <!--       <h3>Summary</h3>
+   -->      <p>Days Studied: 21</p>
+        <p>Last Day studied: Yesterday</p>
+        <p>Last Subject Studied: Coding</p>
+      </div>
     </div>
   </div>
-  <div class="container-profile">
-    <div class="skills-profile">
-      <h3>Skills</h3>
+
+  <div class="profile_card">
       <% @skills.each do |skill| %>
-        <p>Name: <%= link_to skill.name, skill_path(skill) %></p>
-        <p>Level: <%= skill.level %></p>
-        <p>Points: <%= skill.points %></p>
+      <div class="skill_bar">
+        <div class="info">
+          <span><%= link_to skill.name, skill_path(skill) %> (Level: <%= skill.level %>, Points: <%= skill.points %>)</span>
+        </div>
+        <div class="progress-line"><span></span></div>
+      </div>
       <% end %>
-      <%= link_to "Add new skill", new_user_skill_path(@user) %>
-      <h3>Badges</h3>
+      <%= link_to "Add new skill", new_user_skill_path(@user)%>
+  </div>
+<!--
+  This is the badges card!
+  <div class="profile_card">
+    <h3>Badges</h3>
       <ul>
         <% @badges.each do |badge| %>
           <li><%= badge[:skill] %> - <%= badge[:description] %>, on: <%= badge[:assigned] %></li>
         <% end %>
       </ul>
-    </div>
-  </div>
-  <!-- These are the skill progress bar thingies -->
-  <div class="container-profile">
-    <br>
-    <br>
-    <br>
-    <div>
-      <% @skills.each do |skill| %>
-        <div class="skill_bar">
-          <p><%= skill.name %></p>
-        </div>
-      <% end %>
-    </div>
-  </div>
+  </div> -->
+
+
   <%#
   <br>
   <div id="app-timer">
