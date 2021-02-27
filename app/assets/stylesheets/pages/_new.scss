@@ -35,7 +35,7 @@
 #flex-body {
   display: flex;
   flex-direction: row;
-  height: 500px;
+  height: 36rem;
   justify-content: space-between;
 }
 
@@ -58,11 +58,14 @@ h2 {
 #card-submit {
   display: flex;
   flex-direction: column;
-  height: auto;
+  height: 500px;
   width: 500px;
   border-radius: 16px;
   background-color: white;
   box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-  padding: 10px;
+  padding: 24px;
 }
 
+.timer-card {
+  justify-content: space-evenly;
+}
