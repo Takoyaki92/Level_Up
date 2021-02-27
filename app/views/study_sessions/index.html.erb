@@ -52,7 +52,9 @@
               <% post.comments.each do |comment| %>
               <% if comment.user.photo.present? %>
                 <%= cl_image_tag comment.user.photo.key, class: "avatar" %>
-                <% end %>
+              <% else %>
+                <%= image_tag "https://emoji.slack-edge.com/T02NE0241/pduck/659a4bd31b52c211.png", class: "avatar" %>
+              <% end %>
               <p><%= comment.user.username %></p>:
               <%= comment.description %>
               <hr>

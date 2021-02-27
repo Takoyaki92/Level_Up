@@ -15,13 +15,14 @@
       </div> -->
       <div class="summary-advice">
         <div class="summary">
-          <p>So far, you have:</p>
+          <p>Goals you have had:</p>
           <a class="text_field" href="#">
-            <span>Finish Coding Challenge</span>
+            <span><%= @skill.study_sessions.last.goal %></span>
           </a>
           <a class="text_field" href="#">
-            <span>Small Rails Project</span>
+            <span><%= @skill.study_sessions.sample.goal %></span>
           </a>
+          <!-- PLS add conditional if goal is empty, show a different one -->
         </div>
         <div class="advice">
           <p>If you are stuck, consider:</p>
