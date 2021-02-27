@@ -1,13 +1,16 @@
 <h1>Here's what other people have been up to</h1>
 <% @study_sessions.reverse.each do |post| %>
 <div id="wrapper">
-
     <header class="cf">
       <!-- <img src="http://2016.igem.org/wiki/images/e/e0/Uclascrolldown.png" class="arrow" /> -->
-      <a href=#><img class='profile-pic' src=""></a>
+      <% if post.skill.user.photo.present? %>
+        <%= cl_image_tag post.skill.user.photo.key, class: "avatar" %>
+      <% else %>
+        <%= image_tag "https://emoji.slack-edge.com/T02NE0241/pduck/659a4bd31b52c211.png", class: "avatar" %>
+      <% end %>
       <p class="name">
-                    <a href=<%= user_path(post.skill.user) %>><%= post.skill.user.username %></a>
-                </p>
+        <a href=<%= user_path(post.skill.user) %>><%= post.skill.user.username %></a>
+      </p>
 
       <p class="date">
         <% if ((Time.now - post.created_at) / 60).to_i == 0 %>
@@ -21,165 +24,65 @@
     </header>
 
     <p class="status"><%= post.description %></p>
-    <% if user_signed_in? && post.photo.attached? %>
+      <% if user_signed_in? && post.photo.attached? %>
+        <%= cl_image_tag post.photo.key, crop: :fill, class: "img-content" %>
+      <% else %>      
+        <img class="img-content" src="https://london.ac.uk/sites/default/files/styles/promo_mobile/public/2020-04/sb-simone-image.jpg?itok=nAkc3CGk" />
+      <% end %>
 
-            <%= cl_image_tag post.photo.key, crop: :fill, class: "img-content" %>
-
-          <% else %>
-    <img class="img-content" src="https://london.ac.uk/sites/default/files/styles/promo_mobile/public/2020-04/sb-simone-image.jpg?itok=nAkc3CGk" />
-          <% end %>
-
-    <div class="action">
+    <div class="action d-flex justify-content-between">
       <div class="like">
-        <% if post.liked?(current_user) %>
-          <a href="<%=unlike_path(post)%>" method="put">
-          <b><i class="far fa-heart fa-sm"></i>
-          <p>Like</p></b>
+        <i class="far fa-heart fa-sm"></i>
           <p><%= post.likes.count %></p>
+
+      </div>
+    <div class="comment">
+      <a href="#">
+      
+      <i class="far fa-comments fa-sm"></i>
+      <p>
+      <%= post.comments.count%>
+      </p>
+      
+    </div>
+  </div>
+  <div class="actiontwo border-top border-dark d-flex justify-content-around">
+    <div class="like-box">
+     <% if post.liked?(current_user) %>
+          <a href="<%=unlike_path(post)%>" method="put">
+          <p>Unlike</p>
         </a>
         <% else %>
           <a href="<%=like_path(post)%>" method="put">
-          <i class="far fa-heart fa-sm"></i>
           <p>Like</p>
-          <p><%= post.likes.count %></p>
-        <% end %>
-      </div>
-
-      <div class="comment">
-        <a href="#">
-          <div class="comment-list d-flex justify-content-around">
-            <div class = "flex-direction">
-              <% post.comments.each do |comment| %>
-              <% if comment.user.photo.present? %>
-                <%= cl_image_tag comment.user.photo.key, class: "avatar" %>
-              <% else %>
-                <%= image_tag "https://emoji.slack-edge.com/T02NE0241/pduck/659a4bd31b52c211.png", class: "avatar" %>
-              <% end %>
-              <p><%= comment.user.username %></p>:
-              <%= comment.description %>
-              <hr>
-              <% end %>
-            </div>
-          </div>
-          <i class="far fa-comments fa-sm"></i>
-          <p>
-  <a  data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-    Comment
-  </a>
-</p>
-<div class="collapse" id="collapseExample">
-  <div class="card card-body">
-     <%= simple_form_for [post, @comment] do |f| %>
-        <%= f.input :description, label:"Enter Comment" %>
-        <%= f.button :submit, label:"Create", class: "btn btn-primary" %>
       <% end %>
-  </div>
-</div>
-
-      </div>
     </div>
-
-
+    <a  data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    <p>Comment</p>
+      </a>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          <%= simple_form_for [post, @comment] do |f| %>
+            <%= f.input :description, label:"Enter Comment" %>
+            <%= f.button :submit, label:"Create", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+  </div>
+  <div class="comment-list d-flex justify-content-around">
+        <div class = "flex-direction">
+          <% post.comments.each do |comment| %>
+            <% if comment.user.photo.present? %>
+              <%= cl_image_tag comment.user.photo.key, class: "avatar" %>
+            <% else %>
+              <%= image_tag "https://emoji.slack-edge.com/T02NE0241/pduck/659a4bd31b52c211.png", class: "avatar" %>
+            <% end %>
+            <p><%= comment.user.username %></p>:
+            <%= comment.description %>
+            <hr>
+          <% end %>
+        </div>
+      </div>
 </div>
 <% end %>
 
-
-<div id="wrapper">
-
-    <header class="cf">
-      <!-- <img src="http://2016.igem.org/wiki/images/e/e0/Uclascrolldown.png" class="arrow" /> -->
-      <a href=#><img class='profile-pic' src=""></a>
-      <p class="name">
-                    <a href="#">Dog</a>
-                </p>
-      <p class="date">30 minutes ago</p>
-    </header>
-
-    <p class="status">I pressed keys and sounds came out!</p>
-    <img class="img-content" src="https://3milliondogs.com/blog-assets-two/2015/07/dogsplayingpiano.jpg" />
-
-    <div class="action">
-      <div class="like">
-        <a href="#">
-          <i class="far fa-heart fa-sm"></i>
-          <p>Like</p>
-        </a>
-      </div>
-
-      <div class="comment">
-        <a href="#">
-          <i class="far fa-comments fa-sm"></i>
-          <p>Comment</p>
-        </a>
-      </div>
-
-    </div>
-
-</div>
-
-
-<div id="wrapper">
-
-    <header class="cf">
-      <!-- <img src="http://2016.igem.org/wiki/images/e/e0/Uclascrolldown.png" class="arrow" /> -->
-      <a href=#><img class='profile-pic' src=""></a>
-      <p class="name">
-                    <a href="#">Person</a>
-                </p>
-      <p class="date">3 hr ago</p>
-    </header>
-
-    <p class="status">I had a great coding session! 👍</p>
-    <img class="img-content" src="https://miro.medium.com/max/759/1*wH4FVF8QHPEKWqrDykAPgA.jpeg" />
-
-    <div class="action">
-      <div class="like">
-        <a href="#">
-          <i class="far fa-heart fa-sm"></i>
-          <p>Like</p>
-        </a>
-      </div>
-
-      <div class="comment">
-        <a href="#">
-          <i class="far fa-comments fa-sm"></i>
-          <p>Comment</p>
-        </a>
-      </div>
-
-    </div>
-
-</div>
-
-<div id="wrapper">
-
-    <header class="cf">
-      <!-- <img src="http://2016.igem.org/wiki/images/e/e0/Uclascrolldown.png" class="arrow" /> -->
-      <a href=#><img class='profile-pic' src=""></a>
-      <p class="name">
-                    <a href="#">Girl</a>
-                </p>
-      <p class="date">3 hr ago</p>
-    </header>
-
-    <p class="status">I've been studying for 13,165 hours!</p>
-    <img class="img-content" src="https://dazedimg-dazedgroup.netdna-ssl.com/1280/azure/dazed-prod/1280/8/1288188.jpg" />
-
-    <div class="action">
-      <div class="like">
-        <a href="#">
-          <i class="far fa-heart fa-sm"></i>
-          <p>Like</p>
-        </a>
-      </div>
-
-      <div class="comment">
-        <a href="#">
-          <i class="far fa-comments fa-sm"></i>
-          <p>Comment</p>
-        </a>
-      </div>
-
-    </div>
-
-</div>
