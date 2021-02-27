@@ -50,7 +50,11 @@
           <div class="comment-list d-flex justify-content-around">
             <div class = "flex-direction">
               <% post.comments.each do |comment| %>
-              <%= cl_image_tag comment.user.photo.key, class: "avatar" %>
+              <% if comment.user.photo.present? %>
+                <%= cl_image_tag comment.user.photo.key, class: "avatar" %>
+              <% else %>
+                <%= image_tag "https://emoji.slack-edge.com/T02NE0241/pduck/659a4bd31b52c211.png", class: "avatar" %>
+              <% end %>
               <p><%= comment.user.username %></p>:
               <%= comment.description %>
               <hr>
