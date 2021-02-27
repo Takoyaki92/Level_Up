@@ -1,8 +1,7 @@
 .study_button {
-  background-image: linear-gradient(to right, #4700D4 0%, #DD5FDA 100%);
+  background-image: linear-gradient(121.01deg, #4A74B1 28.29%, #54EAFF 71.38%, #82F7FF 85.02%);
   border-radius: 50%;
   box-sizing: border-box;
-  color: #4700D4;
   display: block;
   font: 1.125rem 'Oswald', Arial, sans-serif; /*18*/
   height: 150px;
@@ -14,24 +13,36 @@
   text-transform: uppercase;
   width: 150px;
   z-index: 2;
-}
+  filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+  // -webkit-transition: border 2s ease;
+  // -ms-transition: border 2s ease;
+  transition: background-image 2s ease;
+  transition: font-size 1s ease;
 
-.study_button:hover span {
-  color: #fff;
-  cursor: pointer;
+  &:hover {
+    background-image: linear-gradient(290.46deg, #4A74B1 22.21%, #54EAFF 67.14%, #FFFFFF 86.41%);
+    // border: 1px solid rgba(255, 235, 216, 0.5);
+    box-sizing: border-box;
+    border-radius: 50%;
+    font-size: 40px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+  }
 }
 
 .study_button span {
+  color: #fff;
   align-items: center;
-  background: #e7e8e9;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   height: 100%;
-  transition: background .5s ease;
   width: 100%;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
-.study_button:hover span {
-  background: transparent;
-}
+// .study_button:hover span {
+//   background: transparent;
+// }
