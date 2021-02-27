@@ -1,71 +1,66 @@
-<div class="container stripe">
-  <div class="main">
-    <h2 class="subtitle">Structure your study and</h2>
-    <h1 class="logo">Level Up</h1>
-  </div>
-  <div class="future-searchbar align-middle">
-      <%= form_tag %>
-        <%= text_field_tag :query,
-    params[:query],
-    id: "typedjs",
-    class: "form-control",
-    placeholder: "What do you want to learn?"
-    %>
-    <% if current_user %>
-      <%= link_to "Start!", user_path(current_user), class: "btn btn-primary d-flex align-items-center" %>
+<body class="landing">
+  <div class="container background-img">
+    <div class="main">
+      <h2 class="subtitle">Stay on track and</h2>
+      <h1 class="logo">Level Up</h1>
+    </div>
+    <div class="start-button d-flex justify-content-center">
+      <% if current_user %>
+        <%= link_to "Start!", user_path(current_user)%>
       <% else %>
-    <%= link_to "Start!", new_user_session_path, class: "btn btn-primary d-flex align-items-center" %>
-    <% end %>
-        <%# in future, rewrite routes to link this to skills? %>
+        <%= link_to "Start!", new_user_session_path %>
+      <% end %>
+          <%# in future, rewrite routes to link this to skills? %>
     </div>
-</div>
-  <div class="about_container">
-    <div class="how">
-      <h2>How does it work?</h2>
+  </div>
+    <div class="about_container">
+      <div class="how">
+        <h2>How does it work?</h2>
+      </div>
+        <div class="details d-flex justify-content-around">
+          <div class = "flex-direction">
+            <i class="fas fa-list-ul"></i>
+            <h2>Make a list of all the skills you are learning and add milestones you want to reach.</h2>
+          </div>
+
+          <div class="flex-direction">
+            <i class="far fa-clock"></i>
+            <h2>Select a skill, start a timed study session, and share your progress to earn experience points.</h2>
+          </div>
+
+          <div class="flex-direction">
+            <i class="fas fa-chart-line"></i>
+            <h2>Visualize your progress over time, and achieve milestones through structured learning.</h2>
+          </div>
+
+          <div class="flex-direction">
+            <i class="fas fa-users"></i>
+            <h2>Join a community of people learning the same skills and share your experience.</h2>
+          </div>
+        </div>
+
     </div>
-      <div class="details d-flex justify-content-around">
-        <div class = "flex-direction">
-          <i class="fas fa-list-ul"></i>
-          <h2>Make a list of all the skills you are learning and add milestones you want to reach.</h2>
-        </div>
-
-        <div class="flex-direction">
-          <i class="far fa-clock"></i>
-          <h2>Select a skill, start a timed study session, and share your progress to earn experience points.</h2>
-        </div>
-
-        <div class="flex-direction">
-          <i class="fas fa-chart-line"></i>
-          <h2>Visualize your progress over time, and achieve milestones through structured learning.</h2>
-        </div>
-
-        <div class="flex-direction">
-          <i class="fas fa-users"></i>
-          <h2>Join a community of people learning the same skills and share your experience.</h2>
-        </div>
-      </div>
-
   </div>
-</div>
-<div class="skills ">
-  <div class="check">
-    <h2>Add the skill that you want to learn!</h2>
-  </div>
-  <div class="cards d-flex justify-content-around">
-        <div class = "flex-direction card-category piano">
-          <h3>Piano</h3>
-        </div>
+  <div class="skills ">
+    <div class="check">
+      <h2>Add the skill that you want to learn!</h2>
+    </div>
+    <div class="cards d-flex justify-content-around">
+          <div class = "flex-direction card-category piano">
+            <h3>Piano</h3>
+          </div>
 
-        <div class="flex-direction card-category coding">
-          <h3>Coding</h3>
-        </div>
+          <div class="flex-direction card-category coding">
+            <h3>Coding</h3>
+          </div>
 
-        <div class="flex-direction card-category languages">
-           <h3>Languages</h3>
-        </div>
+          <div class="flex-direction card-category languages">
+            <h3>Languages</h3>
+          </div>
 
-        <div class="flex-direction card-category architecture">
-          <h3>Architecture</h3>
+          <div class="flex-direction card-category architecture">
+            <h3>Architecture</h3>
+          </div>
+    </div>
         </div>
-  </div>
-      </div>
+</body>
