@@ -15,6 +15,12 @@ Rails.application.routes.draw do
     resources :comments, only: [:index, :new, :create, :edit, :update]
   end
 
+  resources :skills do
+   resources :study_session do
+    get '/new/', to: "study_session#nested_new"
+   end
+  end
+
   get '/study_session/:id/like', to: 'study_sessions#like', as: 'like'
   get '/study_session/:id/unlike', to: 'study_sessions#unlike', as: 'unlike'
 

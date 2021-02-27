@@ -7,6 +7,7 @@ class StudySession < ApplicationRecord
   end
 
   validates :description, presence: true
+  validates :goal, presence: true
 
 
 

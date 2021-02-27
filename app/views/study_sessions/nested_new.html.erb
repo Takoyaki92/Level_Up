@@ -1,13 +1,11 @@
-
 <body class="wallpaper">
-  <%= simple_form_for [ @skill, @study_session] do |f| %>
-
   <h2>Choose your skill and goal</h2>
   <div class="container" id="flex-body">
     <div class="study-form" id="card">
       <div>
       </div>
       <div>
+        <%= simple_form_for [ @skill, @study_session] do |f| %>
         <%= f.association :skill, collection: current_user.skills %>
         <%= f.input :goal, as: :text %>
         <%# end %>
@@ -42,20 +40,16 @@
                     <%= f.input :end_time %>
                   </div>
                   <div class="submit-form">
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
                     <%= f.button :submit, "Share!", class: "btn btn-primary" %>
                   </div>
-
-
+                <% end %>
               </div>
             </div>
           </div>
         </div>
+
+
+
 
   </div>
 
@@ -63,7 +57,7 @@
         <div class="btn btn-primary" id="finish">Finish!</div>
       </div>
 
-  <% end %>
+
   </body>
   <!--   create_table "study_sessions", force: :cascade do |t|
     t.string "goal"
