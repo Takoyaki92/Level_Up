@@ -1,38 +1,63 @@
 <body class="wallpaper">
-  <div class="container">
-    <h2>Choose your skill and goal</h2>
-    <%= simple_form_for @study_session do |f| %>
-      <%= f.association :skill, collection: current_user.skills %>
-      <%= f.input :goal, as: :text %>
-      <%# end %>
+  <h2>Choose your skill and goal</h2>
+  <div class="container" id="flex-body">
+    <div class="study-form" id="card">
+      <div>
+      </div>
+      <div>
+        <%= simple_form_for @study_session do |f| %>
+        <%= f.association :skill, collection: current_user.skills %>
+        <%= f.input :goal, as: :text %>
+        <%# end %>
+      </div>
+    </div>
+    <div class="timer-card" id="card">
       <div id="app-timer">
         <div class="app-timer-main">
           <h1>TIMER</h1>
           <h1 class="timer">00:00:00</h1>
+          <br>
+          <br>
+          <br>
+          <br>
           <div class="study_button start"><span>Start</span></div>
-          <%# <button class="btn btn-warning stop">Stop</button>
-          <button class="btn btn-primary reset">Reset</button> %>
         </div>
         <br>
       </div>
-      <div class="btn btn-info" id="finish">Finish!</div>
-      <div id="one" style="display: none;">
-        <h3>Nice work! Make a post so others can see your progress</h3>
-        <div class="row justify-content-center">
-          <div class="col-12">
-            <%#= simple_form_for [ @skill, @study_session ] do |f| %>
-              <%= f.text_area :description, label:"What did you accomplish?", class: "form-control form-control-lg" %>
-              <%= f.collection_radio_buttons :public, [[true, 'Public (Recommended)'] ,[false, 'Private']], :first, :last %>
-              <%= f.input :photo, label: "Show us what you did!", as: :file %>
-              <div id="hidden">
-                <%= f.input :end_time %>              
+    </div>
+
+
+    <div id="one" style="display: none;">
+          <div class="study-submit" id="card-submit">
+            <h3>Nice work! Make a post so others can see your progress</h3>
+            <div class="row justify-content-center">
+              <div class="col-12">
+                <%#= simple_form_for [ @skill, @study_session ] do |f| %>
+                  <%= f.text_area :description, label:"What did you accomplish?", class: "form-control form-control-lg" %>
+                  <%= f.collection_radio_buttons :public, [[true, 'Public (Recommended)'] ,[false, 'Private']], :first, :last %>
+                  <%= f.input :photo, label: "Show us what you did!", as: :file %>
+                  <div id="hidden">
+                    <%= f.input :end_time %>              
+                  </div>
+                  <div class="submit-form">
+                    <%= f.button :submit, "Share!", class: "btn btn-primary" %>
+                  </div>
+                <% end %>
               </div>
-              <%= f.button :submit, "Share!", class: "small_button" %>
-            <% end %>
+            </div>
           </div>
         </div>
+
+
+
+
+  </div>
+
+      <div class="finish-button">
+        <div class="btn btn-primary" id="finish">Finish!</div>
       </div>
-    </div>
+
+      
   </body>
   <!--   create_table "study_sessions", force: :cascade do |t|
     t.string "goal"
