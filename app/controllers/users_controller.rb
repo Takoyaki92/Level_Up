@@ -3,5 +3,15 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @skills = @user.skills
     Merit::RankRules.new.check_rank_rules
+
+    @badges = @skills.map do |skill|
+      skill.sash.badges_sashes.map do |bs|
+        {
+          skill: skill.name,
+          assigned: bs.created_at.strftime("%b %d, %Y"),
+          description: bs.badge.description
+        }
+      end
+    end.flatten
   end
 end
