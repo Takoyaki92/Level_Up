@@ -1,3 +1,9 @@
+.skill_bar_box {
+  padding: 10px;
+  margin: 10px;
+  display: block;
+}
+
 .skill_bar {
   margin: 20px 0;
 }
@@ -8,6 +14,8 @@
 
 .skill_bar .info{
   margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .skill_bar .info span{
@@ -32,6 +40,7 @@
   height: 100%;
   // Change this width to adjust the lenght of the purple bar
   width: 80%;
+  left: 0;
   background: #4A73B1;
   position: absolute;
   border-radius: 10px;
