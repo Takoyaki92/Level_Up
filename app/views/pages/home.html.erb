@@ -6,9 +6,9 @@
     </div>
     <div class="start-button d-flex justify-content-center">
       <% if current_user %>
-        <%= link_to "Start!", user_path(current_user)%>
+        <%= link_to "Start", user_path(current_user)%>
       <% else %>
-        <%= link_to "Start!", new_user_session_path %>
+        <%= link_to "Start", new_user_session_path %>
       <% end %>
           <%# in future, rewrite routes to link this to skills? %>
     </div>
@@ -17,31 +17,31 @@
       <div class="how">
         <h2>How does it work?</h2>
       </div>
-        <div class="details d-flex justify-content-around">
-          <div class = "flex-direction">
+        <div class="details">
+          <div class = "info flex-direction">
             <i class="fas fa-list-ul"></i>
-            <h2>Make a list of all the skills you are learning and add milestones you want to reach.</h2>
+            <h3>List the skills you learn and set your milestones.</h3>
           </div>
 
-          <div class="flex-direction">
+          <div class="info">
             <i class="far fa-clock"></i>
-            <h2>Select a skill, start a timed study session, and share your progress to earn experience points.</h2>
+            <h3>Complete study sessions to earn experience points.</h3>
           </div>
 
-          <div class="flex-direction">
+          <div class="info">
             <i class="fas fa-chart-line"></i>
-            <h2>Visualize your progress over time, and achieve milestones through structured learning.</h2>
+            <h3>Visualize your progress over time.</h3>
           </div>
 
-          <div class="flex-direction">
+          <div class="info">
             <i class="fas fa-users"></i>
-            <h2>Join a community of people learning the same skills and share your experience.</h2>
+            <h3>Share your experience with other learners.</h3>
           </div>
         </div>
 
     </div>
   </div>
-  <div class="skills ">
+   <%# <div class="skills ">
     <div class="check">
       <h2>Add the skill that you want to learn!</h2>
     </div>
@@ -61,6 +61,6 @@
           <div class="flex-direction card-category architecture">
             <h3>Architecture</h3>
           </div>
-    </div>
+    </div> %>
         </div>
 </body>

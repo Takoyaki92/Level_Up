@@ -1,1 +1,18 @@
 // Specific CSS for your home-page
+.start-button {
+	background-color:#4A73B1;
+	border-radius:28px;
+	border:1px solid #4A73B1;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:21px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #0c3066;
+  width: 160px;
+  a {
+    color: white;
+  }
+}
