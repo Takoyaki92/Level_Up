@@ -3,6 +3,15 @@
   padding: 0;
   box-sizing: border-box;
 }
+#background-video {
+  object-fit: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -99;
+}
 
 body {
   // background-color: #E9EBEE;
