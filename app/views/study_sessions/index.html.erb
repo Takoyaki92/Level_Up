@@ -46,7 +46,7 @@
       
     </div>
   </div>
-  <div class="actiontwo border-top border-dark d-flex justify-content-around">
+  <div class="actiontwo border-top border-dark d-flex justify-content-between">
     <div class="like-box">
      <% if post.liked?(current_user) %>
           <a href="<%=unlike_path(post)%>" method="put">
@@ -57,17 +57,20 @@
           <p>Like</p>
       <% end %>
     </div>
-    <a  data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-    <p>Comment</p>
-      </a>
-      <div class="collapse" id="collapseExample">
-        <div class="card card-body">
-          <%= simple_form_for [post, @comment] do |f| %>
-            <%= f.input :description, label:"Enter Comment" %>
-            <%= f.button :submit, label:"Create", class: "btn btn-primary" %>
-          <% end %>
+    <div class="comment-box">
+      <a  data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+      <p>Comment</p>
+        </a>
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">
+            <%= simple_form_for [post, @comment] do |f| %>
+             <%= f.input :description, label:"Enter Comment" %>
+              <%= f.button :submit, label:"Create", class: "btn btn-primary" %>
+            <% end %>
+          </div>
         </div>
-      </div>
+    
+    </div>
   </div>
   <div class="comment-list d-flex justify-content-around">
         <div class = "flex-direction">
