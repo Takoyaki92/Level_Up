@@ -1,24 +1,32 @@
 .about_container {
   background-color: #4A73B1;
-  justify-content: center;
+  justify-content: space-around;
   text-align: center;
   color: white;
 }
 
 .details {
-  display: flex;
-  padding-bottom: 72px;
+  display: grid;
+  justify-content: space-around;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 32px;
+  padding: 72px;
+  margin: -40px;
+}
+.info {
+  text-align: center;
 }
 
-.flex-direction {
-  flex-direction: column;
-}
 i {
   font-size: 80px;
+  margin-bottom: 24px;
 }
 
 .how {
-  padding-top: 32px;
+  padding: 32px;
+  h2 {
+    font-size: 3rem;
+  }
 }
 
 .skills {
