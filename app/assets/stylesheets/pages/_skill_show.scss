@@ -1,11 +1,25 @@
 // Import page-specific CSS files here.
 
 // containering and divs
-.container.skill_show{
+.content {
+  display: grid;
+  grid: auto-flow dense / 1fr 1fr;
+  justify-content: center;
+  margin: 16px 48px;
+}
+
+.user_show {
+  height: 100%;
+  width: 90%;
+  text-align: center;
+}
+
+.skill_show{
   height: auto;
   text-align: center;
-  margin-top: 16px;
-
+  display: grid;
+  grid: auto-flow / 1fr;
+  width: 90%;
 }
 
 .card-show {
@@ -19,14 +33,31 @@
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-bottom: 24px;
+  height: auto;
+
+  .badges {
+    display: grid;
+    grid: auto-flow / 1fr 1fr 1fr 1fr;
+    width: 100%;
+
+    * {
+      margin: 16px auto;
+    }
+  }
 }
 
 .summary-advice {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
+  height: auto;
 
   a {
+    width: 250px;
+    margin: 16px 0;
+  }
+
+  div {
     width: 250px;
     margin: 16px 0;
   }
@@ -44,8 +75,10 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-top: 32px;
+  height: auto;
+
   a {
     margin: 10px;
   }
@@ -60,11 +93,11 @@ ul {
 
 // button CSS
 
-#skill_show {
+#start_button {
   display: flex;
   justify-content: center;
-  margin: 16px;
-  width: auto;
+  margin: 16px auto;
+  width: 300px;
   padding: 16px;
 
   span {

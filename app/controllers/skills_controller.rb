@@ -5,7 +5,20 @@ class SkillsController < ApplicationController
   def show
     Merit::RankRules.new.check_rank_rules
     @skill = Skill.find(params[:id])
-    # raise
+    # copying the badges from user/show for skill/show
+    @user = User.find(params[:id])
+    @skills = @user.skills
+    Merit::RankRules.new.check_rank_rules
+
+    @badges = @skills.map do |skill|
+      skill.sash.badges_sashes.map do |bs|
+        {
+          skill: skill.name,
+          assigned: bs.created_at.strftime("%b %d, %Y"),
+          description: bs.badge.description
+        }
+      end
+    end.flatten
   end
 
   def new
