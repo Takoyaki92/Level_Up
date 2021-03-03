@@ -51,7 +51,7 @@ finish.addEventListener('click', () => {
   const seconds = calculateEnd();
   timeRecordHour.value = Math.round(seconds / 3600).toString().padStart(2, "0");
   timeRecordMinute.value = Math.round(seconds / 60).toString().padStart(2, "0");
-}); 
+});
 
   start.onclick = () =>  {
     if (timerRunning) {
@@ -72,8 +72,8 @@ finish.addEventListener('click', () => {
   function calculateEnd() {
     recordEndTime = performance.now();
     let timeDiff = recordEndTime - recordStartTime;
-    timeDiff /= 1000; 
-    
+    timeDiff /= 1000;
+
     let seconds = Math.round(timeDiff);
     return seconds
   };
