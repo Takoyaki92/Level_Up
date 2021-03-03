@@ -5,11 +5,13 @@ const finish= () => {
 
   button.addEventListener('click', (event) => {
     const post = document.getElementById("one");
+    const vid = document.getElementById("background-video");
     // button.insertAdjacentHTML('afterend', post)
     post.style.display = "";
     button.style.display = "none";
     start.style.display = "none";
     hidden.style.display = "none";
+    vid.style.display = "none";
   });
 
 };

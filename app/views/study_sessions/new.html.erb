@@ -1,4 +1,10 @@
-<body class="wallpaper">
+<div class="video-wallpaper">
+  <video autoplay muted loop id="background-video" style="display: none;">
+      <source src="<%= image_path("beach.mp4") %>" type="video/mp4">
+    </video>
+  <audio controls autoplay loop id="beach-sounds">
+  <source src="<%= image_path("beach-sounds.wav") %>" type="audio/wav">
+  </audio>
   <h2>Choose your skill and goal</h2>
   <div class="container" id="flex-body">
     <div class="study-form" id="card">
@@ -20,7 +26,7 @@
           <br>
           <br>
           <br>
-          <div class="study_button start"><span>Start</span></div>
+          <div class="study_button start" ><span id="start">Start</span></div>
         </div>
         <br>
       </div>
@@ -61,7 +67,8 @@
       </div>
 
       
-  </body>
+  </div>
+  <div>Background audio track provided by <a href='https://noises.online' title='Noises.Online' target='_blank'>Noises.Online</a> under a <a href='http://creativecommons.org/licenses/by/3.0/' title='Creative Commons BY 3.0' target='_blank'>CC 3.0 BY</a> license.</div>
   <!--   create_table "study_sessions", force: :cascade do |t|
     t.string "goal"
     t.datetime "start_time"
