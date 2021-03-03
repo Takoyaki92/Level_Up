@@ -1,4 +1,7 @@
-
+Milestone.destroy_all
+StudySession.destroy_all
+Skill.destroy_all
+User.destroy_all
 
 puts "Database cleared!"
 # Users
@@ -66,4 +69,3 @@ pancake = StudySession.new(description: "make one simple pancake")
 pancake.skill = cooking
 pancake.save!
 puts "Study Sessions created!"
-

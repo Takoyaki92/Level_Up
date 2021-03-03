@@ -33,6 +33,8 @@ module Merit
       score 50, to: :skill, on: 'milestones#complete' do |milestone|
         milestone.complete_date.present?
       end
+
+      # study session give 10 points per minute
     end
   end
 end
