@@ -9,73 +9,101 @@
       <hr>
       <h4>Badges</h4>
       <div class="badges">
-        <%# @badges.each do |badge| %>
+        <div class="single-badge">
           <%= image_tag "badge_01.png", style: "width: 88px;" %>
-          <%= image_tag "badge_01.png", style: "width: 88px;" %>
-          <%= image_tag "badge_01.png", style: "width: 88px;" %>
-          <%= image_tag "badge_01.png", style: "width: 88px;" %>
-          <%= image_tag "badge_01.png", style: "width: 88px;" %>
-          <%= image_tag "badge_01.png", style: "width: 88px;" %>
-          <!-- <li><%#= badge[:description] %> <%#= badge[:assigned] %></li> -->
-          <%# end %>
+          <div class="info-window">
+            <p>Milestone!, on: February 28th</p>
+          </div>
         </div>
+        <div class="single-badge">
+          <%= image_tag "badge_01.png", style: "width: 88px;" %>
+          <div class="info-window">
+            <p>Milestone!, on: February 28th</p>
+          </div>
+        </div>
+        <div class="single-badge">
+          <%= image_tag "badge_01.png", style: "width: 88px;" %>
+          <div class="info-window">
+            <p>Milestone!, on: February 28th</p>
+          </div>
+        </div>
+        <div class="single-badge">
+          <%= image_tag "badge_01.png", style: "width: 88px;" %>
+          <div class="info-window">
+            <p>Milestone!, on: February 28th</p>
+          </div>
+        </div>
+        <div class="single-badge">
+          <%= image_tag "badge_01.png", style: "width: 88px;" %>
+          <div class="info-window">
+            <p>Milestone!, on: February 28th</p>
+          </div>
+        </div>
+        <div class="single-badge">
+          <%= image_tag "badge_01.png", style: "width: 88px;" %>
+          <div class="info-window">
+            <p>Milestone!, on: February 28th</p>
+          </div>
+        </div>
+        <!-- <li><%#= badge[:description] %> <%#= badge[:assigned] %></li> -->
       </div>
-      <a class="small_button" id="start_button" href=<%= "/skills/#{params[:id]}/study_sessions/new"%>>
-        <span>Start this study session</span>
-      </a>
-      <br>
-      <%= link_to "Back to Profile", user_path(current_user), style: "color: black;"  %>
     </div>
-    <!-- Card - Study Session Goals and Advice -->
-    <div class="skill_show">
-      <div class="summary-advice card-show">
-        <div class="summary">
-          <h5>Goals you have had:</h5>
-          <!-- Conditional in case study sessions is nil -->
-          <% if @skill.study_sessions.present? %>
-            <a class="text_field" href="#">
-              <span><%= @skill.study_sessions.last.goal %></span>
-            </a>
-          <% else %>
-            <div class="text_field">
-              <span>Your study session goals...</span>
-            </div>
-          <% end %>
-          <% if @skill.study_sessions.present? %>
-            <a class="text_field" href="#">
-              <span><%= @skill.study_sessions.last.goal %></span>
-            </a>
-          <% else %>
-            <div class="text_field">
-              <span>... will appear here!</span>
-            </div>
-          <% end %>
-        </div>
-        <!-- Advice column -->
-        <div class="advice">
-          <h5>If you are stuck, consider:</h5>
+    <a class="small_button" id="start_button" href=<%= "/skills/#{params[:id]}/study_sessions/new"%>>
+      <span>Start this study session</span>
+    </a>
+    <br>
+    <%= link_to "Back to Profile", user_path(current_user), style: "color: black;"  %>
+  </div>
+  <!-- Card - Study Session Goals and Advice -->
+  <div class="skill_show">
+    <div class="summary-advice card-show">
+      <div class="summary">
+        <h5>Goals you have had:</h5>
+        <!-- Conditional in case study sessions is nil -->
+        <% if @skill.study_sessions.present? %>
           <a class="text_field" href="#">
-            <span>Host Project on Heroku</span>
+            <span><%= @skill.study_sessions.last.goal %></span>
           </a>
+        <% else %>
+          <div class="text_field">
+            <span>Have more study sessions!</span>
+          </div>
+        <% end %>
+        <% if @skill.study_sessions.count >= 2 %>
           <a class="text_field" href="#">
-            <span>Pair Program w/ Friend</span>
+            <span><%= @skill.study_sessions.sample.goal %></span>
           </a>
-        </div>
+        <% else %>
+          <div class="text_field">
+            <span>Fill this with goals!</span>
+          </div>
+        <% end %>
       </div>
-      <!-- Card - Milestones -->
-      <div class="milestones card-show">
-        <h2><%= @skill.name %> milestones!</h2>
-        <div>
-          <% @skill.milestones.each do |milestone| %>
-            <ul>
-              <li class=<%="#{'complete' if milestone.complete_date}"%>><%= milestone.goal %> <%= milestone.complete_date ? milestone.complete_date.strftime("%b %d, %Y") : button_to("done?", "/milestones/#{milestone.id}/complete", method: :patch, form_class: "done") %></li>
-            </ul>
-          <% end %>
-          <!-- These are the text fields for setting milestones, etc. -->
-          <a class="text_field" href=<%="/skills/#{params[:id]}/milestones/new"%>>
-            <span>Add a new milestone</span>
-          </a>
-        </div>
+      <!-- Advice column -->
+      <div class="advice">
+        <h5>If you are stuck, consider:</h5>
+        <a class="text_field" href="#">
+          <span>Host Project on Heroku</span>
+        </a>
+        <a class="text_field" href="#">
+          <span>Pair Program w/ Friend</span>
+        </a>
+      </div>
+    </div>
+    <!-- Card - Milestones -->
+    <div class="milestones card-show">
+      <h2><%= @skill.name %> milestones!</h2>
+      <div>
+        <% @skill.milestones.each do |milestone| %>
+          <ul>
+            <li class=<%="#{'complete' if milestone.complete_date}"%>><%= milestone.goal %> <%= milestone.complete_date ? milestone.complete_date.strftime("%b %d, %Y") : button_to("done?", "/milestones/#{milestone.id}/complete", method: :patch, form_class: "done") %></li>
+          </ul>
+        <% end %>
+        <!-- These are the text fields for setting milestones, etc. -->
+        <a class="text_field" href=<%="/skills/#{params[:id]}/milestones/new"%>>
+          <span>Add a new milestone</span>
+        </a>
       </div>
     </div>
   </div>
+</div>

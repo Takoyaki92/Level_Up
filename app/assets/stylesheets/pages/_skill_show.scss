@@ -12,6 +12,7 @@
   height: 100%;
   width: 90%;
   text-align: center;
+  margin: auto;
 }
 
 .skill_show{
@@ -20,6 +21,7 @@
   display: grid;
   grid: auto-flow / 1fr;
   width: 90%;
+  margin: 0 auto auto;
 }
 
 .card-show {
@@ -40,10 +42,22 @@
     grid: auto-flow / 1fr 1fr 1fr 1fr;
     width: 100%;
 
-    * {
+    img {
       margin: 16px auto;
+
+    }
+
+    .single-badge:hover .info-window {
+      display: block;
     }
   }
+}
+
+.info-window {
+  display: none;
+  text-align: center;
+  align-items: center;
+  position: absolute;
 }
 
 .summary-advice {

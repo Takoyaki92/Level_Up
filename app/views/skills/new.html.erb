@@ -1,5 +1,13 @@
-<%= simple_form_for [ @user, @skill ] do |f| %>
-  <%= f.input :name, label:"Please describe the skill you want to learn" %>
-  <%= f.button :submit, label:"Book", class: "btn btn-primary" %>
-<% end %>
-<%= link_to "Back", user_path(@user)  %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-12" style="text-align: center;  ">
+      <!-- SIMPLE FORM FOR NEW SKILL -->
+      <%= simple_form_for [ @user, @skill ] do |f| %>
+        <%= f.input :name, label:"Please describe the skill you want to learn" %>
+        <%= f.button :submit, label:"Book", class: "btn btn-primary" %>
+      <% end %>
+      <br>
+      <%= link_to "Back", user_path(@user)  %>
+    </div>
+  </div>
+</div>
