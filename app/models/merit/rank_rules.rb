@@ -45,6 +45,9 @@ module Merit
       set_rank level: 1, to: Skill do |skill|
         skill.points >= 0 && skill.points < 10.0
       end
+
+      # 1.5x times to reach next lvl up to level 99?
+      # 600 lvl 1, 800 lvl 2?
     end
   end
 end
