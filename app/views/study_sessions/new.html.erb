@@ -2,15 +2,15 @@
   <%= simple_form_for [ @skill, @study_session] do |f| %>
 
 <div class="video-wallpaper">
-  <video autoplay muted loop id="background-video" style="display: none;">
+  <video muted loop id="background-video">
       <source src="<%= image_path("beach.mp4") %>" type="video/mp4">
     </video>
-  <audio controls autoplay loop id="beach-sounds">
+  <audio loop id="beach-sounds">
   <source src="<%= image_path("beach-sounds.wav") %>" type="audio/wav">
   </audio>
   <h2>Choose your skill and goal</h2>
   <div class="container" id="flex-body">
-    <div class="study-form" id="card">
+    <div class="card-style" id="card">
       <div>
       </div>
       <div>
@@ -19,11 +19,11 @@
         <%# end %>
       </div>
     </div>
-    <div class="timer-card" id="card">
+    <div class="card-style" id="time-card">
       <div id="app-timer">
         <div class="app-timer-main">
           <h1>TIMER</h1>
-          <h1 class="timer">00:00:00</h1>
+          <h1 class="timer">00:00</h1>
           <br>
           <br>
           <br>
@@ -36,7 +36,7 @@
 
 
     <div id="one" style="display: none;">
-          <div class="study-submit" id="card-submit">
+          <div class="card-style" id="submit-card">
             <h3>Nice work! Make a post so others can see your progress</h3>
             <div class="row justify-content-center">
               <div class="col-12">
