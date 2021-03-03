@@ -45,7 +45,9 @@ module Merit
       #   user.name.length > 4
       # end
 
-      grant_on 'user#show', badge_id: 1, to: :skill do |skill|
+      # SYNTAX BELOW IS WRONG, DOES NOT GRANT/SHOW, PLS CORRECT!!!
+
+      grant_on 'skill#show', badge_id: 1, to: :skill do |skill|
         skill.study_sessions.count >= 1 && skill.study_sessions.count < 10
       end
 
@@ -60,6 +62,8 @@ module Merit
       grant_on 'study_sessions#create', badge_id: 4, to: :user do |session|
         session.skill.study_sessions.count >= 100
       end
+
+      # MILESTONE BADGE IS DONE!
 
       grant_on 'milestones#complete', badge_id: 5, to: :skill, multiple: true do |milestone|
         milestone.complete_date.nil? == false
