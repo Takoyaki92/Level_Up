@@ -22,7 +22,7 @@ const initTimer= () => {
     };
 
     function makeTimeString() {
-      return (min ? (min > 9 ? min : "0" + min) : "00") + ":" + (sec ? (sec > 9 ? sec : "0" + sec) : "00") + ":" + (mil > 9 ? mil : "0" + mil)
+      return (min ? (min > 9 ? min : "0" + min) : "00") + ":" + (sec ? (sec > 9 ? sec : "0" + sec) : "00") 
     };
 
       timer.innerText = makeTimeString()
@@ -35,7 +35,7 @@ const initTimer= () => {
   };
 
   function resetTimer() {
-    timer.innerText = "00:00:00"
+    timer.innerText = "00:00"
     mil=0;
     sec=0;
     min=0;
