@@ -42,9 +42,10 @@
     grid: auto-flow / 1fr 1fr 1fr 1fr;
     width: 100%;
 
-    img {
+    .single-badge {
+      // background-image: url("/images/badge_02.png");
+      // background-size: cover;
       margin: 16px auto;
-
     }
 
     .single-badge:hover .info-window {
@@ -55,8 +56,6 @@
 
 .info-window {
   display: none;
-  text-align: center;
-  align-items: center;
   position: absolute;
 }
 

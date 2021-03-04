@@ -10,6 +10,7 @@ class SkillsController < ApplicationController
     @skills = @user.skills
     Merit::RankRules.new.check_rank_rules
 
+    # We map all badges for all the users skills to display on user#show
     @badges = @skills.map do |skill|
       skill.sash.badges_sashes.map do |bs|
         {
@@ -19,6 +20,15 @@ class SkillsController < ApplicationController
         }
       end
     end.flatten
+
+    # We map all badges for a specific skill to display on skill#show
+    @badge = @skill.sash.badges_sashes.map do |bs|
+      {
+        assigned: bs.created_at.strftime("%b %d, %Y"),
+        description: bs.badge.description,
+        # image: bs.badge.custom_fields[:image]
+      }
+    end
   end
 
   def new

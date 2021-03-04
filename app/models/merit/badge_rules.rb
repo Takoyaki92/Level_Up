@@ -52,15 +52,15 @@ module Merit
       end
 
       grant_on 'study_sessions#create', badge_id: 2, to: :skill do |study_session|
-        session.skill.study_sessions.count >= 10 && study_session.skill.study_sessions.count < 50
+        study_session.skill.study_sessions.count >= 10 && study_session.skill.study_sessions.count < 50
       end
 
       grant_on 'study_sessions#create', badge_id: 3, to: :skill do |study_session|
-        session.skill.study_sessions.count >= 50 && study_session.skill.study_sessions.count < 100
+        study_session.skill.study_sessions.count >= 50 && study_session.skill.study_sessions.count < 100
       end
 
       grant_on 'study_sessions#create', badge_id: 4, to: :skill do |study_session|
-        session.skill.study_sessions.count >= 100 && study_session.skill.study_sessions.count < 200
+        study_session.skill.study_sessions.count >= 100 && study_session.skill.study_sessions.count < 200
       end
 
       # MILESTONE BADGE IS DONE!
