@@ -18,13 +18,11 @@ class StudySessionsController < ApplicationController
 
   def create
     # @skill = Skill.find(study_session_params[:skill_id])
-    @study_session = StudySession.new(study_session_params)
-    # @study_session.skill = @skill
-    # @study_session.skill.user = current_user
-    # @study_session.user = current_user
-    if @study_session.save
+    study_session = StudySession.new(study_session_params)
+    # merit gem needs an instance method but can not be Model.new!
+    if study_session.save
+      @study_session = study_session
       redirect_to study_sessions_path
-      # Might need to change this later
     else
       render :new
     end
@@ -54,5 +52,3 @@ class StudySessionsController < ApplicationController
   end
 
 end
-
-

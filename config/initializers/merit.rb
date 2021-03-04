@@ -56,5 +56,6 @@ Merit::Badge.create(
 Merit::Badge.create(
   id: 5,
   name: "milestone_complete",
-  description: "Milestone completed!"
+  description: "Milestone completed!",
+  custom_fields: { image: "test" }
 )

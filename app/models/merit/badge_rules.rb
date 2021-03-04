@@ -47,20 +47,20 @@ module Merit
 
       # SYNTAX BELOW IS WRONG, DOES NOT GRANT/SHOW, PLS CORRECT!!!
 
-      grant_on 'skill#show', badge_id: 1, to: :skill do |skill|
-        skill.study_sessions.count >= 1 && skill.study_sessions.count < 10
+      grant_on 'study_sessions#create', badge_id: 1, to: :skill do |study_session|
+        study_session.skill.study_sessions.count >= 1 && study_session.skill.study_sessions.count < 10
       end
 
-      grant_on 'study_sessions#create', badge_id: 2, to: :user do |session|
-        session.skill.study_sessions.count >= 10
+      grant_on 'study_sessions#create', badge_id: 2, to: :skill do |study_session|
+        study_session.skill.study_sessions.count >= 10 && study_session.skill.study_sessions.count < 50
       end
 
-      grant_on 'study_sessions#create', badge_id: 3, to: :user do |session|
-        session.skill.study_sessions.count >= 50
+      grant_on 'study_sessions#create', badge_id: 3, to: :skill do |study_session|
+        study_session.skill.study_sessions.count >= 50 && study_session.skill.study_sessions.count < 100
       end
 
-      grant_on 'study_sessions#create', badge_id: 4, to: :user do |session|
-        session.skill.study_sessions.count >= 100
+      grant_on 'study_sessions#create', badge_id: 4, to: :skill do |study_session|
+        study_session.skill.study_sessions.count >= 100 && study_session.skill.study_sessions.count < 200
       end
 
       # MILESTONE BADGE IS DONE!
