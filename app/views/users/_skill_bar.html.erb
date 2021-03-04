@@ -1,0 +1,11 @@
+<div class="skill_bar_box">
+  <% skills.each do |skill| %>
+    <div class="skill_bar">
+      <div class="info">
+        <p><%= link_to skill.name, skill_path(skill) %> (Level: <%= skill.level %>, Points: <%= skill.points %>)</p>
+<!--         <span><%= link_to skill.name, skill_path(skill) %> (Level: <%= skill.level %>, Points: <%= skill.points %>)</span> -->
+      </div>
+      <div class="progress-line"><span></span></div>
+    </div>
+  <% end %>
+</div>

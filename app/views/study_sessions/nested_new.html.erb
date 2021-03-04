@@ -1,0 +1,72 @@
+<body class="wallpaper">
+  <h2>Choose your skill and goal</h2>
+  <div class="container" id="flex-body">
+    <div class="study-form" id="card">
+      <div>
+      </div>
+      <div>
+        <%= simple_form_for [ @skill, @study_session] do |f| %>
+        <%= f.association :skill, collection: current_user.skills %>
+        <%= f.input :goal, as: :text %>
+        <%# end %>
+      </div>
+    </div>
+    <div class="timer-card" id="card">
+      <div id="app-timer">
+        <div class="app-timer-main">
+          <h1>TIMER</h1>
+          <h1 class="timer">00:00:00</h1>
+          <br>
+          <br>
+          <br>
+          <br>
+          <div class="study_button start"><span>Start</span></div>
+        </div>
+        <br>
+      </div>
+    </div>
+
+
+    <div id="one" style="display: none;">
+          <div class="study-submit" id="card-submit">
+            <h3>Nice work! Make a post so others can see your progress</h3>
+            <div class="row justify-content-center">
+              <div class="col-12">
+                <%#= simple_form_for [ @skill, @study_session ] do |f| %>
+                  <%= f.text_area :description, label:"What did you accomplish?", class: "form-control form-control-lg" %>
+                  <%= f.collection_radio_buttons :public, [[true, 'Public (Recommended)'] ,[false, 'Private']], :first, :last %>
+                  <%= f.input :photo, label: "Show us what you did!", as: :file %>
+                  <div id="hidden">
+                    <%= f.input :end_time %>
+                  </div>
+                  <div class="submit-form">
+                    <%= f.button :submit, "Share!", class: "btn btn-primary" %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+  </div>
+
+      <div class="finish-button">
+        <div class="btn btn-primary" id="finish">Finish!</div>
+      </div>
+
+
+  </body>
+  <!--   create_table "study_sessions", force: :cascade do |t|
+    t.string "goal"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.text "description"
+    t.boolean "public", default: false
+    t.bigint "skill_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["skill_id"], name: "index_study_sessions_on_skill_id"
+  end -->

@@ -1,28 +1,85 @@
-<div class="container skill_show">
-  <div>
+<div class="content">
+  <!-- Card - User Summary and Info -->
+  <div class="user_show">
     <div class="card-show">
       <h1><%= @skill.name %>!</h1>
       <h5>Hours spent studying: 20</h5>
       <h5>Level: <%= @skill.level %></h5>
       <h4>Points: <%= @skill.points %></h4>
-      <a class="small_button" id="skill_show" href=<%= "/skills/#{params[:id]}/study_sessions/new"%>>
-        <span>Start this study session</span>
-      </a>
+      <hr>
+      <h4>Badges</h4>
+      <div class="badges">
+        <div class="single-badge">
+          <%= image_tag "badge_01.png", style: "width: 88px;" %>
+          <div class="info-window">
+            <p>Milestone!, on: February 28th</p>
+          </div>
+        </div>
+        <div class="single-badge">
+          <%= image_tag "badge_01.png", style: "width: 88px;" %>
+          <div class="info-window">
+            <p>Milestone!, on: February 28th</p>
+          </div>
+        </div>
+        <div class="single-badge">
+          <%= image_tag "badge_01.png", style: "width: 88px;" %>
+          <div class="info-window">
+            <p>Milestone!, on: February 28th</p>
+          </div>
+        </div>
+        <div class="single-badge">
+          <%= image_tag "badge_01.png", style: "width: 88px;" %>
+          <div class="info-window">
+            <p>Milestone!, on: February 28th</p>
+          </div>
+        </div>
+        <div class="single-badge">
+          <%= image_tag "badge_01.png", style: "width: 88px;" %>
+          <div class="info-window">
+            <p>Milestone!, on: February 28th</p>
+          </div>
+        </div>
+        <div class="single-badge">
+          <%= image_tag "badge_01.png", style: "width: 88px;" %>
+          <div class="info-window">
+            <p>Milestone!, on: February 28th</p>
+          </div>
+        </div>
+        <!-- <li><%#= badge[:description] %> <%#= badge[:assigned] %></li> -->
+      </div>
     </div>
-    <!--       <div class="small_button">
-        <span><#%= link_to "Study Session for #{@skill.name}", new_skill_study_session_path(@skill)  %></span>
-      </div> -->
+    <a class="small_button" id="start_button" href=<%= "/skills/#{params[:id]}/study_sessions/new"%>>
+      <span>Start this study session</span>
+    </a>
+    <br>
+    <%= link_to "Back to Profile", user_path(current_user), style: "color: black;"  %>
+  </div>
+  <!-- Card - Study Session Goals and Advice -->
+  <div class="skill_show">
     <div class="summary-advice card-show">
       <div class="summary">
         <h5>Goals you have had:</h5>
-        <a class="text_field" href="#">
-          <span><%= @skill.study_sessions.last.goal %></span>
-        </a>
-        <a class="text_field" href="#">
-          <span><%= @skill.study_sessions.sample.goal %></span>
-        </a>
-        <!-- PLS add conditional if goal is empty, show a different one -->
+        <!-- Conditional in case study sessions is nil -->
+        <% if @skill.study_sessions.present? %>
+          <a class="text_field" href="#">
+            <span><%= @skill.study_sessions.last.goal %></span>
+          </a>
+        <% else %>
+          <div class="text_field">
+            <span>Have more study sessions!</span>
+          </div>
+        <% end %>
+        <% if @skill.study_sessions.count >= 2 %>
+          <a class="text_field" href="#">
+            <span><%= @skill.study_sessions.sample.goal %></span>
+          </a>
+        <% else %>
+          <div class="text_field">
+            <span>Fill this with goals!</span>
+          </div>
+        <% end %>
       </div>
+      <!-- Advice column -->
       <div class="advice">
         <h5>If you are stuck, consider:</h5>
         <a class="text_field" href="#">
@@ -33,6 +90,7 @@
         </a>
       </div>
     </div>
+    <!-- Card - Milestones -->
     <div class="milestones card-show">
       <h2><%= @skill.name %> milestones!</h2>
       <div>
@@ -46,6 +104,6 @@
           <span>Add a new milestone</span>
         </a>
       </div>
-      <%= link_to "Back to User", user_path(current_user), style: "color: black"  %>
     </div>
   </div>
+</div>
