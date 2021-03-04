@@ -1,12 +1,16 @@
 <h1>PROFILE</h1>
 <div class="flex-container">
   <!-- USERNAME AND SKILLS -->
-  <div class="flex-item">
+  <div class="left-side">
+
     <div class="skills_card">
-      <h4>User info</h4>
       <div class="container-profile">
         <div class="profile-name">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-profile-page", alt: "avatar-large"%>
+          <% if user_signed_in? && current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar-profile-page", alt: "avatar-large" %>
+          <% else %>
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-profile-page", alt: "avatar-large" %>
+          <% end %>
           <h2><%= @user.username %></h2>
           <br>
           <h4>Skills</h4>
@@ -15,10 +19,12 @@
         </div>
       </div>
     </div>
+
   </div>
-  <div class="flex-container">
+
     <!--   USER BADGES -->
-    <div class="flex-item">
+    <div class="right-side">
+
       <div class="badges_card">
         <h4>Badges</h4>
         <ul>
@@ -27,9 +33,9 @@
           <% end %>
         </ul>
       </div>
-    </div>
+
     <!-- LASTEST POSTS & LINK TO STUDYSESSIONS#INDEX -->
-    <div class="flex-item">
+
       <div class="time_card">
         <h4>Latest post</h4>
         <div id="wrapper">
@@ -42,20 +48,20 @@
           <div class="action">
             <div class="like">
               <a href="#">
-                <i class="far fa-heart fa-sm"></i>
-                <p>Like</p>
+              <i class="far fa-heart fa-sm"></i>
+              <p>Like</p>
               </a>
             </div>
-            <div class="comment">
-              <a href="#">
-                <i class="far fa-comments fa-sm"></i>
-                <p>Comment</p>
-              </a>
-            </div>
+          <div class="comment">
+          <a href="#">
+          <i class="far fa-comments fa-sm"></i>
+          <p>Comment</p>
+          </a>
           </div>
         </div>
       </div>
     </div>
+
   </div>
 </div>
 <br>
