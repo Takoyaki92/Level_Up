@@ -34,7 +34,15 @@ import { start } from '../components/start';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  initTimer();
-  finish();
-  start();
+  if (document.querySelector('.timer')) {
+    initTimer();
+  }
+
+  if (document.querySelector('#finish')) {
+    finish();
+  }
+
+  if (document.querySelector('#start')) {
+    start();
+  }
 });
