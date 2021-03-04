@@ -7,7 +7,6 @@
     <% if index.odd? %>
       <%# <div class="row-right">
     <% end %>
-        <div class="column">
           <div id="wrapper">
               <header class="cf">
                 <!-- <img src="http://2016.igem.org/wiki/images/e/e0/Uclascrolldown.png" class="arrow" /> -->
@@ -63,11 +62,11 @@
                   </a>
                   <% else %>
                     <a href="<%=like_path(post)%>" method="put">
-                    <p>Like</p>
+                    <p id="like-<%= post.id %>">Like</p>
                 <% end %>
               </div>
               
-              <div class="container">
+              <div class="container" id="comment-container">
                 <div class="comment-box">
                   <a  data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                   <p>Comment</p>
@@ -84,7 +83,7 @@
               
               </div>
             </div>
-            <div class="comment-list d-flex justify-content-around">
+            <div class="comment-list d-flex justify-content-left">
                   <div class = "flex-direction">
                     <% post.comments.each do |comment| %>
                       <% if comment.user.photo.present? %>
@@ -94,12 +93,10 @@
                       <% end %>
                       <p id="comment-<%= comment.id %>"><%= comment.user.username %></p>:
                       <%= comment.description %>
-                      <hr>
                     <% end %>
                   </div>
                 </div>
           </div>
-        </div>
       </div>
     <%# <% end %>
   <% end %> 
