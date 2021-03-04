@@ -9,43 +9,14 @@
       <hr>
       <h4>Badges</h4>
       <div class="badges">
-        <div class="single-badge">
-          <%= image_tag "badge_01.png", style: "width: 88px;" %>
-          <div class="info-window">
-            <p>Milestone!, on: February 28th</p>
+        <% @badges.each do |badge| %>
+          <div class="single-badge">
+            <%= image_tag "badge_01.png", style: "width: 88px;" %>
+            <div class="info-window">
+              <p><%= badge[:description] %> on: <%= badge[:assigned] %></p>
+            </div>
           </div>
-        </div>
-        <div class="single-badge">
-          <%= image_tag "badge_01.png", style: "width: 88px;" %>
-          <div class="info-window">
-            <p>Milestone!, on: February 28th</p>
-          </div>
-        </div>
-        <div class="single-badge">
-          <%= image_tag "badge_01.png", style: "width: 88px;" %>
-          <div class="info-window">
-            <p>Milestone!, on: February 28th</p>
-          </div>
-        </div>
-        <div class="single-badge">
-          <%= image_tag "badge_01.png", style: "width: 88px;" %>
-          <div class="info-window">
-            <p>Milestone!, on: February 28th</p>
-          </div>
-        </div>
-        <div class="single-badge">
-          <%= image_tag "badge_01.png", style: "width: 88px;" %>
-          <div class="info-window">
-            <p>Milestone!, on: February 28th</p>
-          </div>
-        </div>
-        <div class="single-badge">
-          <%= image_tag "badge_01.png", style: "width: 88px;" %>
-          <div class="info-window">
-            <p>Milestone!, on: February 28th</p>
-          </div>
-        </div>
-        <!-- <li><%#= badge[:description] %> <%#= badge[:assigned] %></li> -->
+        <% end %>
       </div>
     </div>
     <a class="small_button" id="start_button" href=<%= "/skills/#{params[:id]}/study_sessions/new"%>>

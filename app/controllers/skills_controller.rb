@@ -6,7 +6,7 @@ class SkillsController < ApplicationController
     Merit::RankRules.new.check_rank_rules
     @skill = Skill.find(params[:id])
     # copying the badges from user/show for skill/show
-    @user = User.find(params[:id])
+    @user = @skill.user
     @skills = @user.skills
     Merit::RankRules.new.check_rank_rules
 
