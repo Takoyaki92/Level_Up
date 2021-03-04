@@ -39,8 +39,10 @@ header {
   margin-bottom: 16px;
   border: 1px solid #D0D1D5;
   border-top: 0;
-  border-radius: 2px;
   padding: 12px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 32px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 
@@ -143,12 +145,15 @@ a:hover {
 
 .container-flex {
   display: flex;
-  gap: 16px;
-
+  justify-content: center;
 }
 
-.empty-gap {
-  height: 50px;
-  opacity: 0.1;
+#comment-container {
+  height: auto;
+  width: fit-content;
 }
 
+h1 {
+  -webkit-text-stroke: 2px black;
+  text-shadow: -4px 4px 1px rgba(16, 16, 16, 0.15);
+}

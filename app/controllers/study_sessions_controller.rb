@@ -35,7 +35,7 @@ class StudySessionsController < ApplicationController
   def like
     @study_session = StudySession.find(params[:id])
     Like.create(user_id: current_user.id, study_session_id: @study_session.id)
-    redirect_to study_sessions_path
+    redirect_to study_sessions_path(anchor: "like-#{@study_session.id}")
 
   end
 
