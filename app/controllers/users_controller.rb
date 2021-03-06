@@ -9,7 +9,8 @@ class UsersController < ApplicationController
         {
           skill: skill.name,
           assigned: bs.created_at.strftime("%b %d, %Y"),
-          description: bs.badge.description
+          description: bs.badge.description,
+          image: bs.badge.custom_fields[:image]
         }
       end
     end.flatten

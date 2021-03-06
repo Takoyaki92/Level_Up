@@ -129,7 +129,7 @@ ActiveRecord::Schema.define(version: 2021_02_25_105731) do
     t.string "goal"
     t.datetime "start_time"
     t.text "description"
-    t.boolean "public", default: true
+    t.boolean "public", default: false
     t.bigint "skill_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

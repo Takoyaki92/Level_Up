@@ -32,30 +32,34 @@ end
 Merit::Badge.create(
   id: 1,
   name: "study_sessions-1",
-  description: "First study session!"
+  description: "First study session!",
+  custom_fields: { image: "badge_03.png" }
 )
 
 Merit::Badge.create(
   id: 2,
   name: "study_sessions-1-10",
-  description: "10th study session!"
+  description: "10th study session!",
+  custom_fields: { image: "badge_04.png" }
 )
 
 Merit::Badge.create(
   id: 3,
   name: "study_sessions-10-50",
-  description: "50th study session!"
+  description: "50th study session!",
+  custom_fields: { image: "badge_05.png" }
 )
 
 Merit::Badge.create(
   id: 4,
   name: "study_sessions-50-100",
-  description: "100th study session!"
+  description: "100th study session!",
+  custom_fields: { image: "badge_01.png" }
 )
 
 Merit::Badge.create(
   id: 5,
   name: "milestone_complete",
   description: "Milestone completed!",
-  custom_fields: { image: "test" }
+  custom_fields: { image: "badge_02.png" }
 )
