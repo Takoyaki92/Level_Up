@@ -31,12 +31,17 @@ import { initTimer } from '../components/timer';
 import { finish } from '../components/finish';
 import { start } from '../components/start';
 import { enter } from '../components/enter';
+import { fade } from '../components/card-fade';
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   if (document.querySelector('.timer')) {
     initTimer();
+  }
+  if (document.querySelector('#study_session_goal')) {
+    fade();
   }
   if (document.querySelector('#enter-comment')) {
     enter();
