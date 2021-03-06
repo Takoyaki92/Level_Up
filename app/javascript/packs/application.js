@@ -30,6 +30,7 @@ import "bootstrap";
 import { initTimer } from '../components/timer';
 import { finish } from '../components/finish';
 import { start } from '../components/start';
+import { enter } from '../components/enter';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -37,7 +38,9 @@ document.addEventListener('turbolinks:load', () => {
   if (document.querySelector('.timer')) {
     initTimer();
   }
-
+  if (document.querySelector('#enter-comment')) {
+    enter();
+  }
   if (document.querySelector('#finish')) {
     finish();
   }
