@@ -69,17 +69,34 @@ puts "Milestones created!"
 
 # Study Sessions
 puts "Creating study sessions..."
-primary = StudySession.new(goal: "a", description: "Looked up primary sources about Civil War")
+primary = StudySession.new(goal: "a", description: "Looked up primary sources about the Civil War. I was able to find this one PDF scan online, but information is pretty scarce. I think I need to go to the libary.")
 primary_file = URI.open("https://images.pexels.com/photos/1112048/pexels-photo-1112048.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260")
 primary.photo.attach(io: primary_file, filename: 'pexels-photo-1112048.jpeg', content_type: 'image/jpeg')
 primary.skill = american_history
 primary.save!
 
-museum = StudySession.new(goal: "a", description: "Went to a museum and took pictures of Tomb samples")
+primary_2 = StudySession.new(goal: "a", description: "I went to my local library and found a section dedicated to the Civil War. I was able to find some decent resources, but I'm not sure which would be relevant. Any advice?")
+primary_2_file = URI.open("https://images.pexels.com/photos/1907785/pexels-photo-1907785.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260")
+primary_2.photo.attach(io: primary_2_file, filename: 'pexels-photo-1907785.jpeg', content_type: 'image/jpeg')
+primary_2.skill = american_history
+primary_2.save!
+
+primary_3 = StudySession.new(goal: "a", description: "I was able to contact my history professor from university, and she was able to go through my sources and suggest which ones would be best for my paper. The ones she suggested were 'a peoples history of the United States' and 'Inhuman Bondage'.")
+primary_3_file = URI.open("https://images.pexels.com/photos/1311518/pexels-photo-1311518.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+primary_3.photo.attach(io: primary_3_file, filename: 'pexels-photo-1311518.jpeg', content_type: 'image/jpeg')
+
+museum = StudySession.new(goal: "a", description: "Went to a museum and took pictures of Tomb samples. These were great, but I think it would help to see more features.")
+
 museum_file = URI.open("https://res.cloudinary.com/glenn88/image/upload/v1614910059/egypt_tombs_dgyeug.jpg")
 museum.photo.attach(io: museum_file, filename: 'egypt_tombs_dgyeug.jpg', content_type: 'image/jpg')
 museum.skill = archaeology
 museum.save!
+
+museum_2 = StudySession.new(goal: "a", description: "I visited another museum that had some sarcophogi on display. I was even able to pick up a book from the exhibit about the significance between the types of tombs and sarcophogi.")
+museum_2_file = URI.open("https://images.pexels.com/photos/2076370/pexels-photo-2076370.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+museum_2.photo.attach(io: museum_2_file, filename: 'pexels-photo-2076370.jpeg', content_type: 'image/jpeg')
+museum_2.skill = archaeology
+museum_2.save!
 
 tutorial = StudySession.new(goal: "a", description: "Watched a tuorial video and took notes")
 tutorial_file = URI.open("https://res.cloudinary.com/glenn88/image/upload/v1614910302/plumbing_dyadvj.jpg")
@@ -93,10 +110,23 @@ bow.photo.attach(io: bow_file, filename: 'pexels-photo-6669391.jpeg', content_ty
 bow.skill = archery
 bow.save!
 
-pancake = StudySession.new(goal: "a", description: "Made one simple pancake")
-pancake_file = URI.open("https://res.cloudinary.com/glenn88/image/upload/v1614251680/vnhimvgmbo4aivtv2hutsqzvbfx8.jpg")
-pancake.photo.attach(io: pancake_file, filename: 'vnhimvgmbo4aivtv2hutsqzvbfx8.jpg', content_type: 'image/jpg')
+pancake = StudySession.new(goal: "a", description: "I tried making a loaf of bread, but it came out a little burnt. Maybe I need to adjust the temperature in the oven to 300°F.")
+pancake_file = URI.open("https://res.cloudinary.com/glenn88/image/upload/v1614995446/IMG_4445_s9crlt.jpg")
+pancake.photo.attach(io: pancake_file, filename: 'IMG_4445_s9crlt.jpg', content_type: 'image/jpg')
 pancake.skill = cooking
 pancake.save!
+
+bread_2 = StudySession.new(goal: "a", description: "I adjusted the temperature to 300°F, but now the bread is a little undercooked. I'll try to bake it for a little longer.")
+bread_2_file = URI.open("https://res.cloudinary.com/glenn88/image/upload/v1614995469/IMG_4308_ngkymk.jpg")
+bread_2.photo.attach(io: bread_2_file, filename: 'IMG_4308_ngkymk.jpg', content_type: 'image/jpg')
+bread_2.skill = cooking
+bread_2.save!
+
+bread_3 =StudySession.new(goal: "a", description: "Success! I baked the bread at 300°F for 20 minutes.")
+bread_3_file = URI.open("https://res.cloudinary.com/glenn88/image/upload/v1614995478/IMG_4442_wfuwr5.jpg")
+bread_3.photo.attach(io: bread_3_file, filename: 'v1614995478/IMG_4442_wfuwr5.jpg', content_type: 'image/jpg')
+bread_3.skill = cooking
+bread_3.save!
+
 
 puts "Study Sessions created!"
