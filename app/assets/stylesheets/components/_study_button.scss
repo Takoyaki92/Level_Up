@@ -1,5 +1,5 @@
 .study_button {
-  background-image: linear-gradient(121.01deg, #4A74B1 28.29%, #54EAFF 71.38%, #82F7FF 85.02%);
+  background-color:#4A74B1;
   border-radius: 50%;
   box-sizing: border-box;
   display: block;
@@ -20,7 +20,7 @@
   transition: font-size 1s ease;
 
   &:hover {
-    background-image: linear-gradient(290.46deg, #4A74B1 22.21%, #54EAFF 67.14%, #FFFFFF 86.41%);
+    background-image: linear-gradient#4A74B1;
     // border: 1px solid rgba(255, 235, 216, 0.5);
     box-sizing: border-box;
     border-radius: 50%;
