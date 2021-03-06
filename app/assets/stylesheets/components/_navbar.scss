@@ -1,21 +1,26 @@
 .navbar-lewagon {
   justify-content: space-between;
   color: white;
+  position: sticky;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
   color: white;
+  position: sticky;
 }
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+  position: sticky;
 }
 
 .navbar-light .navbar-nav .nav-link {
   color: #4A73B1;
+  position: sticky;
 }
 
 .navbar-light .navbar-nav .nav-link.active {
   color: white;
+  position: sticky;
 }
