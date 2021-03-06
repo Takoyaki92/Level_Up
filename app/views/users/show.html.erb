@@ -15,7 +15,7 @@
           <br>
           <h4>Skills</h4>
           <%= render "users/skill_bar", skills: @skills %>
-          <%= link_to "Add new skill", new_user_skill_path(@user)%>
+          <%= link_to "Add new skill", new_user_skill_path(@user), id: "add_skill_button", class: "small_button" %>
         </div>
       </div>
     </div>

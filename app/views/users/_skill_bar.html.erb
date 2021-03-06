@@ -2,11 +2,11 @@
   <% skills.each do |skill| %>
     <div class="skill_bar">
       <div class="info">
-        <p><%= link_to skill.name, skill_path(skill) %> (Level: <%= skill.level %>, Points: <%= skill.points %>)</p>
+        <p><%= link_to skill.name, skill_path(skill) %> [Level: <%= skill.level %>]</p>
 <!--         <span><%= link_to skill.name, skill_path(skill) %> (Level: <%= skill.level %>, Points: <%= skill.points %>)</span> -->
       </div>
       <!-- This is the progress line. Change WIDTH to change length -->
-      <div class="progress-line"><span style="width: 80%"></span></div>
+      <div class="progress-line"><span style="width: <%= skill.calculate_percentage %>%"></span></div>
     </div>
   <% end %>
 </div>

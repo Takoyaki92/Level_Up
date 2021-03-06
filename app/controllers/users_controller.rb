@@ -14,4 +14,10 @@ class UsersController < ApplicationController
       end
     end.flatten
   end
+
+  def calculate_level(skill)
+    # @user = User.find(params[:id])
+    # @skills = @user.skills
+    skill.name
+  end
 end
