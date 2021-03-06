@@ -62,7 +62,7 @@
       <div>
         <% @skill.milestones.each do |milestone| %>
           <ul>
-            <li class=<%="#{'complete' if milestone.complete_date}"%>><%= milestone.goal %> <%= milestone.complete_date ? milestone.complete_date.strftime("%b %d, %Y") : button_to("done?", "/milestones/#{milestone.id}/complete", method: :patch, form_class: "done") %></li>
+            <li class=<%="#{'complete' if milestone.complete_date}"%>><%= milestone.goal %> <%= milestone.complete_date ? milestone.complete_date.strftime("%b %d, %Y") : link_to("/milestones/#{milestone.id}/complete", method: :patch, form_class: "done") do %><i class="fas fa-check fontawesome-small"></i><% end %></li>
           </ul>
         <% end %>
         <!-- These are the text fields for setting milestones, etc. -->
@@ -73,12 +73,11 @@
     </div>
   </div>
 </div>
-
 <div class="button-center">
   <a class="btn btn-primary" href=<%= "/skills/#{params[:id]}/study_sessions/new"%>>
-      <span>Start this study session</span>
-    </a>
-    <br>
-    <br>
+    <span>Start this study session</span>
+  </a>
+  <br>
+  <br>
   <%= link_to "Back to Profile", user_path(current_user), style: "color: white;", class: "btn btn-primary", id: "profile-button" %>
 </div>
