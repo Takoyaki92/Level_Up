@@ -1,0 +1,4 @@
+<%= link_to like_path( @study_session.likes.find_by(user:current_user)), method: :delete, remote: true do%>
+      <i class="fas fa-heart fa-sm"></i>
+    <% end %>
+    <p><%= @study_session.likes.count %></p>

@@ -38,15 +38,27 @@
                 <% end %>
 
               <div class="action d-flex justify-content-between">
-                <div class="like">
-                  <i class="far fa-heart fa-sm"></i>
+                <div class="like" id="like-<%= post.id %>">
+                <% if post.liked?(current_user) %>
+                  <%= link_to like_path( post.likes.find_by(user:current_user)), method: :delete, remote: true do%>
+                    <i class="fas fa-heart fa-sm"></i>
+                  <% end %>
+                <% else %>
+                  <%= simple_form_for [post, @like], remote: true do  |f| %>
+                    <%= f.button :button do %>
+                      <i class="far fa-heart fa-sm" id="like-heart"></i>
+                    <% end %>
+                  <% end %>
+
+                <% end %>
                     <p><%= post.likes.count %></p>
 
                 </div>
               <div class="comment">
-                <a href="#">
+                <a href="">
                 
-                <i class="far fa-comments fa-sm"></i>
+                <a  data-toggle="collapse" href="#collapse-<%= post.id %>" role="button" aria-expanded="false" aria-controls="collapse-<%= post.id %>">
+                  <i class="far fa-comments fa-sm"></i>
                 <p>
                 <%= post.comments.count%>
                 </p>
@@ -55,47 +67,37 @@
             </div>
 
             <div class="actiontwo border-top border-dark d-flex justify-content-between">
-              <div class="like-box">
-              <% if post.liked?(current_user) %>
-                    <a href="<%=unlike_path(post)%>" method="put">
-                    <p>Unlike</p>
-                  </a>
-                  <% else %>
-                    <a href="<%=like_path(post)%>" method="put">
-                    <p id="like-<%= post.id %>">Like</p>
-                <% end %>
-              </div>
               
-              <div class="container" id="comment-container">
+              <div class="comments container-fluid">
                 <div class="comment-box">
-                  <a  data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                  <p>Comment</p>
+                  
                     </a>
-                    <div class="collapse" id="collapseExample">
-                      <div class="card card-body">
+                    <div class="collapse" id="collapse-<%= post.id %>">
+                      <div >
                         <%= simple_form_for([post, @comment], remote: true) do |f| %>
-                        <%= f.input :description, label:"Enter Comment" %>
-                          <%= f.button :submit, label:"Create", class: "btn btn-primary" %>
+                        <%= f.input :description, label: false, placeholder: "Comment on this study session!" %>
+                          <%= f.button :submit, label:"Create", class: "btn btn-primary d-none", id: "enter-comment" %>
                         <% end %>
                      </div>
+                     <div class="comment-list d-flex justify-content-left">
+                      <div class = "flex-direction">
+                        <% post.comments.each do |comment| %>
+                          <% if comment.user.photo.present? %>
+                            <%= cl_image_tag comment.user.photo.key, class: "avatar" %>
+                          <% else %>
+                            <%= image_tag "https://emoji.slack-edge.com/T02NE0241/pduck/659a4bd31b52c211.png", class: "avatar" %>
+                          <% end %>
+                          <p id="comment-<%= comment.id %>"><%= comment.user.username %></p>:
+                          <%= comment.description %>
+                        <% end %>
+                      </div>
+                    </div>
                   </div>
               </div>
               
               </div>
             </div>
-            <div class="comment-list d-flex justify-content-left">
-                  <div class = "flex-direction">
-                    <% post.comments.each do |comment| %>
-                      <% if comment.user.photo.present? %>
-                        <%= cl_image_tag comment.user.photo.key, class: "avatar" %>
-                      <% else %>
-                        <%= image_tag "https://emoji.slack-edge.com/T02NE0241/pduck/659a4bd31b52c211.png", class: "avatar" %>
-                      <% end %>
-                      <p id="comment-<%= comment.id %>"><%= comment.user.username %></p>:
-                      <%= comment.description %>
-                    <% end %>
-                  </div>
-                </div>
+            
           </div>
       </div>
     <%# <% end %>
