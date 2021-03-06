@@ -28,7 +28,9 @@
           <div class="single-badge">
             <%= image_tag badge[:image], style: "width: 88px;" %>
             <div class="info-window">
-              <p><%= badge[:skill] %>, <%= badge[:description] %> on: <%= badge[:assigned] %></p>
+              <p><%= badge[:skill] %> <br>
+                <%= badge[:description] %> <br>
+                <%= badge[:assigned] %></p>
             </div>
           </div>
         <% end %>
