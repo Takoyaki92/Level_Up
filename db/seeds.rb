@@ -98,17 +98,53 @@ museum_2.photo.attach(io: museum_2_file, filename: 'pexels-photo-2076370.jpeg', 
 museum_2.skill = archaeology
 museum_2.save!
 
-tutorial = StudySession.new(goal: "a", description: "Watched a tuorial video and took notes")
+tutorial = StudySession.new(goal: "a", description: "Watched a tutorial video and took notes")
 tutorial_file = URI.open("https://res.cloudinary.com/glenn88/image/upload/v1614910302/plumbing_dyadvj.jpg")
 tutorial.photo.attach(io: tutorial_file, filename: 'plumbing_dyadvj.jpg', content_type: 'image/jpg' )
 tutorial.skill = plumbing
 tutorial.save!
 
-bow = StudySession.new(goal: "a", description: "Shot 10 arrows with my bow")
-bow_file = URI.open("https://images.pexels.com/photos/6669391/pexels-photo-6669391.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
-bow.photo.attach(io: bow_file, filename: 'pexels-photo-6669391.jpeg', content_type: 'image/jpeg')
+# Story number 2
+tutorial_2 = StudySession.new(goal: "a", description: "Tried to use the information from the tutorial I watched, while using my Monkey wrench, I stripped the bolt accidently and made a bigger mess. If anyone knows how to fix a sink, please let me know.")
+tutorial_file_2 = URI.open("https://www.rosenthalplumbing.com/wp-content/uploads/2020/02/93741141_s-1.jpg")
+tutorial_2.photo.attach(io: tutorial_file_2, filename: '93741141_s-1.jpg', content_type: 'image/jpg' )
+tutorial_2.skill = plumbing
+tutorial_2.save!
+
+# Story number 3
+tutorial_3 = StudySession.new(goal: "a", description: "I was able to replace the bolt, and tighten it, stopping the leak, YAY!!!! I feel very accomplished in fixing leaks now!! ")
+tutorial_file_3 = URI.open("https://s3-us-west-1.amazonaws.com/contentlab.studiod/getty/e85e099b64e24b24b72883ec40dfa09b.jpg")
+tutorial_3.photo.attach(io: tutorial_file_3, filename: 'e85e099b64e24b24b72883ec40dfa09b.jpg', content_type: 'image/jpg' )
+tutorial_3.skill = plumbing
+tutorial_3.save!
+
+# END OF SEEDS FOR PLUMBING
+
+# SEEDS FOR ARCHERY
+
+# Story number 1
+bow = StudySession.new(goal: "a", description: "I wanted to hit the Target 10 times, but it was difficult, but am Happy I was able to hit the target at all.")
+bow_file = URI.open("https://i.pinimg.com/originals/5d/59/4a/5d594a1251a52fad472d588bacd3060b.jpg")
+bow.photo.attach(io: bow_file, filename: '5d594a1251a52fad472d588bacd3060b.jpg', content_type: 'image/jpeg')
 bow.skill = archery
 bow.save!
+
+# Story number 2
+bow_2 = StudySession.new(goal: "a", description: "I was able to hit the target 10 times, but I only came close to the bullseye one time, still can`t quite hit it though.")
+bow_file_2 = URI.open("https://share.upmc.com/wp-content/uploads/2016/10/102016_ARCHERY.jpg")
+bow_2.photo.attach(io: bow_file_2, filename: '102016_ARCHERY.jpg', content_type: 'image/jpeg')
+bow_2.skill = archery
+bow_2.save!
+
+# Story number 3
+bow_3 = StudySession.new(goal: "a", description: "I was able to hit the bullseye 1 time out of 3, I feel good, it is nice to see improvement.")
+bow_file_3 = URI.open("https://i0.wp.com/firstsportz.com/wp-content/uploads/2019/11/arch.jpg")
+bow_3.photo.attach(io: bow_file_3, filename: 'arch.jpg', content_type: 'image/jpeg')
+bow_3.skill = archery
+bow_3.save!
+
+# END OF SEEDS FOR ARCHERY
+
 
 pancake = StudySession.new(goal: "a", description: "I tried making a loaf of bread, but it came out a little burnt. Maybe I need to adjust the temperature in the oven to 300°F.")
 pancake_file = URI.open("https://res.cloudinary.com/glenn88/image/upload/v1614995446/IMG_4445_s9crlt.jpg")
