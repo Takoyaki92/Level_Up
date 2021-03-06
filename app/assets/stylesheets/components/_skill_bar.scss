@@ -54,31 +54,32 @@
   }
 }
 
-.skill_bar .progress-line span::before{
-  position: absolute;
-  content: "";
-  right: 0;
-  top: -10px;
-  height: 0;
-  width: 0;
-  border: 7px solid transparent;
-  border-bottom-width: 0px;
-  border-right-width: 0px;
-  border-top-color: #000
-}
+// .skill_bar .progress-line span::before{
+//   position: absolute;
+//   content: "";
+//   right: 0;
+//   top: -10px;
+//   height: 0;
+//   width: 0;
+//   border: 7px solid transparent;
+//   border-bottom-width: 0px;
+//   border-right-width: 0px;
+//   border-top-color: #000
+// }
 
-.skill_bar .progress-line span::after{
-  position: absolute;
-  content: "80%";
-  right: 0;
-  top: -28px;
-  background: #000;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 500;
-  padding: 1px 8px;
-  border-radius: 3px;
-}
+
+// .skill_bar .progress-line span::after{
+//   position: absolute;
+//   content: "80%";
+//   right: 0;
+//   top: -28px;
+//   background: #000;
+//   color: #fff;
+//   font-size: 12px;
+//   font-weight: 500;
+//   padding: 1px 8px;
+//   border-radius: 3px;
+// }
 
 
 
