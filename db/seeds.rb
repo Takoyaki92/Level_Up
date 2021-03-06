@@ -69,40 +69,54 @@ puts "Milestones created!"
 
 # Study Sessions
 puts "Creating study sessions..."
-primary = StudySession.new(goal: "a", description: "Looked up primary sources about Civil War")
+primary = StudySession.new(goal: "a", description: "Looked up primary sources about the Civil War. I was able to find this one PDF scan online, but information is pretty scarce. I think I need to go to the libary.")
 primary_file = URI.open("https://images.pexels.com/photos/1112048/pexels-photo-1112048.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260")
 primary.photo.attach(io: primary_file, filename: 'pexels-photo-1112048.jpeg', content_type: 'image/jpeg')
 primary.skill = american_history
 primary.save!
 
-museum = StudySession.new(goal: "a", description: "Went to a museum and took pictures of Tomb samples")
+primary_2 = StudySession.new(goal: "a", description: "I went to my local library and found a section dedicated to the Civil War. I was able to find some decent resources, but I'm not sure which would be relevant. Any advice?")
+primary_2_file = URI.open("https://images.pexels.com/photos/1907785/pexels-photo-1907785.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260")
+primary_2.photo.attach(io: primary_2_file, filename: 'pexels-photo-1907785.jpeg', content_type: 'image/jpeg')
+primary_2.skill = american_history
+primary_2.save!
+
+primary_3 = StudySession.new(goal: "a", description: "I was able to contact my history professor from university, and she was able to go through my sources and suggest which ones would be best for my paper. The ones she suggested were 'a peoples history of the United States' and 'Inhuman Bondage'.")
+primary_3_file = URI.open("https://images.pexels.com/photos/1311518/pexels-photo-1311518.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+primary_3.photo.attach(io: primary_3_file, filename: 'pexels-photo-1311518.jpeg', content_type: 'image/jpeg')
+
+museum = StudySession.new(goal: "a", description: "Went to a museum and took pictures of Tomb samples. These were great, but I think it would help to see more features.")
+
 museum_file = URI.open("https://res.cloudinary.com/glenn88/image/upload/v1614910059/egypt_tombs_dgyeug.jpg")
 museum.photo.attach(io: museum_file, filename: 'egypt_tombs_dgyeug.jpg', content_type: 'image/jpg')
 museum.skill = archaeology
 museum.save!
 
-# SEEDS FOR PLUMBING
+museum_2 = StudySession.new(goal: "a", description: "I visited another museum that had some sarcophogi on display. I was even able to pick up a book from the exhibit about the significance between the types of tombs and sarcophogi.")
+museum_2_file = URI.open("https://images.pexels.com/photos/2076370/pexels-photo-2076370.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+museum_2.photo.attach(io: museum_2_file, filename: 'pexels-photo-2076370.jpeg', content_type: 'image/jpeg')
+museum_2.skill = archaeology
+museum_2.save!
 
-# Story number 1
-tutorial = StudySession.new(goal: "a", description: "Watched a tuorial video and took notes on how to fix my kitchen sink that is leaking.")
+tutorial = StudySession.new(goal: "a", description: "Watched a tutorial video and took notes")
 tutorial_file = URI.open("https://res.cloudinary.com/glenn88/image/upload/v1614910302/plumbing_dyadvj.jpg")
 tutorial.photo.attach(io: tutorial_file, filename: 'plumbing_dyadvj.jpg', content_type: 'image/jpg' )
 tutorial.skill = plumbing
 tutorial.save!
 
 # Story number 2
-tutorial = StudySession.new(goal: "a", description: "Tried to use the information from the tutorial I watched, while using my Monkey wrench, I stripped the bolt accidently and made a bigger mess. If anyone knows how to fix a sink, please let me know.")
-tutorial_file = URI.open("https://www.rosenthalplumbing.com/wp-content/uploads/2020/02/93741141_s-1.jpg")
-tutorial.photo.attach(io: tutorial_file, filename: '93741141_s-1.jpg', content_type: 'image/jpg' )
-tutorial.skill = plumbing
-tutorial.save!
+tutorial_2 = StudySession.new(goal: "a", description: "Tried to use the information from the tutorial I watched, while using my Monkey wrench, I stripped the bolt accidently and made a bigger mess. If anyone knows how to fix a sink, please let me know.")
+tutorial_file_2 = URI.open("https://www.rosenthalplumbing.com/wp-content/uploads/2020/02/93741141_s-1.jpg")
+tutorial_2.photo.attach(io: tutorial_file_2, filename: '93741141_s-1.jpg', content_type: 'image/jpg' )
+tutorial_2.skill = plumbing
+tutorial_2.save!
 
 # Story number 3
-tutorial = StudySession.new(goal: "a", description: "I was able to replace the bolt, and tighten it, stopping the leak, YAY!!!! I feel very accomplished in fixing leaks now!! ")
-tutorial_file = URI.open("https://s3-us-west-1.amazonaws.com/contentlab.studiod/getty/e85e099b64e24b24b72883ec40dfa09b.jpg")
-tutorial.photo.attach(io: tutorial_file, filename: 'e85e099b64e24b24b72883ec40dfa09b.jpg', content_type: 'image/jpg' )
-tutorial.skill = plumbing
-tutorial.save!
+tutorial_3 = StudySession.new(goal: "a", description: "I was able to replace the bolt, and tighten it, stopping the leak, YAY!!!! I feel very accomplished in fixing leaks now!! ")
+tutorial_file_3 = URI.open("https://s3-us-west-1.amazonaws.com/contentlab.studiod/getty/e85e099b64e24b24b72883ec40dfa09b.jpg")
+tutorial_3.photo.attach(io: tutorial_file_3, filename: 'e85e099b64e24b24b72883ec40dfa09b.jpg', content_type: 'image/jpg' )
+tutorial_3.skill = plumbing
+tutorial_3.save!
 
 # END OF SEEDS FOR PLUMBING
 
@@ -115,27 +129,40 @@ bow.photo.attach(io: bow_file, filename: '5d594a1251a52fad472d588bacd3060b.jpg',
 bow.skill = archery
 bow.save!
 
-
 # Story number 2
-bow = StudySession.new(goal: "a", description: "I was able to hit the target 10 times, but I only came close to the bullseye one time, still can`t quite hit it though.")
-bow_file = URI.open("https://share.upmc.com/wp-content/uploads/2016/10/102016_ARCHERY.jpg")
-bow.photo.attach(io: bow_file, filename: '102016_ARCHERY.jpg', content_type: 'image/jpeg')
-bow.skill = archery
-bow.save!
+bow_2 = StudySession.new(goal: "a", description: "I was able to hit the target 10 times, but I only came close to the bullseye one time, still can`t quite hit it though.")
+bow_file_2 = URI.open("https://share.upmc.com/wp-content/uploads/2016/10/102016_ARCHERY.jpg")
+bow_2.photo.attach(io: bow_file_2, filename: '102016_ARCHERY.jpg', content_type: 'image/jpeg')
+bow_2.skill = archery
+bow_2.save!
 
 # Story number 3
-bow = StudySession.new(goal: "a", description: "I was able to hit the bullseye 1 time out of 3, I feel good, it is nice to see improvement.")
-bow_file = URI.open("https://i0.wp.com/firstsportz.com/wp-content/uploads/2019/11/arch.jpg")
-bow.photo.attach(io: bow_file, filename: 'arch.jpg', content_type: 'image/jpeg')
-bow.skill = archery
-bow.save!
+bow_3 = StudySession.new(goal: "a", description: "I was able to hit the bullseye 1 time out of 3, I feel good, it is nice to see improvement.")
+bow_file_3 = URI.open("https://i0.wp.com/firstsportz.com/wp-content/uploads/2019/11/arch.jpg")
+bow_3.photo.attach(io: bow_file_3, filename: 'arch.jpg', content_type: 'image/jpeg')
+bow_3.skill = archery
+bow_3.save!
 
 # END OF SEEDS FOR ARCHERY
 
-pancake = StudySession.new(goal: "a", description: "Made one simple pancake")
-pancake_file = URI.open("https://res.cloudinary.com/glenn88/image/upload/v1614251680/vnhimvgmbo4aivtv2hutsqzvbfx8.jpg")
-pancake.photo.attach(io: pancake_file, filename: 'vnhimvgmbo4aivtv2hutsqzvbfx8.jpg', content_type: 'image/jpg')
+
+pancake = StudySession.new(goal: "a", description: "I tried making a loaf of bread, but it came out a little burnt. Maybe I need to adjust the temperature in the oven to 300°F.")
+pancake_file = URI.open("https://res.cloudinary.com/glenn88/image/upload/v1614995446/IMG_4445_s9crlt.jpg")
+pancake.photo.attach(io: pancake_file, filename: 'IMG_4445_s9crlt.jpg', content_type: 'image/jpg')
 pancake.skill = cooking
 pancake.save!
+
+bread_2 = StudySession.new(goal: "a", description: "I adjusted the temperature to 300°F, but now the bread is a little undercooked. I'll try to bake it for a little longer.")
+bread_2_file = URI.open("https://res.cloudinary.com/glenn88/image/upload/v1614995469/IMG_4308_ngkymk.jpg")
+bread_2.photo.attach(io: bread_2_file, filename: 'IMG_4308_ngkymk.jpg', content_type: 'image/jpg')
+bread_2.skill = cooking
+bread_2.save!
+
+bread_3 =StudySession.new(goal: "a", description: "Success! I baked the bread at 300°F for 20 minutes.")
+bread_3_file = URI.open("https://res.cloudinary.com/glenn88/image/upload/v1614995478/IMG_4442_wfuwr5.jpg")
+bread_3.photo.attach(io: bread_3_file, filename: 'v1614995478/IMG_4442_wfuwr5.jpg', content_type: 'image/jpg')
+bread_3.skill = cooking
+bread_3.save!
+
 
 puts "Study Sessions created!"

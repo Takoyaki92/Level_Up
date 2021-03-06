@@ -7,20 +7,6 @@
   height: 800px;
   color: black;
   padding: 24px;
-  // display: flex;
-  // flex-direction: column;
-  // flex-wrap: wrap;
-
-  // background-color: white;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
-  // padding: 16px;
-  // text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  // border-radius: 10px;
-  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  // margin-bottom: 24px;
 }
 
 .badges_card {
@@ -38,17 +24,31 @@
     display: grid;
     grid: auto-flow / 1fr 1fr 1fr 1fr 1fr 1fr;
     width: 100%;
+    position: relative;
 
     .single-badge {
-      // background-image: url("/images/badge_02.png");
-      // background-size: cover;
-      margin: 16px auto;
+      padding: 16px;
+      display: flex;
+      justify-content: center;
     }
 
     .single-badge:hover .info-window {
       display: block;
+      margin: auto;
+      height: 90%;
+      opacity: 0.7;
+      background: white;
     }
   }
+}
+
+.info-window {
+  display: none;
+  opacity: 0;
+  position: absolute;
+  width: 150px;
+  text-align: center;
+  padding: 8px;
 }
 
 .time_card {
