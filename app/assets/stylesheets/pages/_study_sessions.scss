@@ -148,12 +148,17 @@ a:hover {
   justify-content: center;
 }
 
-#comment-container {
+.comments {
   height: auto;
-  width: fit-content;
 }
 
 h1 {
   -webkit-text-stroke: 2px black;
   text-shadow: -4px 4px 1px rgba(16, 16, 16, 0.15);
+}
+
+img {
+  display: flex;
+  justify-content: left;
+  margin-top: 5px;
 }

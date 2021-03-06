@@ -86,6 +86,7 @@ primary_3_file = URI.open("https://images.pexels.com/photos/1311518/pexels-photo
 primary_3.photo.attach(io: primary_3_file, filename: 'pexels-photo-1311518.jpeg', content_type: 'image/jpeg')
 
 museum = StudySession.new(goal: "a", description: "Went to a museum and took pictures of Tomb samples. These were great, but I think it would help to see more features.")
+
 museum_file = URI.open("https://res.cloudinary.com/glenn88/image/upload/v1614910059/egypt_tombs_dgyeug.jpg")
 museum.photo.attach(io: museum_file, filename: 'egypt_tombs_dgyeug.jpg', content_type: 'image/jpg')
 museum.skill = archaeology
@@ -126,5 +127,6 @@ bread_3_file = URI.open("https://res.cloudinary.com/glenn88/image/upload/v161499
 bread_3.photo.attach(io: bread_3_file, filename: 'v1614995478/IMG_4442_wfuwr5.jpg', content_type: 'image/jpg')
 bread_3.skill = cooking
 bread_3.save!
+
 
 puts "Study Sessions created!"

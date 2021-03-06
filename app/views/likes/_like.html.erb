@@ -1,0 +1,6 @@
+<%= simple_form_for [@study_session, Like.new], remote: true do  |f| %>
+      <%= f.button :button, class: "p-0" do %>
+        <i class="far fa-heart fa-sm" id="like-heart"></i>
+      <p><%= @study_session.likes.count %></p>
+      <% end %>
+    <% end %>

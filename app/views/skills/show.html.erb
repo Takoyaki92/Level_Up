@@ -11,8 +11,7 @@
       <div class="badges">
         <% @badge.each do |badge| %>
           <div class="single-badge">
-            <%#= badge[:image] %>
-            <%= image_tag "badge_01.png", style: "width: 88px;" %>
+            <%= image_tag badge[:image], style: "width: 88px;" %>
             <div class="info-window">
               <p><%= badge[:description] %> on: <%= badge[:assigned] %></p>
             </div>
