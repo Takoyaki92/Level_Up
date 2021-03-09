@@ -5,7 +5,15 @@
   display: grid;
   grid: auto-flow dense / 1fr 1fr;
   justify-content: center;
-  margin: 16px 48px;
+  margin: 0 48px;
+
+  p {
+    margin: 0;
+  }
+
+  h5 {
+    margin-bottom: 32px;
+  }
 }
 
 .user_show {
@@ -13,6 +21,7 @@
   width: 90%;
   text-align: center;
   margin: auto;
+  margin-top: 92px;
 }
 
 .skill_show{
@@ -21,7 +30,7 @@
   display: grid;
   grid: auto-flow / 1fr;
   width: 90%;
-  margin: 0 auto auto;
+  margin: 92px auto auto;
 }
 
 .card-show {
