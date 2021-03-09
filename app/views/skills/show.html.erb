@@ -27,18 +27,18 @@
         <h5>Goals you have had:</h5>
         <!-- Conditional in case study sessions is nil -->
         <% if @skill.study_sessions.present? %>
-          <a class="text_field" href="#">
+          <div class="text_field">
             <span><%= @skill.study_sessions.last.goal %></span>
-          </a>
+          </div>
         <% else %>
           <div class="text_field">
             <span>Have more study sessions!</span>
           </div>
         <% end %>
         <% if @skill.study_sessions.count >= 2 %>
-          <a class="text_field" href="#">
+          <div class="text_field">
             <span><%= @skill.study_sessions.sample.goal %></span>
-          </a>
+          </div>
         <% else %>
           <div class="text_field">
             <span>Fill this with goals!</span>
@@ -48,12 +48,12 @@
       <!-- Advice column -->
       <div class="advice">
         <h5>If you are stuck, consider:</h5>
-        <a class="text_field" href="#">
+        <div class="text_field">
           <span>Host Project on Heroku</span>
-        </a>
-        <a class="text_field" href="#">
+        </div>
+        <div class="text_field">
           <span>Pair Program w/ Friend</span>
-        </a>
+        </div>
       </div>
     </div>
     <!-- Card - Milestones -->
