@@ -46,8 +46,7 @@
                 <div class="col-12">
                   <%#= simple_form_for [ @skill, @study_session ] do |f| %>
                     <%= f.text_area :description, label:"What did you accomplish?", class: "form-control form-control-lg" %>
-                    <%= f.collection_radio_buttons :public, [[true, 'Public (Recommended)'] ,[false, 'Private']], :first, :last %>
-                    <%= f.input :photo, label: "Show us what you did!", as: :file %>
+                    <%= f.input :photo, label: "Add a photo to show what you did!", as: :file %>
                     <div id="hidden">
                       <%= f.input :end_time %>
                     </div>

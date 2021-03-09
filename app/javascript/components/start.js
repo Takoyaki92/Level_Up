@@ -15,6 +15,7 @@ const start= () => {
       audio.pause();
     } else { 
       audio.play();
+      audio.volume = 0.2;
     };
   });
 

@@ -43,16 +43,17 @@
                 <% if post.liked?(current_user) %>
                   <%= link_to like_path( post.likes.find_by(user:current_user)), method: :delete, remote: true do%>
                     <i class="fas fa-heart fa-sm"></i>
+                    <p><%= post.likes.count %></p>
                   <% end %>
                 <% else %>
                   <%= simple_form_for [post, @like], remote: true do  |f| %>
-                    <%= f.button :button do %>
+                    <%= f.button :button, class: "like" do %>
                       <i class="far fa-heart fa-sm" id="like-heart"></i>
+                    <p><%= post.likes.count %></p>
                     <% end %>
                   <% end %>
 
                 <% end %>
-                    <p><%= post.likes.count %></p>
 
                 </div>
               <div class="comment">
@@ -88,7 +89,7 @@
                           <% else %>
                             <%= image_tag "https://emoji.slack-edge.com/T02NE0241/pduck/659a4bd31b52c211.png", class: "avatar" %>
                           <% end %>
-                          <p id="comment-<%= comment.id %>"><%= comment.user.username %></p>:
+                          <p id="comment-<%= comment.id %>"><%= comment.user.username %></p>
                           <%= comment.description %>
                         <% end %>
                       </div>
