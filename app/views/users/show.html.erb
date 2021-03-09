@@ -1,125 +1,118 @@
-<h1>PROFILE</h1>
-<div class="flex-container">
-  <!-- USERNAME AND SKILLS -->
-  <div class="left-side">
-    <div class="skills_card">
-      <div class="container-profile">
-        <div class="profile-name">
-          <% if user_signed_in? && current_user.photo.attached? %>
-            <%= cl_image_tag current_user.photo.key, class: "avatar-profile-page", alt: "avatar-large" %>
-          <% else %>
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-profile-page", alt: "avatar-large" %>
-          <% end %>
-          <h2><%= @user.username %></h2>
-          <br>
+<div class="container-show">
+  <h1>PROFILE</h1>
+  <div class="flex-container">
+    <!-- USERNAME AND SKILLS -->
+    <div class="left-side">
+        <div class="container-profile">
+          <div class="profile-name">
+            <% if user_signed_in? && current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar-profile-page", alt: "avatar-large" %>
+            <% else %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-profile-page", alt: "avatar-large" %>
+            <% end %>
+            <h2><%= @user.username %></h2>
+          </div>
+      </div>
+
+
+      <div class="skills_card">
+        <div class="skills-card-title">
           <h4>Skills</h4>
-          <%= render "users/skill_bar", skills: @skills %>
-          <%= link_to "Add new skill", new_user_skill_path(@user), class: "btn btn-primary" %>
+          <%= link_to "+", new_user_skill_path(@user), class: "btn btn-primary" %>
+        </div>
+            <%= render "users/skill_bar", skills: @skills %>
+       </div>
+
+
+    </div>
+    <!--   USER BADGES -->
+    <div class="right-side">
+      <div class="container-right">
+        <div class="badges_card">
+          <h4>Badges</h4>
+          <div class="badges">
+            <% @badges.each do |badge| %>
+              <div class="single-badge">
+                <%= image_tag badge[:image], style: "width: 88px;" %>
+                <div class="info-window">
+                  <p><%= badge[:skill] %> <br>
+                    <%= badge[:description] %> <br>
+                    <%= badge[:assigned] %></p>
+                </div>
+              </div>
+            <% end %>
+            <div style="width: 88px; background-color: lightgray; height: 88px; border-radius: 50%; border: 2px dashed black; margin: 16px; margin-left: 24px;"></div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-  <!--   USER BADGES -->
-  <div class="right-side">
-    <div class="badges_card">
-      <h4>Badges</h4>
-      <div class="badges">
-        <% @badges.each do |badge| %>
-          <div class="single-badge">
-            <%= image_tag badge[:image], style: "width: 88px;" %>
-            <div class="info-window">
-              <p><%= badge[:skill] %> <br>
-                <%= badge[:description] %> <br>
-                <%= badge[:assigned] %></p>
+      <!-- LASTEST POSTS & LINK TO STUDYSESSIONS#INDEX -->
+      <!--     <div class="time_card">
+        <h4>Latest post</h4>
+        <div id="wrapper">
+          <header class="cf">
+            <p class="date">3 hr ago</p>
+          </header>
+          <p class="status">I've been studying for 13,165 hours!</p>
+          <img class="img-content" src="https://dazedimg-dazedgroup.netdna-ssl.com/1280/azure/dazed-prod/1280/8/1288188.jpg" />
+          <div class="action">
+            <div class="like">
+              <a href="#">
+                <i class="far fa-heart fa-sm"></i>
+                <p>Like</p>
+              </a>
+            </div>
+            <div class="comment">
+              <a href="#">
+                <i class="far fa-comments fa-sm"></i>
+                <p>Comment</p>
+              </a>
             </div>
           </div>
-        <% end %>
-      </div>
-    </div>
-    <!-- LASTEST POSTS & LINK TO STUDYSESSIONS#INDEX -->
-    <!--     <div class="time_card">
-      <h4>Latest post</h4>
-      <div id="wrapper">
-        <header class="cf">
-          <p class="date">3 hr ago</p>
-        </header>
-        <p class="status">I've been studying for 13,165 hours!</p>
-        <img class="img-content" src="https://dazedimg-dazedgroup.netdna-ssl.com/1280/azure/dazed-prod/1280/8/1288188.jpg" />
-        <div class="action">
-          <div class="like">
-            <a href="#">
-              <i class="far fa-heart fa-sm"></i>
-              <p>Like</p>
-            </a>
-          </div>
-          <div class="comment">
-            <a href="#">
-              <i class="far fa-comments fa-sm"></i>
-              <p>Comment</p>
-            </a>
-          </div>
         </div>
-      </div>
-    </div> -->
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-      <div id="wrapper" class="carousel-inner" style="padding: 24px;">
-        <h4>Latest posts</h4>
-        <% @user.study_sessions.reverse.each_with_index do |post, index| %>
-          <!-- Carousel Posts -->
-          <% active = index.zero? ? "active" : "" %>
-          <div class='carousel-item <%= active %>'>
-            <!-- Header -->
-            <header class="cf">
-              <% if post.skill.user.photo.present? %>
-                <%= cl_image_tag post.skill.user.photo.key, class: "avatar" %>
-              <% else %>
-                <%= image_tag "https://emoji.slack-edge.com/T02NE0241/pduck/659a4bd31b52c211.png", class: "avatar" %>
-              <% end %>
-              <p class="name">
-                <a href=<%= user_path(post.skill.user) %>><%= post.skill.user.username %></a>
-              </p>
-              <p class="date">
-                <% if ((Time.now - post.created_at) / 60).to_i == 0 %>
-                  Just now
-                <% elsif ((Time.now - post.created_at) / 60).to_i == 1 %>
-                  <%= ((Time.now - post.created_at) / 60).to_i %> minute ago
-                <% else ((Time.now - post.created_at) / 60).to_i > 1 %>
-                  <%= ((Time.now - post.created_at) / 60).to_i %> minutes ago
-                <% end %>
-              </p>
-            </header>
-            <!-- Post Description -->
-            <p class="status"><%= post.description %></p>
-              <% if user_signed_in? && post.photo.attached? %>
-                <%= cl_image_tag post.photo.key, crop: :fill, class: "img-content" %>
-              <% else %>
-                <img class="img-content" src="https://london.ac.uk/sites/default/files/styles/promo_mobile/public/2020-04/sb-simone-image.jpg?itok=nAkc3CGk" />
-        <% end %>
-        <!-- Post Action Like/Comment only display -->
-        <div class="action d-flex justify-content-between">
-          <div class="like" id="like-<%= post.id %>">
-            <%= post.likes.count%>
-            <i class="far fa-heart fa-sm" id="like-heart"></i>
-          </div>
-          <div class="comment">
-            <%= post.comments.count%>
-            <i class="far fa-comments fa-sm"></i>
-          </div>
+      </div> -->
+      <div class="post-container">
+
+           <h4>Latest posts</h4>
+           <div class="post-cards">
+            <% @user.study_sessions.reverse.first(4).each_with_index do |post, index| %>
+              <!-- Carousel Posts -->
+                <div class="post-card">
+                  <!-- Header -->
+                  <header class="cf">
+                    <p class="date">
+                      <% if ((Time.now - post.created_at) / 60).to_i == 0 %>
+                        Just now
+                      <% elsif ((Time.now - post.created_at) / 60).to_i == 1 %>
+                        <%= ((Time.now - post.created_at) / 60).to_i %> minute ago
+                      <% else ((Time.now - post.created_at) / 60).to_i > 1 %>
+                        <%= ((Time.now - post.created_at) / 60).to_i %> minutes ago
+                      <% end %>
+                    </p>
+                  </header>
+                  <!-- Post Description -->
+                  <p class="post-status"><%= post.description %></p>
+                  <% if user_signed_in? && post.photo.attached? %>
+                      <%= cl_image_tag post.photo.key, crop: :fill, class: "post-image" %>
+                  <% else %>
+                      <img class="post-image" src="https://london.ac.uk/sites/default/files/styles/promo_mobile/public/2020-04/sb-simone-image.jpg?itok=nAkc3CGk" />
+                  <% end %>
+              <!-- Post Action Like/Comment only display -->
+                  <div class="action d-flex justify-content-between">
+                    <div class="like" id="like-<%= post.id %>">
+                      <%= post.likes.count%>
+                      <i class="far fa-heart fa-sm" id="like-heart"></i>
+                    </div>
+                    <div class="comment">
+                      <%= post.comments.count%>
+                      <i class="far fa-comments fa-sm"></i>
+                    </div>
+                  </div>            
+                </div>            
+        <% end %>   
         </div>
+      
       </div>
-    <% end %>
-    <!-- Carousel Controls -->
-    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+  <!-- Closing container -->
   </div>
+  <br>
 </div>
-<!-- Closing container -->
-</div>
-<br>
-<br>
