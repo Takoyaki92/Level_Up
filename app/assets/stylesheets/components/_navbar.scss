@@ -3,6 +3,7 @@
   color: white;
   position: fixed;
   width: 100%;
+  z-index: 3;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -14,6 +15,7 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
   position: sticky;
+  ;
 }
 
 .navbar-light .navbar-nav .nav-link {
