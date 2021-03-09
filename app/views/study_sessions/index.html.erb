@@ -21,12 +21,21 @@
                 </p>
 
                 <p class="date">
-                  <% if ((Time.now - post.created_at) / 60).to_i == 0 %>
+                  <% minutes = ((Time.now - post.created_at) / 60).to_i %>
+                  <% if minutes.to_i == 0 %>
                   Just now
-                  <% elsif ((Time.now - post.created_at) / 60).to_i == 1 %>
-                  <%= ((Time.now - post.created_at) / 60).to_i %> minute ago
-                  <% else ((Time.now - post.created_at) / 60).to_i > 1 %>
-                  <%= ((Time.now - post.created_at) / 60).to_i %> minutes ago
+                  <% elsif minutes == 1 %>
+                  <%= minutes %> minute ago
+                  <% elsif minutes > 1 && minutes <= 60 %>
+                  <%= minutes %> minutes ago
+                  <% elsif minutes == 60 %>
+                  <%= minutes %> hour ago
+                  <% elsif minutes > 60 && minutes <= 1440 %>
+                  <%= (minutes / 60) %> hours ago
+                  <% elsif ( minutes / 1440) == 1  %>
+                  1 day ago
+                  <% else %>
+                  <%= (minutes / 1440) %> days ago
                   <% end %>
                 </p>
               </header>
@@ -34,45 +43,35 @@
               <p class="status"><%= post.description %></p>
                 <% if user_signed_in? && post.photo.attached? %>
                   <%= cl_image_tag post.photo.key, crop: :fill, class: "img-content" %>
-                <% else %>      
+                <% else %>
                   <img class="img-content" src="https://london.ac.uk/sites/default/files/styles/promo_mobile/public/2020-04/sb-simone-image.jpg?itok=nAkc3CGk" />
                 <% end %>
 
               <div class="action d-flex justify-content-between">
                 <div class="like" id="like-<%= post.id %>">
-                <% if post.liked?(current_user) %>
-                  <%= link_to like_path( post.likes.find_by(user:current_user)), method: :delete, remote: true do%>
-                    <i class="fas fa-heart fa-sm"></i>
-                    <p><%= post.likes.count %></p>
-                  <% end %>
-                <% else %>
-                  <%= simple_form_for [post, @like], remote: true do  |f| %>
-                    <%= f.button :button, class: "like" do %>
-                      <i class="far fa-heart fa-sm" id="like-heart"></i>
-                    <p><%= post.likes.count %></p>
+                  <% if post.liked?(current_user) %>
+                    <%= link_to like_path( post.likes.find_by(user:current_user)), method: :delete, remote: true do%>
+                      <i class="fas fa-heart fa-sm"></i>
+                      <p class="m-0 p-0"><%= post.likes.count %></p>
                     <% end %>
+                    <% else %>
+                        <%= link_to study_session_likes_path([post, @like]), method: :post, remote: true do%>
+                        <i class="far fa-heart fa-sm"></i>
+                        <p class="m-0 p-0"><%= post.likes.count %></p>
+                        <% end %>
                   <% end %>
-
-                <% end %>
-
                 </div>
-              <div class="comment">
-                <a href="">
-                
-                <a  data-toggle="collapse" href="#collapse-<%= post.id %>" role="button" aria-expanded="false" aria-controls="collapse-<%= post.id %>">
-                  <i class="far fa-comments fa-sm"></i>
-                <p>
-                <%= post.comments.count%>
-                </p>
-                
-              </div>
-            </div>
 
-            <div class="actiontwo d-flex justify-content-between">
-              
-              <div class="comments container-fluid">
-                <div class="comment-box">
-                  
+                <div class="comment">
+<!--                   <a href=""> -->
+                  <a  data-toggle="collapse" href="#collapse-<%= post.id %>" role="button" aria-expanded="false" aria-controls="collapse-<%= post.id %>">
+                  <i class="far fa-comments fa-sm"></i>
+                  <p><%= post.comments.count%></p>
+                </div>
+              </div>
+              <div class="actiontwo d-flex justify-content-between">
+                <div class="comments container-fluid">
+                  <div class="comment-box">
                     </a>
                     <div class="collapse" id="collapse-<%= post.id %>">
                       <div >
@@ -96,12 +95,12 @@
                     </div>
                   </div>
               </div>
-              
+
               </div>
             </div>
-            
+
           </div>
       </div>
     <%# <% end %>
-  <% end %> 
+  <% end %>
 </div>
