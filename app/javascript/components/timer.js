@@ -46,6 +46,8 @@ const initTimer= () => {
     clearTimeout(t);
   };
 
+
+
 finish.addEventListener('click', () => {
   stopTimer();
   const seconds = calculateEnd();
@@ -64,7 +66,13 @@ finish.addEventListener('click', () => {
       start.innerText = 'Pause';
     }
   }
-
+  document.addEventListener('keyup', (event) => {
+    console.log(event);
+    if (event.keyCode === 38) {
+      min++;
+      console.log(min);
+    };
+  });
   function calculateStart() {
     recordStartTime = performance.now();
   };
