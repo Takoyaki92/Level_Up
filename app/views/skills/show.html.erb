@@ -26,6 +26,7 @@
         <h5><i class="fas fa-exclamation fontawesome-small" style="color: #4a75b1;"></i> Your Study Session Goals:</h5>
         <!-- Conditional in case study sessions is nil -->
         <% if @skill.study_sessions.present? %>
+
           <div class="text_field">
             <span><%= @skill.study_sessions.last.goal %></span>
           </div>
@@ -40,6 +41,7 @@
       </div>
       <!-- Advice column -->
       <div class="advice">
+
         <h5><i class="fas fa-question fontawesome-small" style="color: red;"></i> Other users goals:</h5>
         <% if @suggestions.blank? %>
           <p>-- Sorry, no suggestions yet. --</p>
@@ -50,6 +52,7 @@
             </div>
           <% end %>
         <% end %>
+
       </div>
     </div>
     <!-- Card - Milestones -->
