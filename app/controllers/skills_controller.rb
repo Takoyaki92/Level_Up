@@ -29,6 +29,15 @@ class SkillsController < ApplicationController
         image: bs.badge.custom_fields[:image]
       }
     end
+
+    # Getting skills/study_sessions from other users for suggestions
+    # @suggestions = Skill.where(name: @skill.name)
+    # @suggestions = Skill.where("name = ?", params[:name])
+
+    # get all skills which share name with current skill - current skill => save into variable skill_ids
+    skill_ids = Skill.where(name: @skill.name).pluck(:id) - [params[:id].to_i]
+    # get all study sessions which have skill_id: skill_ids and take last 2
+    @suggestions = StudySession.where(skill_id: skill_ids).last(2)
   end
 
   def new
