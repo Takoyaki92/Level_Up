@@ -41,7 +41,7 @@ header {
   border-top: 0;
   padding: 12px;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 32px;
+  border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
@@ -110,6 +110,10 @@ a:hover {
 
 .action div:nth-child(n + 2) {
   margin-left: 20px;
+}
+
+.like:hover {
+  cursor: pointer;
 }
 
 .like img,
