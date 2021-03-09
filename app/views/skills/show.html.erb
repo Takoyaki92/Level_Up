@@ -3,7 +3,6 @@
   <div class="user_show">
     <div class="card-show card-height">
       <h1><%= @skill.name %>!</h1>
-      <h5>Hours spent studying: 20</h5>
       <h5>Level: <%= @skill.level %></h5>
       <h4>Points: <%= @skill.points %></h4>
       <hr>
@@ -24,36 +23,36 @@
   <div class="skill_show">
     <div class="summary-advice card-show">
       <div class="summary">
-        <h5>Goals you have had:</h5>
+        <h5><i class="fas fa-exclamation fontawesome-small" style="color: #4a75b1;"></i> Your Study Session Goals:</h5>
         <!-- Conditional in case study sessions is nil -->
         <% if @skill.study_sessions.present? %>
-          <a class="text_field" href="#">
+
+          <div class="text_field">
             <span><%= @skill.study_sessions.last.goal %></span>
-          </a>
-        <% else %>
-          <div class="text_field">
-            <span>Have more study sessions!</span>
           </div>
-        <% end %>
-        <% if @skill.study_sessions.count >= 2 %>
-          <a class="text_field" href="#">
-            <span><%= @skill.study_sessions.sample.goal %></span>
-          </a>
         <% else %>
+          <p>-- No study sessions yet. --</p>
+        <% end %>
+        <% if @skill.study_sessions.present? && @skill.study_sessions.count >= 2 %>
           <div class="text_field">
-            <span>Fill this with goals!</span>
+            <span><%= @skill.study_sessions.sample.goal %></span>
           </div>
         <% end %>
       </div>
       <!-- Advice column -->
       <div class="advice">
-        <h5>If you are stuck, consider:</h5>
-        <a class="text_field" href="#">
-          <span>Host Project on Heroku</span>
-        </a>
-        <a class="text_field" href="#">
-          <span>Pair Program w/ Friend</span>
-        </a>
+
+        <h5><i class="fas fa-question fontawesome-small" style="color: red;"></i> Other users goals:</h5>
+        <% if @suggestions.blank? %>
+          <p>-- Sorry, no suggestions yet. --</p>
+        <% else %>
+          <% @suggestions.each do |suggestion| %>
+            <div class="text_field">
+              <span><%= suggestion.goal %></span>
+            </div>
+          <% end %>
+        <% end %>
+
       </div>
     </div>
     <!-- Card - Milestones -->
@@ -66,17 +65,13 @@
           </ul>
         <% end %>
         <!-- These are the text fields for setting milestones, etc. -->
-        <a class="text_field" href=<%="/skills/#{params[:id]}/milestones/new"%>>
-          <span>Add a new milestone</span>
-        </a>
+        <%= link_to "Add a new milestone", new_skill_milestone_path(@skill), class: "btn btn-primary"  %>
       </div>
     </div>
   </div>
 </div>
 <div class="button-center">
-  <a class="btn btn-primary" href=<%= "/skills/#{params[:id]}/study_sessions/new"%>>
-      <span>Start this study session</span>
-    </a>
-    <br>
+  <%= link_to "Study now", new_skill_study_session_path(@skill), class: "btn btn-primary" %>
+  <br>
   <%= link_to "Back to Profile", user_path(current_user), style: "color: white;", class: "btn btn-primary", id: "profile-button" %>
 </div>
