@@ -16,8 +16,8 @@ const finish= () => {
     hidden.style.display = "none";
     vid.pause();
     audio.pause();
-    select.className = "card-style animate__animated animate__fadeOutUp";
-    timerCard.className = "card-style animate__animated animate__fadeOutUp";
+    select.className = "card-style animate__animated animate__fadeOutUp position";
+    timerCard.className = "card-style animate__animated animate__fadeOutUp position";
 
   
   });
