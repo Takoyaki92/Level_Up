@@ -3,7 +3,9 @@
   color: white;
   position: fixed;
   width: 100%;
+  background-color: #4A73B1;
   z-index: 3;
+  top: 0%;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -19,7 +21,7 @@
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: #4A73B1;
+  color: white;
   position: sticky;
 }
 
