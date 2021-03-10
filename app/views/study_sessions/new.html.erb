@@ -31,50 +31,41 @@
             <br>
             <div class="study_button start" ><span id="start">Start</span></div>
           </div>
-          <br>
         </div>
       </div>
-    </div>
-
-    
-    </div>
-    <div id="one" style="display: none;">
-          <div class="row">
-            <div class="card-style animate__animated animate__fadeInUp animate__delay-1s position" id="submit-card">
-              <h3>Nice work! Make a post so others can see your progress</h3>
-              <div class="row justify-content-center">
-                <div class="col-12">
-                  <%#= simple_form_for [ @skill, @study_session ] do |f| %>
-                    <%= f.text_area :description, label:"What did you accomplish?", class: "form-control form-control-lg" %>
-                    <%= f.input :photo, label: "Add a photo to show what you did!", as: :file %>
-                    <div id="hidden">
-                      <%= f.input :end_time %>
-                    </div>
-                    <div class="submit-form">
+      <div id="one" style="display: none;">
+        <div class="row">
+          <div class="card-style animate__animated animate__fadeInUp animate__delay-1s position" id="submit-card">
+            <h3>Nice work! Make a post so others can see your progress</h3>
+            <div class="row justify-content-center">
+              <div class="col-12">
+                <%#= simple_form_for [ @skill, @study_session ] do |f| %>
+                  <%= f.text_area :description, label:"What did you accomplish?", class: "form-control form-control-lg" %>
+                  <%= f.input :photo, label: "Add a photo to show what you did!", as: :file %>
+                  <div id="hidden">
+                    <%= f.input :end_time, class: "end_time" %>
+                  </div>
+                  <div class="submit-form">
                     <br>
                     <br>
                     <br>
                     <br>
                     <br>
                     <br>
-                      <%= f.button :submit, "Share!", class: "btn btn-primary" %>
-                    </div>
-
-
+                    <%= f.button :submit, "Share!", class: "btn btn-primary" %>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-  </div>
-
+      </div>
       <div class="finish-button">
         <div class="btn btn-primary" id="finish">Finish!</div>
       </div>
-
-  <% end %>
+    <% end %>
   </body>
+
       
   </div>
 
