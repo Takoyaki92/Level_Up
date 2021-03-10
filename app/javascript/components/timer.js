@@ -22,7 +22,7 @@ const initTimer= () => {
     };
 
     function makeTimeString() {
-      return (min ? (min > 9 ? min : "0" + min) : "00") + ":" + (sec ? (sec > 9 ? sec : "0" + sec) : "00") 
+      return (min ? (min > 9 ? min : "0" + min) : "00") + ":" + (sec ? (sec > 9 ? sec : "0" + sec) : "00")
     };
 
       timer.innerText = makeTimeString()
@@ -51,6 +51,7 @@ const initTimer= () => {
 finish.addEventListener('click', () => {
   stopTimer();
   const seconds = calculateEnd();
+  console.log(seconds);
   timeRecordHour.value = Math.round(seconds / 3600).toString().padStart(2, "0");
   timeRecordMinute.value = Math.round(seconds / 60).toString().padStart(2, "0");
 });
@@ -83,8 +84,13 @@ finish.addEventListener('click', () => {
     timeDiff /= 1000;
 
     let seconds = Math.round(timeDiff);
-    return seconds
+    return min * 60
   };
+
+  // const goalTime = () => {
+  //   goalTime = document.querySelector('.goal-time');
+  //   goalTime.innerText = seconds;
+  // };
 
 };
 
