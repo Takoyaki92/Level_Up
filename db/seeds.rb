@@ -31,12 +31,28 @@ puts "users created!"
 
 # Skills
 puts "Creating skills..."
+
+User.all.each do |user|
+  Skill.create!(name: 'Coding', user: user)
+end
+
 american_history = Skill.new(name:"History")
 american_history.user = cardi_b
 american_history.save!
+
+rapping = Skill.new(name: "Rapping")
+rapping.user = cardi_b
+rapping.save!
+
 archaeology = Skill.new(name: "Archaeology")
 archaeology.user = laura_croft
 archaeology.save!
+
+rock = Skill.new(name: "Rock climbing")
+rock.user = laura_croft
+rock.save!
+
+
 plumbing = Skill.new(name: "Plumbing")
 plumbing.user = mario
 plumbing.save!
@@ -65,6 +81,7 @@ target.save!
 cake = Milestone.new(goal: "Bake a simple vanilla sponge cake")
 cake.skill = cooking
 cake.save!
+
 puts "Milestones created!"
 
 # Study Sessions
@@ -164,5 +181,17 @@ bread_3.photo.attach(io: bread_3_file, filename: 'v1614995478/IMG_4442_wfuwr5.jp
 bread_3.skill = cooking
 bread_3.save!
 
+html = StudySession.new(goal: "make a simple web page with html", description:  "I tried making a simple page with html. I got the text to display, but the font sizes are a little wonky.")
+@coding = Skill.find_by(name: 'Coding', user: laura_croft)
+html.skill = @coding
+html.save!
+
+html2 = StudySession.new(goal: "Adjust sizing of html fonts on simple web page", description: "I got the font sizes to be consistent. I will try integrating pictures next time.")
+html2.skill = @coding
+html2.save!
+
+html3 = StudySession.new(goal: "Add images to simple html web page", description: "I got my images to display! I think I am ready to move on to CSS now!")
+html3.skill = @coding
+html3.save!
 
 puts "Study Sessions created!"
