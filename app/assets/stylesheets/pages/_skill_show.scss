@@ -2,37 +2,82 @@
 
 // containering and divs
 .content {
-  display: grid;
-  grid: auto-flow dense / 1fr 1fr;
+  display: flex;
   justify-content: center;
-  margin: 0 48px;
-
-  p {
-    margin: 0;
-  }
+  padding: 80px;
+  grid-gap: 24px;
 
   h5 {
-    margin-bottom: 32px;
+    margin-bottom: 16px;
   }
 }
 
+// User Summary & Level
 .user_show {
   height: 100%;
-  width: 90%;
+  min-width: 400px;
   text-align: center;
-  margin: auto;
-  margin-top: 92px;
+  display: flex;
+  flex-direction: column;
+
+  .user-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .user-level {
+    font-size: 32px;
+    background-color: white;
+    border-radius: 16px;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    color:  white;
+
+    #lvl-1 {
+      border-radius: 16px;
+      padding: 8px;
+      background-color: #74dba4;
+    }
+
+    #lvl-2 {
+      border-radius: 16px;
+      padding: 8px;
+      background-color: #2cba90;
+    }
+
+    #lvl-3 {
+      border-radius: 16px;
+      padding: 8px;
+      background-color: #fee26a;
+    }
+
+    #lvl-4 {
+      border-radius: 16px;
+      padding: 8px;
+      background-color: #fdb247;
+    }
+
+    #lvl-5 {
+      border-radius: 16px;
+      padding: 8px;
+      background-color: #fc5b67;
+    }
+  }
 }
 
+// Skills
 .skill_show{
   height: auto;
   text-align: center;
-  display: grid;
-  grid: auto-flow / 1fr;
-  width: 90%;
-  margin: 92px auto auto;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
+// General Card
 .card-show {
   background-color: white;
   display: flex;
@@ -45,84 +90,87 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-bottom: 24px;
   height: auto;
-
-  .badges {
-    display: grid;
-    grid: auto-flow / 1fr 1fr 1fr 1fr;
-    width: 100%;
-    position: relative;
-    align-items: center;
-
-    .single-badge {
-      padding: 16px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .single-badge:hover .info-window {
-      display: block;
-      padding: 16px;
-      margin: auto;
-      height: 90%;
-      opacity: 0.7;
-      background: white;
-    }
-  }
 }
 
 .card-height {
   min-height: 400px;
 }
 
-.button-center {
-  text-align: center;
+// Badges
+.badges {
+  display: grid;
+  grid: auto-flow / 1fr 1fr 1fr 1fr;
+  width: 100%;
+  position: relative;
+  align-items: center;
+
+  .single-badge {
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+
+    &:hover .info-window {
+      display: block;
+      padding: 16px;
+      height: 120px;
+      opacity: 0.7;
+      background: white;
+    }
+  }
+
 }
 
 .info-window {
   display: none;
   opacity: 0;
-  position: absolute;
-  width: 120px;
+  width: 145px;
 }
 
+// Suggestions
 .summary-advice {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  height: auto;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 24px;
 
   a {
     width: 250px;
-    margin: 16px 0;
+    margin: 8px 0;
   }
 
   div {
     width: 250px;
-    margin: 16px 0;
+    margin: 8px 0;
   }
 
   .summary {
-    margin: 0 16px;
+    width: 100%;
+    text-align: left;
   }
 
   .advice {
-    margin: 0 16px;
+    width: 70%;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
+// Milestones
 .milestones {
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: space-around;
-  margin-top: 32px;
-  height: auto;
+  justify-content: flex-start;
+  flex-grow: 1;
 
-  a {
-    margin: 10px;
-  }
-  div {
-    margin: 10px;
+  .header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 32px;
   }
 }
 
@@ -131,6 +179,9 @@ ul {
 }
 
 // button CSS
+.button-center {
+  text-align: center;
+}
 
 #start_button {
   display: flex;

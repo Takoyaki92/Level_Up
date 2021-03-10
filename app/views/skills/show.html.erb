@@ -1,14 +1,35 @@
 <div class="content">
   <!-- Card - User Summary and Info -->
   <div class="user_show">
-    <div class="card-show card-height">
+    <div class="card-show">
       <h1><%= @skill.name %>!</h1>
-      <h5>Level: <%= @skill.level %></h5>
-      <h4>Points: <%= @skill.points %></h4>
-      <hr>
-      <h4>Badges</h4>
+      <div class="user-summary">
+        <div class="user-level">
+          <p id=<%="lvl-#{@skill.level}"%>> Lvl <%= @skill.level %> </p>
+        </div>
+        <h4>Points: <%= @skill.points %></h4>
+      </div>
+    </div>
+    <!-- Card - Milestones -->
+    <div class="card-show milestones">
+      <div class="header">
+        <h2><%= @skill.name %> milestones!</h2>
+        <%= link_to "+", new_skill_milestone_path(@skill), class: "btn btn-primary"  %>
+      </div>
+      <% @skill.milestones.each do |milestone| %>
+        <ul>
+          <li class=<%="#{'complete' if milestone.complete_date}"%>><%= milestone.goal %> <%= milestone.complete_date ? milestone.complete_date.strftime("%b %d, %Y") : link_to("/milestones/#{milestone.id}/complete", method: :patch, form_class: "done") do %><i class="fas fa-check fontawesome-small"></i><% end %></li>
+        </ul>
+      <% end %>
+      <!-- These are the text fields for setting milestones, etc. -->
+    </div>
+  </div>
+  <div class="skill_show">
+    <!-- Card - Badges -->
+    <div class="card-show">
+      <h2><%= @skill.name %> Badges!</h2>
       <div class="badges">
-        <% @badge.each do |badge| %>
+        <% @badge.first(4).each do |badge| %>
           <div class="single-badge">
             <%= image_tag badge[:image], style: "width: 88px;" %>
             <div class="info-window">
@@ -18,15 +39,14 @@
         <% end %>
       </div>
     </div>
-  </div>
-  <!-- Card - Study Session Goals and Advice -->
-  <div class="skill_show">
+    <!-- Card - Study Session Goals and Advice -->
     <div class="summary-advice card-show">
+      <h5 style="text-align: left;">You are <strong>Level <%= @skill.level %></strong> in <%= @skill.name %>! Great work! <br>
+        Last time you worked on this skill was <strong><%= @skill.study_sessions.last.created_at.strftime("%b %d, %Y") %></strong></h5>
       <div class="summary">
-        <h5><i class="fas fa-exclamation fontawesome-small" style="color: #4a75b1;"></i> Your Study Session Goals:</h5>
+        <p>Here are the last Goals you completed <i class="fas fa-exclamation fontawesome-small" style="color: #4a75b1;"></i></p>
         <!-- Conditional in case study sessions is nil -->
         <% if @skill.study_sessions.present? %>
-
           <div class="text_field">
             <span><%= @skill.study_sessions.last.goal %></span>
           </div>
@@ -41,37 +61,23 @@
       </div>
       <!-- Advice column -->
       <div class="advice">
-
-        <h5><i class="fas fa-question fontawesome-small" style="color: red;"></i> Other users goals:</h5>
-        <% if @suggestions.blank? %>
-          <p>-- Sorry, no suggestions yet. --</p>
-        <% else %>
-          <% @suggestions.each do |suggestion| %>
-            <div class="text_field">
-              <span><%= suggestion.goal %></span>
-            </div>
+        <div>
+          <p>Looking for a new goal <i class="fas fa-question fontawesome-small" style="color: red;"></i></p>
+          <% if @suggestions.blank? %>
+            <p>-- Sorry, no suggestions yet. --</p>
+          <% else %>
+            <% @suggestions.each do |suggestion| %>
+              <div class="suggestions">
+                <%= link_to "#{suggestion.goal}", new_skill_study_session_path(@skill, goal: suggestion.goal), class: "btn btn-primary", style: "margin-right: 32px;" %>
+              </div>
+            <% end %>
           <% end %>
-        <% end %>
-
-      </div>
-    </div>
-    <!-- Card - Milestones -->
-    <div class="milestones card-show">
-      <h2><%= @skill.name %> milestones!</h2>
-      <div>
-        <% @skill.milestones.each do |milestone| %>
-          <ul>
-            <li class=<%="#{'complete' if milestone.complete_date}"%>><%= milestone.goal %> <%= milestone.complete_date ? milestone.complete_date.strftime("%b %d, %Y") : link_to("/milestones/#{milestone.id}/complete", method: :patch, form_class: "done") do %><i class="fas fa-check fontawesome-small"></i><% end %></li>
-          </ul>
-        <% end %>
-        <!-- These are the text fields for setting milestones, etc. -->
-        <%= link_to "Add a new milestone", new_skill_milestone_path(@skill), class: "btn btn-primary"  %>
+        </div>
+        <%= link_to "Or define your own goal", new_skill_study_session_path(@skill), class: "btn btn-primary", style: "margin-right: 32px;" %>
       </div>
     </div>
   </div>
 </div>
 <div class="button-center">
-  <%= link_to "Study now", new_skill_study_session_path(@skill), class: "btn btn-primary" %>
   <br>
-  <%= link_to "Back to Profile", user_path(current_user), style: "color: white;", class: "btn btn-primary", id: "profile-button" %>
 </div>
