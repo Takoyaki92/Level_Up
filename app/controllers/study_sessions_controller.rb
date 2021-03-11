@@ -28,7 +28,7 @@ class StudySessionsController < ApplicationController
     # merit gem needs an instance method but can not be Model.new!
     if study_session.save
       @study_session = study_session
-      redirect_to study_sessions_path
+      redirect_to "/users/#{current_user.id}"
     else
       render :new
     end
