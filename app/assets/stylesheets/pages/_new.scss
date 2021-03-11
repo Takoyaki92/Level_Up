@@ -5,9 +5,6 @@
 .finish-button {
   text-align: center;
   margin: 30px;
-  position: absolute;
-  top: 88%;
-  right: 705px;
 }
 
 .card-style {
@@ -21,11 +18,7 @@
   padding: 10px;
 }
 
-.position {
-  position: absolute;
-  top: 20%;
-  right: 34%;
-}
+
 .timer-card {
   margin: 10px;
 }
@@ -42,7 +35,7 @@
 
 #flex-body {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   height: 36rem;
   justify-content: space-between;
 }
@@ -50,11 +43,6 @@
 h2 {
   text-align: center;
   
-}
-.new-h2 {
-  position: absolute;
-  top: 10%;
-  right: 586px;
 }
 
 #study_session_goal {
@@ -82,4 +70,12 @@ h2 {
 
 .timer-card {
   justify-content: space-evenly;
+}
+
+.video-wallpaper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
