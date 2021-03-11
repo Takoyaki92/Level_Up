@@ -31,7 +31,7 @@ module Merit
         # should score 10 points per minute
       end
 
-      score 30, to: :skill, on: 'study_sessions#create' do |session|
+      score 400, to: :skill, on: 'study_sessions#create' do |session|
         session_time = session.end_time.hour * 60 + session.end_time.min
         session_time > 30
         # should score 10 points per minute
