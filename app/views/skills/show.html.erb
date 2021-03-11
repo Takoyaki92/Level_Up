@@ -1,79 +1,88 @@
-<div class="content">
-  <!-- Card - User Summary and Info -->
-  <div class="user_show">
-    <div class="card-show">
-      <h1><%= @skill.name %>!</h1>
-      <div class="user-summary">
-        <div class="user-level">
-          <p id=<%="lvl-#{@skill.level}"%>> Lvl <%= @skill.level %> </p>
+<div class="container-show" style="margin-top: 72px;">
+  <div class="flex-container">
+    <!-- Left side -->
+    <!-- Card - User Summary and Info -->
+    <div class="left-side">
+      <div class="container-profile">
+        <h1><%= @skill.name %></h1>
+        <div class="user-summary">
+          <div class="user-level">
+            <p id=<%="lvl-#{@skill.level}"%>> Lvl <%= @skill.level %> </p>
+          </div>
+          <h4>Points: <%= @skill.points %></h4>
         </div>
-        <h4>Points: <%= @skill.points %></h4>
+      </div>
+      <!-- Card - Milestones -->
+      <div class="skills_card">
+        <div class="skills-card-title">
+          <h4>Milestones</h4>
+          <%= link_to "+", new_skill_milestone_path(@skill), class: "btn btn-primary"  %>
+        </div>
+        <% @skill.milestones.last(4).each do |milestone| %>
+          <ul>
+            <li class=<%="#{'complete' if milestone.complete_date}"%>><%= milestone.goal %> <%= milestone.complete_date ? milestone.complete_date.strftime("%b %d, %Y") : link_to("/milestones/#{milestone.id}/complete", method: :patch, form_class: "done") do %><i class="fas fa-check fontawesome-small"></i><% end %></li>
+          </ul>
+        <% end %>
+        <!-- These are the text fields for setting milestones, etc. -->
       </div>
     </div>
-    <!-- Card - Milestones -->
-    <div class="card-show milestones">
-      <div class="header">
-        <h2><%= @skill.name %> milestones!</h2>
-        <%= link_to "+", new_skill_milestone_path(@skill), class: "btn btn-primary"  %>
-      </div>
-      <% @skill.milestones.each do |milestone| %>
-        <ul>
-          <li class=<%="#{'complete' if milestone.complete_date}"%>><%= milestone.goal %> <%= milestone.complete_date ? milestone.complete_date.strftime("%b %d, %Y") : link_to("/milestones/#{milestone.id}/complete", method: :patch, form_class: "done") do %><i class="fas fa-check fontawesome-small"></i><% end %></li>
-        </ul>
-      <% end %>
-      <!-- These are the text fields for setting milestones, etc. -->
-    </div>
-  </div>
-  <div class="skill_show">
-    <!-- Card - Badges -->
-    <div class="card-show">
-      <h2><%= @skill.name %> Badges!</h2>
-      <div class="badges">
-        <% @badge.first(4).each do |badge| %>
-          <div class="single-badge">
-            <%= image_tag badge[:image], style: "width: 88px;" %>
-            <div class="info-window">
-              <p><%= badge[:description] %> on: <%= badge[:assigned] %></p>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
-    <!-- Card - Study Session Goals and Advice -->
-    <div class="summary-advice card-show">
-      <h5 style="text-align: left;">You are <strong>Level <%= @skill.level %></strong> in <%= @skill.name %>! Great work! <br>
-        Last time you worked on this skill was <strong><%= @skill.study_sessions.last.created_at.strftime("%b %d, %Y") %></strong></h5>
-      <div class="summary">
-        <p>Here are the last Goals you completed <i class="fas fa-exclamation fontawesome-small" style="color: #4a75b1;"></i></p>
-        <!-- Conditional in case study sessions is nil -->
-        <% if @skill.study_sessions.present? %>
-          <div class="text_field">
-            <span><%= @skill.study_sessions.last.goal %></span>
-          </div>
-        <% else %>
-          <p>-- No study sessions yet. --</p>
-        <% end %>
-        <% if @skill.study_sessions.present? && @skill.study_sessions.count >= 2 %>
-          <div class="text_field">
-            <span><%= @skill.study_sessions.sample.goal %></span>
-          </div>
-        <% end %>
-      </div>
-      <!-- Advice column -->
-      <div class="advice">
-        <div>
-          <p>Looking for a new goal <i class="fas fa-question fontawesome-small" style="color: red;"></i></p>
-          <% if @suggestions.blank? %>
-            <p>-- Sorry, no suggestions yet. --</p>
-          <% else %>
-            <% @suggestions.each do |suggestion| %>
-              <div class="suggestions">
-                <%= link_to "#{suggestion.goal}", new_skill_study_session_path(@skill, goal: suggestion.goal), class: "btn btn-primary", style: "margin-right: 32px;" %>
+    <!-- Right side -->
+    <div class="right-side">
+      <div class="container-right" style="flex-direction: column; height: 100%;">
+        <!-- Card - Badges -->
+        <div class="badges_card">
+          <h4>Badges</h4>
+          <div class="badges">
+            <% @badge.first(4).each do |badge| %>
+              <div class="single-badge">
+                <%= image_tag badge[:image], style: "width: 88px;" %>
+                <div class="info-window">
+                  <p><%= badge[:description] %> on: <%= badge[:assigned] %></p>
+                </div>
               </div>
             <% end %>
-          <% end %>
+          </div>
         </div>
-        <%= link_to "Or define your own goal", new_skill_study_session_path(@skill), class: "btn btn-primary", style: "margin-right: 32px;" %>
+        <!-- Card - Study Session Goals and Advice -->
+        <div class="post-container">
+          <h5 style="text-align: left;">You are <strong>Level <%= @skill.level %></strong> in <%= @skill.name %>
+            <br>
+            Last time you worked on this skill was <strong><%= @skill.study_sessions.last.created_at.strftime("%b %d, %Y") %></strong></h5>
+          <p>Here are the last Goals you completed:</p>
+          <div class="summary">
+            <!-- Conditional in case study sessions is nil -->
+            <% if @skill.study_sessions.present? %>
+              <div class="text_field">
+                <span><%= @skill.study_sessions.last.goal %></span>
+              </div>
+            <% else %>
+              <p>-- No study sessions yet. --</p>
+            <% end %>
+            <% if @skill.study_sessions.present? && @skill.study_sessions.count >= 2 %>
+              <div class="text_field">
+                <span><%= @skill.study_sessions.sample.goal %></span>
+              </div>
+            <% end %>
+          </div>
+          <!-- Advice column -->
+          <p>Looking for a new goal?</p>
+          <div class="advice">
+            <div class="left-button">
+              <% if @suggestions.blank? %>
+                <p>-- Sorry, no suggestions yet. --</p>
+              <% else %>
+                <% @suggestions.each do |suggestion| %>
+                  <div class="suggestions">
+                    <%= link_to "#{suggestion.goal}", new_skill_study_session_path(@skill, goal: suggestion.goal), class: "btn btn-primary", style: "margin-right: 32px;" %>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="right-button">
+              <%= link_to "Or define your own goal", new_skill_study_session_path(@skill), class: "btn btn-primary", style: "margin-right: 32px;" %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
