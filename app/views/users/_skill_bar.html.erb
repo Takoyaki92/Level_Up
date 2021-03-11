@@ -6,7 +6,7 @@
 <!--         <span><%= link_to skill.name, skill_path(skill) %> (Level: <%= skill.level %>, Points: <%= skill.points %>)</span> -->
       </div>
       <!-- This is the progress line. Change WIDTH to change length -->
-      <div class="progress-line"><span style="width: <%= skill.calculate_percentage %>%"></span></div>
+      <div class="progress-line"><span data-level="<%= skill.level %>" data-points="<%= skill.points %>" style="width: <%= skill.calculate_percentage %>%"></span></div>
     </div>
   <% end %>
 </div>

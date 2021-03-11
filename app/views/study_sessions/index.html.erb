@@ -1,7 +1,7 @@
 <h1 class= "study-session-top">Show and Tell</h1>
 <%# <div class="container-flex"> %>
 <%# <% column = 0 %>
-<% @study_sessions.reverse.each do |post| %>
+<% @study_sessions.order(created_at: :desc).each do |post| %>
   <div class="container-flex">
     <%# <% if index.even? %>
     <%# <div class="row-left"></div>
