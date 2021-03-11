@@ -75,12 +75,21 @@
               <!-- Header -->
               <header class="cf">
                 <p class="date">
-                  <% if ((Time.now - post.created_at) / 60).to_i == 0 %>
-                    Just now
-                  <% elsif ((Time.now - post.created_at) / 60).to_i == 1 %>
-                    <%= ((Time.now - post.created_at) / 60).to_i %> minute ago
-                  <% else ((Time.now - post.created_at) / 60).to_i > 1 %>
-                    <%= ((Time.now - post.created_at) / 60).to_i %> minutes ago
+                  <% minutes = ((Time.now - post.created_at) / 60).to_i %>
+                  <% if minutes.to_i == 0 %>
+                  Just now
+                  <% elsif minutes == 1 %>
+                  <%= minutes %> minute ago
+                  <% elsif minutes > 1 && minutes <= 60 %>
+                  <%= minutes %> minutes ago
+                  <% elsif minutes == 60 %>
+                  <%= minutes %> hour ago
+                  <% elsif minutes > 60 && minutes <= 1440 %>
+                  <%= (minutes / 60) %> hours ago
+                  <% elsif ( minutes / 1440) == 1  %>
+                  1 day ago
+                  <% else %>
+                  <%= (minutes / 1440) %> days ago
                   <% end %>
                 </p>
               </header>
