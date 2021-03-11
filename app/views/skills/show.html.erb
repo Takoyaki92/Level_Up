@@ -48,7 +48,7 @@
           <h5 style="text-align: left;">You are <strong>Level <%= @skill.level %></strong> in <%= @skill.name %>
             <br>
             Last time you worked on this skill was <strong><%= @skill.study_sessions.last.created_at.strftime("%b %d, %Y") %></strong></h5>
-          <p>Here are the last Goals you completed:</p>
+          <p style="margin-top: 24px; text-align: center;">Here are the last Goals you completed:</p>
           <div class="summary">
             <!-- Conditional in case study sessions is nil -->
             <% if @skill.study_sessions.present? %>
@@ -65,7 +65,7 @@
             <% end %>
           </div>
           <!-- Advice column -->
-          <p>Looking for a new goal?</p>
+          <p style="margin-top: 24px; text-align: center;">Looking for a new goal?</p>
           <div class="advice">
             <div class="left-button">
               <% if @suggestions.blank? %>
