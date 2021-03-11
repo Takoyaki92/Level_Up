@@ -1,23 +1,23 @@
-<h1>Show and Tell</h1>
+<h1 class= "study-session-top">Show and Tell</h1>
 <%# <div class="container-flex"> %>
 <%# <% column = 0 %>
-  <% @study_sessions.reverse.each do |post| %>
+<% @study_sessions.reverse.each do |post| %>
   <div class="container-flex">
     <%# <% if index.even? %>
-      <%# <div class="row-left"></div>
+    <%# <div class="row-left"></div>
     <% if index.odd? %>
-      <%# <div class="row-right">
+    <%# <div class="row-right">
     <% end %>
-          <div id="wrapper">
-              <header class="cf">
-                <!-- <img src="http://2016.igem.org/wiki/images/e/e0/Uclascrolldown.png" class="arrow" /> -->
-                <% if post.skill.user.photo.present? %>
-                  <%= cl_image_tag post.skill.user.photo.key, class: "avatar" %>
-                <% else %>
-                  <%= image_tag "https://emoji.slack-edge.com/T02NE0241/pduck/659a4bd31b52c211.png", class: "avatar" %>
-                <% end %>
-                <p class="name">
-                  <a href=<%= user_path(post.skill.user) %>><%= post.skill.user.username %></a>
+    <div id="wrapper">
+      <header class="cf">
+        <!-- <img src="http://2016.igem.org/wiki/images/e/e0/Uclascrolldown.png" class="arrow" /> -->
+        <% if post.skill.user.photo.present? %>
+          <%= cl_image_tag post.skill.user.photo.key, class: "avatar" %>
+        <% else %>
+          <%= image_tag "https://emoji.slack-edge.com/T02NE0241/pduck/659a4bd31b52c211.png", class: "avatar" %>
+        <% end %>
+        <p class="name">
+          <a href=<%= user_path(post.skill.user) %>><%= post.skill.user.username %></a>
                 </p>
 
                 <p class="date">
@@ -39,68 +39,64 @@
                   <% end %>
                 </p>
               </header>
-
+              <p class="goal-time">Goal: <%= post.goal %> <br> Time: <%= post.end_time.strftime("%M Minutes") unless post.end_time.nil? %></p>
               <p class="status"><%= post.description %></p>
                 <% if user_signed_in? && post.photo.attached? %>
                   <%= cl_image_tag post.photo.key, crop: :fill, class: "img-content" %>
                 <% else %>
                   <img class="img-content" src="https://london.ac.uk/sites/default/files/styles/promo_mobile/public/2020-04/sb-simone-image.jpg?itok=nAkc3CGk" />
-                <% end %>
-
-              <div class="action d-flex justify-content-between">
-                <div class="like" id="like-<%= post.id %>">
-                  <% if post.liked?(current_user) %>
-                    <%= link_to like_path( post.likes.find_by(user:current_user)), method: :delete, remote: true do%>
-                      <i class="fas fa-heart fa-sm"></i>
-                      <p class="m-0 p-0"><%= post.likes.count %></p>
-                    <% end %>
-                    <% else %>
-                        <%= link_to study_session_likes_path([post, @like]), method: :post, remote: true do%>
-                        <i class="far fa-heart fa-sm"></i>
-                        <p class="m-0 p-0"><%= post.likes.count %></p>
-                        <% end %>
+        <% end %>
+        <div class="action d-flex justify-content-between">
+          <div class="like" id="like-<%= post.id %>">
+            <% if post.liked?(current_user) %>
+              <%= link_to like_path( post.likes.find_by(user:current_user)), method: :delete, remote: true do%>
+                <i class="fas fa-heart fa-sm"></i>
+                <p class="m-0 p-0"><%= post.likes.count %></p>
+              <% end %>
+            <% else %>
+              <%= link_to study_session_likes_path([post, @like]), method: :post, remote: true do%>
+                <i class="far fa-heart fa-sm"></i>
+                <p class="m-0 p-0"><%= post.likes.count %></p>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="comment">
+            <!--                   <a href=""> -->
+            <a  data-toggle="collapse" href="#collapse-<%= post.id %>" role="button" aria-expanded="false" aria-controls="collapse-<%= post.id %>">
+              <i class="far fa-comments fa-sm"></i>
+              <p><%= post.comments.count%></p>
+            </div>
+          </div>
+          <div class="actiontwo d-flex justify-content-between">
+            <div class="comments container-fluid">
+              <div class="comment-box">
+              </a>
+              <div class="collapse" id="collapse-<%= post.id %>">
+                <div >
+                  <%= simple_form_for([post, @comment], remote: true) do |f| %>
+                    <%= f.input :description, label: false, placeholder: "Comment on this study session!" %>
+                    <%= f.button :submit, label:"Create", class: "btn btn-primary d-none", id: "enter-comment" %>
                   <% end %>
                 </div>
-
-                <div class="comment">
-<!--                   <a href=""> -->
-                  <a  data-toggle="collapse" href="#collapse-<%= post.id %>" role="button" aria-expanded="false" aria-controls="collapse-<%= post.id %>">
-                  <i class="far fa-comments fa-sm"></i>
-                  <p><%= post.comments.count%></p>
+                <div class="comment-list d-flex justify-content-left">
+                  <div class = "flex-direction">
+                    <% post.comments.each do |comment| %>
+                      <% if comment.user.photo.present? %>
+                        <%= cl_image_tag comment.user.photo.key, class: "avatar" %>
+                      <% else %>
+                        <%= image_tag "https://emoji.slack-edge.com/T02NE0241/pduck/659a4bd31b52c211.png", class: "avatar" %>
+                      <% end %>
+                      <p id="comment-<%= comment.id %>"><%= comment.user.username %></p>
+                      <%= comment.description %>
+                    <% end %>
+                  </div>
                 </div>
               </div>
-              <div class="actiontwo d-flex justify-content-between">
-                <div class="comments container-fluid">
-                  <div class="comment-box">
-                    </a>
-                    <div class="collapse" id="collapse-<%= post.id %>">
-                      <div >
-                        <%= simple_form_for([post, @comment], remote: true) do |f| %>
-                        <%= f.input :description, label: false, placeholder: "Comment on this study session!" %>
-                          <%= f.button :submit, label:"Create", class: "btn btn-primary d-none", id: "enter-comment" %>
-                        <% end %>
-                     </div>
-                     <div class="comment-list d-flex justify-content-left">
-                      <div class = "flex-direction">
-                        <% post.comments.each do |comment| %>
-                          <% if comment.user.photo.present? %>
-                            <%= cl_image_tag comment.user.photo.key, class: "avatar" %>
-                          <% else %>
-                            <%= image_tag "https://emoji.slack-edge.com/T02NE0241/pduck/659a4bd31b52c211.png", class: "avatar" %>
-                          <% end %>
-                          <p id="comment-<%= comment.id %>"><%= comment.user.username %></p>
-                          <%= comment.description %>
-                        <% end %>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-
-              </div>
             </div>
-
           </div>
+        </div>
       </div>
+    </div>
     <%# <% end %>
   <% end %>
 </div>

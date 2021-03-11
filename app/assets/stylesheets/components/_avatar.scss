@@ -23,6 +23,9 @@
 
 .avatar-profile-page {
   width: 100px;
+  height: 100px;
+  object-fit: cover;
   border-radius: 50%;
   display: -webkit-inline-box;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }

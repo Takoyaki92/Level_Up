@@ -10,10 +10,15 @@ class StudySessionsController < ApplicationController
   def new
     # @user = current_user
     @study_session = StudySession.new
+
     if params[:skill_id].present?
       @skill = Skill.find(params[:skill_id])
       @study_session.skill = @skill
       @comment = Comment.new
+    end
+
+    if params[:goal].present?
+      @study_session.goal = params[:goal]
     end
   end
 
@@ -38,7 +43,7 @@ class StudySessionsController < ApplicationController
       format.html { redirect_to study_sessions_path(anchor: "like-#{@study_session.id}") }
       format.js
     end
-    
+
 
   end
 
