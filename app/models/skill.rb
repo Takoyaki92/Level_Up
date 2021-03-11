@@ -11,13 +11,13 @@ class Skill < ApplicationRecord
     if self.level == 1
       (self.points / 600) * 100
     elsif self.level == 2
-      (self.points / 720) * 100
+      (self.points / 1320) * 100
     elsif self.level == 3
-      (self.points / 860) * 100
+      (self.points / 2180) * 100
     elsif self.level == 4
-      (self.points / 1000) * 100
+      (self.points / 3180) * 100
     elsif self.level == 5
-      (self.points / 1200) * 100
+      (self.points / 4180) * 100
     end
   end
 
