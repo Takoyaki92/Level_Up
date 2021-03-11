@@ -45,9 +45,9 @@
         </div>
         <!-- Card - Study Session Goals and Advice -->
         <div class="post-container">
-          <h5 style="text-align: left;">You are <strong>Level <%= @skill.level %></strong> in <%= @skill.name %>
-            <br>
-            Last time you worked on this skill was <strong><%= @skill.study_sessions.last.created_at.strftime("%b %d, %Y") %></strong></h5>
+          <h5 style="text-align: left;">You are <strong>Level <%= @skill.level %></strong> in <%= @skill.name %></h5>
+          <h5><% unless @skill.study_sessions.last.nil? %>Last time you worked on this skill was <strong><%= @skill.study_sessions.last.created_at.strftime("%b %d, %Y") %></strong></h5>
+          <% end %>
           <p style="margin-top: 24px; text-align: center;">Here are the last Goals you completed:</p>
           <div class="summary">
             <!-- Conditional in case study sessions is nil -->
