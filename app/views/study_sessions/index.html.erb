@@ -8,7 +8,7 @@
     <% if index.odd? %>
     <%# <div class="row-right">
     <% end %>
-    <div id="wrapper">
+    <div id="wrapper" style="display: flex; flex-direction: column; height: auto;">
       <header class="cf">
         <!-- <img src="http://2016.igem.org/wiki/images/e/e0/Uclascrolldown.png" class="arrow" /> -->
         <% if post.skill.user.photo.present? %>
@@ -42,11 +42,11 @@
               <p class="goal-time">Goal: <%= post.goal %> <br> Time: <%= post.end_time.strftime("%M Minutes") unless post.end_time.nil? %></p>
               <p class="status"><%= post.description %></p>
                 <% if user_signed_in? && post.photo.attached? %>
-                  <%= cl_image_tag post.photo.key, crop: :fill, class: "img-content" %>
+                  <%= cl_image_tag post.photo.key, crop: :fill, class: "post-image" %>
                 <% else %>
                   <img class="img-content" src="https://london.ac.uk/sites/default/files/styles/promo_mobile/public/2020-04/sb-simone-image.jpg?itok=nAkc3CGk" />
         <% end %>
-        <div class="action d-flex justify-content-between">
+        <div class="action d-flex justify-content-between" style="position: relative; bottom: -5px;">
           <div class="like" id="like-<%= post.id %>">
             <% if post.liked?(current_user) %>
               <%= link_to like_path( post.likes.find_by(user:current_user)), method: :delete, remote: true do%>
