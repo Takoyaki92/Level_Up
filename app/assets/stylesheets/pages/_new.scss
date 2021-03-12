@@ -18,6 +18,9 @@
   padding: 10px;
 }
 
+.wallpaper {
+  overflow: hidden;
+}
 
 .timer-card {
   margin: 10px;
@@ -78,4 +81,9 @@ h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.new-h2 {
+  margin-top: 120px;
+  
 }
