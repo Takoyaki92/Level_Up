@@ -22,43 +22,34 @@
               <div class="app-timer-main">
                 <h1>TRY YOUR BEST</h1>
                 <h1 class="timer">00:00</h1>
-                <br>
-                <br>
-                <br>
-                <br>
                 <div class="study_button start" ><span id="start">Start</span></div>
+                <div class="finish-button">
+                  <div class="btn btn-primary" id="finish">Finish</div>
+                </div>
               </div>
             </div>
           </div>
           <div id="one" style="display: none;">
             <div class="row">
               <div class="card-style animate__animated animate__fadeInUp animate__delay-1s position" id="submit-card">
-                <h3>Nice work! Make a post so others can see your progress</h3>
+                <h3 class="m-4 text-center">Nice work, Make a post so others can see your progress</h3>
                 <div class="row justify-content-center">
                   <div class="col-12">
                     <%#= simple_form_for [ @skill, @study_session ] do |f| %>
-                      <%= f.text_area :description, label:"What did you accomplish?", class: "form-control form-control-lg" %>
-                      <%= f.input :photo, label: "Add a photo to show what you did!", as: :file %>
+                      <%= f.text_area :description, label:"What did you accomplish?", class: "form-control form-control-lg", style: "height: 200px;" %>
+                      <%= f.input :photo, label: "Add a photo to show what you did", as: :file, class: "h4 m-4" %>
                       <div id="hidden">
                         <%= f.input :end_time, class: "end_time" %>
                       </div>
                       <div class="submit-form">
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <%= f.button :submit, "Share!", class: "btn btn-primary" %>
+
+                        <%= f.button :submit, "Share", class: "btn btn-primary" %>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="finish-button">
-            <div class="btn btn-primary" id="finish">Finish!</div>
           </div>
         <% end %>
       </body>
