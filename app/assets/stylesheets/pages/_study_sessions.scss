@@ -140,6 +140,19 @@ a:hover {
   display: inline-block;
 }
 
+.comment-flex {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  grid-gap: 24px;
+
+  .comment-flex-right {
+    background: #ebf0f5;
+    padding: 16px;
+    border-radius: 10px;
+  }
+}
+
 .share img {
   opacity: .2;
 }
